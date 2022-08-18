@@ -1,10 +1,14 @@
 import React from 'react'
-import Section from '../components/Section'
+import Section from '../components/Section';
+import { Images } from '../constants/Images';
+import BabyFox from '../assets/img/babyfox.jpg';
 
 const Homepage = () => {
     return (
         <>
-            <Section></Section>
+            <Section
+                backgroundImage={BabyFox}
+            ></Section>
         </>
     )
 }
