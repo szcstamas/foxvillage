@@ -1,8 +1,11 @@
 import React from 'react'
+import Section from '../components/Section'
 
 const Homepage = () => {
     return (
-        <div>Homepage</div>
+        <>
+            <Section></Section>
+        </>
     )
 }
 
