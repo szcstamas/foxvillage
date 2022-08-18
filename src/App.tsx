@@ -5,10 +5,6 @@ import AnimatedRoutes from './AnimatedRoutes';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-//typescript practicing
-let name: string;
-name = "hey";
-
 function App() {
   return (
     <Router>

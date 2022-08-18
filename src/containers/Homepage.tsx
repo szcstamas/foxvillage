@@ -1,13 +1,12 @@
 import React from 'react'
 import Section from '../components/Section';
 import { Images } from '../constants/Images';
-import BabyFox from '../assets/img/babyfox.jpg';
 
 const Homepage = () => {
     return (
         <>
             <Section
-                backgroundImage={BabyFox}
+                backgroundImage={Images[1]}
             ></Section>
         </>
     )

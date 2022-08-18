@@ -20,12 +20,16 @@ const Section = ({ backgroundImage }: Props) => {
                 initial={{ y: -30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: .75, duration: .5, ease: 'easeInOut', }}
-                sx={{ maxWidth: '1350px', m: 'auto' }}
+                sx={{ maxWidth: '1400px', m: 'auto' }}
             >
                 <Typography variant="h1"
-                    sx={{ width: '70%', }}
+                    sx={{ width: '70%', mb: 4 }}
                 >
                     Welcome to the Fox Village of Zsambek!
+                </Typography>
+                <Typography paragraph={true}
+                >
+                    Explore our mythical village of wonders in the city of Zsambek, located in Hungary!
                 </Typography>
             </Box>
         </Box>
