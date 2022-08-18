@@ -35,7 +35,7 @@ const theme = createTheme({
 });
 
 const pages = ['Homepage', 'Events', 'Discover', 'Prices', 'About us', 'Contact us'];
-const pagesLinks = ['/', 'events', 'discover', 'prices', 'about', 'contact',];
+const pagesLinks = ['/', '/events', '/discover', '/prices', '/about', '/contact',];
 const subPages = ['Night Trip', 'Animal Shows', 'Close Up', 'Animals', 'Poultry Yard', 'Fox Forest'];
 const subPagesLinks = ['/events/night-trip', '/events/animal-show', '/events/close-up', '/discover/animals', '/discover/poultry-yard', '/discover/fox-forest'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
