@@ -7,9 +7,19 @@ import SecondaryButton from './SecondaryButton';
 
 interface Props {
     backgroundImage: string;
+    h1TextFirstSlice: string;
+    h1Span: string;
+    h1TextSecondSlice: string;
+    pText: string;
+    primaryBtnText: string;
+    primaryBtnLink: string;
+    primaryBtnIcon: string;
+    secondaryBtnText: string;
+    secondaryBtnLink: string;
+    secondaryBtnIcon: string;
 }
 
-const HeroSection = ({ backgroundImage }: Props) => {
+const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSlice, pText, primaryBtnText, primaryBtnLink, primaryBtnIcon, secondaryBtnText, secondaryBtnLink, secondaryBtnIcon }: Props) => {
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -41,9 +51,9 @@ const HeroSection = ({ backgroundImage }: Props) => {
                             mb: 4,
                         }}
                     >
-                        Welcome to the
-                        <Box component={motion.span} color='secondary.main'> Fox Village </Box>
-                        of Zsambek!
+                        {h1TextFirstSlice}
+                        <Box component={motion.span} color='secondary.main'> {h1Span} </Box>
+                        {h1TextSecondSlice}
                     </Typography>
                     <Typography paragraph={true} color='main'
                         sx={{
@@ -52,7 +62,7 @@ const HeroSection = ({ backgroundImage }: Props) => {
                             textShadow: { xs: '0px 4px 8px rgba(0, 0, 0, .8)', xl: 'none' }
                         }}
                     >
-                        Explore our mythical village of wonders in the city of Zsambek, located in Hungary!
+                        {pText}
                     </Typography>
                     <Box sx={{
                         display: 'flex',
@@ -61,14 +71,14 @@ const HeroSection = ({ backgroundImage }: Props) => {
                         gap: 1.75
                     }}>
                         <PrimaryButton
-                            text='Explore'
-                            link='#explore'
-                            icon='explore'
+                            text={primaryBtnText}
+                            link={primaryBtnLink}
+                            icon={primaryBtnIcon}
                         />
                         <SecondaryButton
-                            text='Contact'
-                            link='/contact'
-                            icon='mail'
+                            text={secondaryBtnText}
+                            link={secondaryBtnLink}
+                            icon={secondaryBtnIcon}
                         />
                     </Box>
                 </Box>

@@ -8,6 +8,7 @@ import MapIcon from '@mui/icons-material/Map';
 import PetsIcon from '@mui/icons-material/Pets';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
+import ForestIcon from '@mui/icons-material/Forest';
 import { ThemeProvider } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { theme } from '../constants/Theme';
@@ -117,6 +118,14 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                         sx={iconStyles
                         } >
                     </InfoIcon>
+                    : null}
+
+                {/* if icon prop is set to forest, render a forest icon */}
+                {icon === 'forest'
+                    ? <ForestIcon
+                        sx={iconStyles
+                        } >
+                    </ForestIcon>
                     : null}
             </Button >
         </ThemeProvider>
