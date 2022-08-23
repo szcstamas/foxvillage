@@ -48,6 +48,7 @@ const SecondaryButton = ({ text, link, icon }: Props) => {
                     mt: 2,
                     fontSize: '1.25rem',
                     width: { xs: '100%', md: 'auto' },
+                    bgcolor: { xs: 'secondary.main', lg: 'transparent' },
                     transition: 'all .2s ease',
                     '&:hover': {
                         transform: 'translateY(-5px)!important',

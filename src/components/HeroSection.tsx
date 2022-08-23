@@ -18,8 +18,8 @@ const HeroSection = ({ backgroundImage }: Props) => {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: .25, duration: .5, ease: 'easeInOut', }}
                 sx={{
-                    px: { sm: 10, md: 15, lg: 0 },
-                    py: { sm: 10, md: 15, lg: 25 },
+                    px: { xs: 5, sm: 10, md: 15, lg: 0 },
+                    py: { xs: 5, sm: 10, md: 15, lg: 25 },
                     backgroundImage: `url(${backgroundImage})`,
                     backgroundSize: 'cover',
                 }}
@@ -54,7 +54,12 @@ const HeroSection = ({ backgroundImage }: Props) => {
                     >
                         Explore our mythical village of wonders in the city of Zsambek, located in Hungary!
                     </Typography>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.75 }}>
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: { xs: 'column', sm: 'row' },
+                        alignItems: 'center',
+                        gap: 1.75
+                    }}>
                         <PrimaryButton
                             text='Explore'
                             link='#explore'

@@ -13,6 +13,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
+import Logo from './Logo';
 
 const pages = ['Homepage', 'Events', 'Discover', 'Prices', 'About us', 'Contact us'];
 const pagesLinks = ['/', '/events', '/discover', '/prices', '/about', '/contact',];
@@ -23,6 +24,7 @@ const subPagesLinks = ['/events/night-trip', '/events/animal-show', '/events/clo
 const Navbar = () => {
 
     let [isVisible, setIsVisible] = useState(0);
+    let [hover, setHover] = useState(false);
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
@@ -44,45 +46,18 @@ const Navbar = () => {
     return (
         <ThemeProvider theme={theme}>
             <AppBar position="static" color="primary">
-                <Container maxWidth="xl">
+                <Container maxWidth="xl" sx={{ my: 2 }}>
                     <Toolbar disableGutters>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'none', md: 'flex' },
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
+                        <Link
+                            href='/'
+                            onMouseEnter={() => setHover(true)}
+                            onMouseLeave={() => setHover(false)}
                         >
-                            LOGO
-                        </Typography>
-
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            href=""
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'flex', md: 'none' },
-                                flexGrow: 1,
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                                justifyContent: 'flex-start',
-                            }}
-                        >
-                            LOGO
-                        </Typography>
+                            <Logo
+                                width={150}
+                                fill={hover === true ? '#f9bc60' : '#fff'}
+                            />
+                        </Link>
 
                         <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
@@ -219,7 +194,7 @@ const Navbar = () => {
                     </Toolbar>
                 </Container>
             </AppBar>
-        </ThemeProvider>
+        </ThemeProvider >
     )
 }
 

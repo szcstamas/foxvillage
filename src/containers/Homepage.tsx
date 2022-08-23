@@ -5,7 +5,7 @@ const Homepage = () => {
     return (
         <>
             <HeroSection
-                backgroundImage={Images[2]}
+                backgroundImage={Images.Fox2}
             ></HeroSection>
         </>
     )
