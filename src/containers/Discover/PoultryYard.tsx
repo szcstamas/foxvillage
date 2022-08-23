@@ -13,7 +13,7 @@ const PoultryYard = () => {
             primaryBtnLink="#guests"
             primaryBtnIcon="paw"
             secondaryBtnText="The Fox Forest"
-            secondaryBtnLink="/fox-forest"
+            secondaryBtnLink="/discover/fox-forest"
             secondaryBtnIcon="forest"
         ></HeroSection>
     )

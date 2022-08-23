@@ -24,9 +24,9 @@ const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSl
         <ThemeProvider theme={theme}>
             <Box
                 component={motion.section}
-                initial={{ x: -1000, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: .25, duration: .5, ease: 'easeInOut', }}
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: .25, duration: .25, ease: 'easeInOut', }}
                 sx={{
                     px: { xs: 5, sm: 10, md: 15, lg: 0 },
                     py: { xs: 5, sm: 10, md: 15, lg: 25 },
