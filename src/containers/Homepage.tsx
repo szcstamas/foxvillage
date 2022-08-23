@@ -6,7 +6,7 @@ const Homepage = () => {
     return (
         <>
             <Section
-                backgroundImage={Images[1]}
+                backgroundImage={Images[2]}
             ></Section>
         </>
     )
