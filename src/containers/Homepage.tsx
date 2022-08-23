@@ -1,13 +1,12 @@
-import React from 'react'
-import Section from '../components/Section';
+import HeroSection from '../components/HeroSection';
 import { Images } from '../constants/Images';
 
 const Homepage = () => {
     return (
         <>
-            <Section
+            <HeroSection
                 backgroundImage={Images[2]}
-            ></Section>
+            ></HeroSection>
         </>
     )
 }

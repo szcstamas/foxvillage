@@ -1,16 +1,14 @@
-import React from 'react';
-import { Typography, Box, Link } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
-import Button from '@mui/material/Button';
-import FirstButton from './FirstButton';
+import MainButton from './MainButton';
 
 interface Props {
     backgroundImage: string;
 }
 
-const Section = ({ backgroundImage }: Props) => {
+const HeroSection = ({ backgroundImage }: Props) => {
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -50,9 +48,10 @@ const Section = ({ backgroundImage }: Props) => {
                     >
                         Explore our mythical village of wonders in the city of Zsambek, located in Hungary!
                     </Typography>
-                    <FirstButton
+                    <MainButton
                         text='Explore'
                         link='#explore'
+                        icon='explore'
                     />
                 </Box>
             </Box>
@@ -60,4 +59,4 @@ const Section = ({ backgroundImage }: Props) => {
     )
 }
 
-export default Section
+export default HeroSection
