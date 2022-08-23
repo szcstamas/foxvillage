@@ -3,6 +3,7 @@ import { Link } from '@mui/material';
 import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import { motion } from 'framer-motion';
 
 interface Props {
     text: string;
@@ -10,12 +11,17 @@ interface Props {
     icon: string;
 }
 
-const MainButton = ({ text, link, icon }: Props) => {
+const PrimaryButton = ({ text, link, icon }: Props) => {
 
     let [hover, setHover] = useState(false);
 
     return (
         <Button
+            component={motion.button}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1, duration: .1, ease: 'easeInOut', }}
+            whileInView={{ opacity: 1, x: 0 }}
             variant='contained'
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
@@ -26,7 +32,7 @@ const MainButton = ({ text, link, icon }: Props) => {
                 width: { xs: '100%', md: 'auto' },
                 transition: 'all .2s ease',
                 '&:hover': {
-                    transform: 'translateY(-5px)',
+                    transform: 'translateY(-5px)!important',
                     pr: 8
                 }
             }}>
@@ -72,4 +78,4 @@ const MainButton = ({ text, link, icon }: Props) => {
     )
 }
 
-export default MainButton
+export default PrimaryButton

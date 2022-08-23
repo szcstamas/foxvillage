@@ -2,7 +2,7 @@ import { Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
-import MainButton from './MainButton';
+import PrimaryButton from './PrimaryButton';
 
 interface Props {
     backgroundImage: string;
@@ -45,10 +45,15 @@ const HeroSection = ({ backgroundImage }: Props) => {
                         of Zsambek!
                     </Typography>
                     <Typography paragraph={true} color='main'
+                        sx={{
+                            textAlign: { xs: 'center', md: 'left' },
+                            color: { xs: 'secondary.light', xl: '#272727' },
+                            textShadow: { xs: '0px 4px 8px rgba(0, 0, 0, .8)', xl: 'none' }
+                        }}
                     >
                         Explore our mythical village of wonders in the city of Zsambek, located in Hungary!
                     </Typography>
-                    <MainButton
+                    <PrimaryButton
                         text='Explore'
                         link='#explore'
                         icon='explore'
