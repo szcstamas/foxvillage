@@ -18,7 +18,7 @@ interface Props {
     icon: string;
 }
 
-const PrimaryButton = ({ text, link, icon }: Props) => {
+const SecondaryButton = ({ text, link, icon }: Props) => {
 
     let [hover, setHover] = useState(false);
     const iconStyles = {
@@ -40,7 +40,7 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1, duration: .1, ease: 'easeInOut', }}
                 whileInView={{ opacity: 1, x: 0 }}
-                variant='contained'
+                variant='outlined'
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 sx={{
@@ -55,7 +55,7 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                     }
                 }}>
                 <Link underline="none"
-                    color="secondary.light"
+                    color="primary"
                     href={link}
                     key='foxvillage-mainpage-hero-cta'>
                     {text}
@@ -64,8 +64,7 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                 {/* if icon prop is set to explore, render an explore icon */}
                 {icon === 'explore'
                     ? <ExploreIcon
-                        sx={
-                            iconStyles
+                        sx={iconStyles
                         } >
                     </ExploreIcon>
                     : null}
@@ -73,8 +72,7 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                 {/* if icon prop is set to clock, render a clock icon */}
                 {icon === 'clock'
                     ? <AccessTimeFilledIcon
-                        sx={
-                            iconStyles
+                        sx={iconStyles
                         } >
                     </AccessTimeFilledIcon>
                     : null}
@@ -123,4 +121,4 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
     )
 }
 
-export default PrimaryButton
+export default SecondaryButton

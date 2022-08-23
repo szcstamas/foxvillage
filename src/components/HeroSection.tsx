@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 
 interface Props {
     backgroundImage: string;
@@ -53,11 +54,18 @@ const HeroSection = ({ backgroundImage }: Props) => {
                     >
                         Explore our mythical village of wonders in the city of Zsambek, located in Hungary!
                     </Typography>
-                    <PrimaryButton
-                        text='Explore'
-                        link='#explore'
-                        icon='explore'
-                    />
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.75 }}>
+                        <PrimaryButton
+                            text='Explore'
+                            link='#explore'
+                            icon='explore'
+                        />
+                        <SecondaryButton
+                            text='Contact'
+                            link='/contact'
+                            icon='mail'
+                        />
+                    </Box>
                 </Box>
             </Box>
         </ThemeProvider>
