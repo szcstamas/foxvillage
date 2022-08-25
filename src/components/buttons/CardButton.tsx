@@ -30,7 +30,7 @@ const CardButton = ({ text, link, icon }: Props) => {
         position: { sm: 'static', md: 'absolute' },
         right: { md: '125px', lg: '160px' },
         ...(hover === true && {
-            right: { md: '100px', lg: '140px' },
+            right: { md: '100px', lg: '150px' },
             opacity: { md: '1' },
         }),
     };

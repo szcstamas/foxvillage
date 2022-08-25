@@ -22,7 +22,7 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: .5, delay: transitionDelay }}
                 href={cardButtonLink}
-                sx={{ flex: '1' }}
+                sx={{ flex: '1', flexGrow: '1', minWidth: '300px' }}
                 underline='none'
             >
                 <Box

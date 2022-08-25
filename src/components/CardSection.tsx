@@ -48,7 +48,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
                             component={motion.svg}
                             animate={{
                                 rotate: [0, 20, -20, 0, 0],
-                                color: [cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionIconDarkColor, cardSectionIconLightColor, cardSectionIconLightColor,],
+                                color: [cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionIconDarkColor, cardSectionIconDarkColor, cardSectionIconLightColor,],
                             }}
                             transition={{
                                 duration: 2,
@@ -81,7 +81,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
 
                     <Box
                         component='div'
-                        sx={{ display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'stretch' }}
+                        sx={{ display: 'flex', rowGap: 5, columnGap: 3, flexWrap: 'wrap', alignItems: 'stretch' }}
                     >
 
                         {EventObjects.map((event, index) => {
