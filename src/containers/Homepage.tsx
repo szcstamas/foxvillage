@@ -1,3 +1,4 @@
+import CardSection from '../components/CardSection';
 import HeroSection from '../components/HeroSection';
 import { Images } from '../constants/Images';
 
@@ -17,6 +18,9 @@ const Homepage = () => {
                 secondaryBtnLink="/contact"
                 secondaryBtnIcon="mail"
             ></HeroSection>
+            <CardSection
+                cardSectionH2='Events'
+            ></CardSection>
         </>
     )
 }

@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
+import { SectionStyles, ContainerBoxStyles } from '../constants/Styles';
 
 interface Props {
     backgroundImage: string;
@@ -28,11 +29,11 @@ const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSl
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: .25, duration: .25, ease: 'easeInOut', }}
                 sx={{
-                    px: { xs: 5, sm: 10, md: 15, lg: 0 },
-                    py: { xs: 5, sm: 10, md: 15, lg: 25 },
+                    ...SectionStyles,
                     backgroundImage: `url(${backgroundImage})`,
                     backgroundSize: 'cover',
-                }}
+                }
+                }
             >
                 <Box
                     component={motion.div}
@@ -40,8 +41,7 @@ const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSl
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: .75, duration: .5, ease: 'easeInOut', }}
                     sx={{
-                        maxWidth: { sm: '100%', lg: '1100px', xl: '1400px' },
-                        m: 'auto'
+                        ...ContainerBoxStyles
                     }}
                 >
                     <Typography variant='h1' color='primary'
@@ -59,7 +59,7 @@ const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSl
                         sx={{
                             textAlign: { xs: 'center', md: 'left' },
                             color: { xs: 'secondary.light', xl: '#272727' },
-                            textShadow: { xs: '0px 4px 8px rgba(0, 0, 0, .8)', xl: 'none' }
+                            textShadow: { xs: '0px 4px 8px rgba(0, 0, 0, .8)', xl: 'none' },
                         }}
                     >
                         {pText}
@@ -83,7 +83,7 @@ const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSl
                     </Box>
                 </Box>
             </Box>
-        </ThemeProvider>
+        </ThemeProvider >
     )
 }
 
