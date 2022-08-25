@@ -39,7 +39,6 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink }: 
                     icon='rightarrow'
                 />
 
-
             </Box>
 
         </ThemeProvider>

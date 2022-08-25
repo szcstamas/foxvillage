@@ -5,6 +5,7 @@ import { theme } from '../constants/Theme';
 import { SectionStyles, ContainerBoxStyles } from '../constants/Styles';
 import CardBox from './CardBox';
 
+
 interface Props {
     cardSectionH2: string;
 }
@@ -28,7 +29,6 @@ const CardSection = ({ cardSectionH2 }: Props) => {
 
                         {cardSectionH2}
                     </Typography>
-                    {/* <CardBox></CardBox> */}
 
                 </Box>
             </Box>

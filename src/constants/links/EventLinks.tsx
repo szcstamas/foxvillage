@@ -1,1 +1,0 @@
-export const EventLinks = ['/events/night-trip', '/events/animal-show', '/events/close-up',];
