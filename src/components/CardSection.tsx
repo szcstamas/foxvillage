@@ -4,7 +4,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import PetsIcon from '@mui/icons-material/Pets';
 import { theme } from '../constants/Theme';
 import { CardSectionStyles, ContainerBoxStyles } from '../constants/Styles';
-import { EventObjects } from '../constants/EventObjects';
 import CardBox from './CardBox';
 
 interface Props {
@@ -18,7 +17,7 @@ interface Props {
     cardSectionFirstIllu: string;
     cardSectionSecondIllu: string;
     cardSectionIlluWidth: string;
-    arrayOfCards: Array<object>;
+    arrayOfCards: Array<{ Img: string, Title: string, Desc: string, Link: string }>;
 }
 
 const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluWidth, arrayOfCards }: Props) => {
@@ -95,7 +94,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
                             return (
                                 <CardBox
                                     transitionDelay={'.' + index}
-                                    cardImgSrc={card && card.Img}
+                                    cardImgSrc={card.Img}
                                     cardTextH4={card.Title}
                                     cardTextParagraph={card.Desc}
                                     cardButtonLink={card.Link}
