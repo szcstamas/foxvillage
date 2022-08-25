@@ -28,7 +28,7 @@ const CardSection = ({ cardSectionH2 }: Props) => {
 
                         {cardSectionH2}
                     </Typography>
-                    <CardBox></CardBox>
+                    {/* <CardBox></CardBox> */}
 
                 </Box>
             </Box>

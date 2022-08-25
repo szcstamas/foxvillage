@@ -9,6 +9,7 @@ import PetsIcon from '@mui/icons-material/Pets';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import ForestIcon from '@mui/icons-material/Forest';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { ThemeProvider } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { theme } from '../constants/Theme';
@@ -70,6 +71,13 @@ const SecondaryButton = ({ text, link, icon }: Props) => {
                         sx={iconStyles
                         } >
                     </ExploreIcon>
+                    : null}
+                {/* if icon prop is set to rightarrow, render a right-arrow icon */}
+                {icon === 'rightarrow'
+                    ? <ArrowCircleRightIcon
+                        sx={iconStyles
+                        } >
+                    </ArrowCircleRightIcon>
                     : null}
 
                 {/* if icon prop is set to clock, render a clock icon */}
