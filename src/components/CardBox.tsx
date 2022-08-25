@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import CardButton from './buttons/CardButton';
+import { useState } from 'react';
 
 interface Props {
 
@@ -14,12 +15,19 @@ interface Props {
 }
 
 const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, transitionDelay }: Props) => {
+
+    const [hover, setHover] = useState(false);
+
     return (
         <ThemeProvider theme={theme}>
             <Link
                 component={motion.a}
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
+
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+
                 transition={{ duration: .5, delay: transitionDelay }}
                 href={cardButtonLink}
                 sx={{ flex: '1', flexGrow: '1', minWidth: '300px' }}
@@ -63,7 +71,13 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
                         <Typography
                             color='primary.main'
                             variant='h4'
-                            sx={{ mb: 2 }}
+                            sx={{
+                                mb: 2,
+                                transition: 'all .2s ease',
+                                ...(hover === true && {
+                                    color: '#f9bc60',
+                                }),
+                            }}
                         >
                             {cardTextH4}
                         </Typography>

@@ -21,6 +21,23 @@ interface Props {
 }
 
 const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluWidth, arrayOfCards }: Props) => {
+
+    const cardSectionIlluStyleLeft = {
+        position: 'absolute',
+        bottom: '0',
+        left: '0',
+        width: cardSectionIlluWidth,
+        filter: 'invert(100%)'
+    };
+
+    const cardSectionIlluStyleRight = {
+        position: 'absolute',
+        bottom: '0',
+        right: '0',
+        width: cardSectionIlluWidth,
+        filter: 'invert(100%)'
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -106,26 +123,18 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
                     </Box>
 
                     <Box
-                        component='img'
+                        component={motion.img}
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         src={cardSectionFirstIllu}
-                        sx={{
-                            position: 'absolute',
-                            bottom: '0',
-                            left: '0',
-                            width: cardSectionIlluWidth,
-                            filter: 'invert(100%)'
-                        }}
+                        sx={{ ...cardSectionIlluStyleLeft }}
                     />
                     <Box
-                        component='img'
+                        component={motion.img}
                         src={cardSectionSecondIllu}
-                        sx={{
-                            position: 'absolute',
-                            bottom: '0',
-                            right: '0',
-                            width: cardSectionIlluWidth,
-                            filter: 'invert(100%)'
-                        }}
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        sx={{ ...cardSectionIlluStyleRight }}
                     />
 
                 </Box>
