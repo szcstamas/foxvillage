@@ -19,7 +19,13 @@ const Homepage = () => {
                 secondaryBtnIcon="mail"
             ></HeroSection>
             <CardSection
+                id='explore'
+                cardSectionBg='primary.main'
                 cardSectionH2='Events'
+                cardSectionH2Color='secondary.light'
+                cardSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
+                cardSectionIconLightColor='#fff'
+                cardSectionIconDarkColor='#f9bc60'
             ></CardSection>
         </>
     )

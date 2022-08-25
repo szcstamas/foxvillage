@@ -18,6 +18,11 @@
 }
 
 /* GLOBAL styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     box-sizing: border-box;
     margin: 0;
@@ -38,4 +43,15 @@ p,
 a,
 button {
     font-family: mainFontFamilySans !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+
+    pointer-events: none;
 }
