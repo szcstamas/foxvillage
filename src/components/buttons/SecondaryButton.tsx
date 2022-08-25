@@ -12,7 +12,7 @@ import ForestIcon from '@mui/icons-material/Forest';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { ThemeProvider } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-import { theme } from '../constants/Theme';
+import { theme } from '../../constants/Theme';
 
 interface Props {
     text: string;
@@ -72,6 +72,7 @@ const SecondaryButton = ({ text, link, icon }: Props) => {
                         } >
                     </ExploreIcon>
                     : null}
+
                 {/* if icon prop is set to rightarrow, render a right-arrow icon */}
                 {icon === 'rightarrow'
                     ? <ArrowCircleRightIcon

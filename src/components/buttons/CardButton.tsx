@@ -9,9 +9,10 @@ import PetsIcon from '@mui/icons-material/Pets';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import ForestIcon from '@mui/icons-material/Forest';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { ThemeProvider } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-import { theme } from '../constants/Theme';
+import { theme } from '../../constants/Theme';
 
 interface Props {
     text: string;
@@ -19,7 +20,7 @@ interface Props {
     icon: string;
 }
 
-const PrimaryButton = ({ text, link, icon }: Props) => {
+const CardButton = ({ text, link, icon }: Props) => {
 
     let [hover, setHover] = useState(false);
     const iconStyles = {
@@ -42,14 +43,15 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1, duration: .1, ease: 'easeInOut', }}
                 whileInView={{ opacity: 1, x: 0 }}
-                variant='contained'
+                variant='outlined'
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 sx={{
                     px: 5,
                     mt: 2,
                     fontSize: '1.25rem',
-                    width: { xs: '100%', md: 'auto' },
+                    width: '100%',
+                    bgcolor: 'secondary.main',
                     transition: 'all .2s ease',
                     '&:hover': {
                         transform: { md: 'translateY(-5px)!important' },
@@ -57,7 +59,7 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                     }
                 }}>
                 <Link underline="none"
-                    color="secondary.light"
+                    color="primary"
                     href={link}
                     key='foxvillage-mainpage-hero-cta'>
                     {text}
@@ -66,17 +68,23 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                 {/* if icon prop is set to explore, render an explore icon */}
                 {icon === 'explore'
                     ? <ExploreIcon
-                        sx={
-                            iconStyles
+                        sx={iconStyles
                         } >
                     </ExploreIcon>
+                    : null}
+
+                {/* if icon prop is set to rightarrow, render a right-arrow icon */}
+                {icon === 'rightarrow'
+                    ? <ArrowCircleRightIcon
+                        sx={iconStyles
+                        } >
+                    </ArrowCircleRightIcon>
                     : null}
 
                 {/* if icon prop is set to clock, render a clock icon */}
                 {icon === 'clock'
                     ? <AccessTimeFilledIcon
-                        sx={
-                            iconStyles
+                        sx={iconStyles
                         } >
                     </AccessTimeFilledIcon>
                     : null}
@@ -133,4 +141,4 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
     )
 }
 
-export default PrimaryButton
+export default CardButton

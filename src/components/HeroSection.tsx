@@ -2,9 +2,9 @@ import { Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
-import PrimaryButton from './PrimaryButton';
-import SecondaryButton from './SecondaryButton';
-import { SectionStyles, ContainerBoxStyles } from '../constants/Styles';
+import PrimaryButton from './buttons/PrimaryButton';
+import SecondaryButton from './buttons/SecondaryButton';
+import { HeroSectionStyles, ContainerBoxStyles } from '../constants/Styles';
 
 interface Props {
     backgroundImage: string;
@@ -29,7 +29,7 @@ const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSl
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: .25, duration: .25, ease: 'easeInOut', }}
                 sx={{
-                    ...SectionStyles,
+                    ...HeroSectionStyles,
                     backgroundImage: `url(${backgroundImage})`,
                     backgroundSize: 'cover',
                 }
