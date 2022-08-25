@@ -47,7 +47,7 @@ const Navbar = () => {
         <ThemeProvider theme={theme}>
             <AppBar position="static" color="primary">
                 <Container maxWidth="xl" sx={{ my: 2 }}>
-                    <Toolbar disableGutters>
+                    <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
                         <Link
                             href='/'
                             onMouseEnter={() => setHover(true)}
