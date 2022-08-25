@@ -23,13 +23,14 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
 
     let [hover, setHover] = useState(false);
     const iconStyles = {
-        opacity: '0',
+        opacity: { sm: '1', md: '0' },
+        ml: 1.2,
         transition: 'all .2s ease',
-        position: 'absolute',
+        position: { sm: 'static', md: 'absolute' },
         right: '70px',
         ...(hover === true && {
-            right: '40px',
-            opacity: '1',
+            right: { md: '40px' },
+            opacity: { md: '1' },
         }),
     };
 
@@ -51,8 +52,8 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
                     width: { xs: '100%', md: 'auto' },
                     transition: 'all .2s ease',
                     '&:hover': {
-                        transform: 'translateY(-5px)!important',
-                        pr: 9
+                        transform: { md: 'translateY(-5px)!important' },
+                        pr: { md: 9 }
                     }
                 }}>
                 <Link underline="none"
