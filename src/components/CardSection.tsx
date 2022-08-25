@@ -5,7 +5,6 @@ import PetsIcon from '@mui/icons-material/Pets';
 import { theme } from '../constants/Theme';
 import { CardSectionStyles, ContainerBoxStyles } from '../constants/Styles';
 import { EventObjects } from '../constants/EventObjects';
-
 import CardBox from './CardBox';
 
 interface Props {
@@ -16,16 +15,23 @@ interface Props {
     cardSectionParagraph: string;
     cardSectionIconLightColor: string;
     cardSectionIconDarkColor: string;
+    cardSectionFirstIllu: string;
+    cardSectionSecondIllu: string;
+    cardSectionIlluWidth: string;
+    arrayOfCards: Array<object>;
 }
 
-const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor }: Props) => {
+const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluWidth, arrayOfCards }: Props) => {
     return (
         <ThemeProvider theme={theme}>
             <Box
                 id={id}
                 component={motion.section}
                 bgcolor={cardSectionBg}
-                sx={{ ...CardSectionStyles }}
+                sx={{
+                    ...CardSectionStyles,
+                    position: 'relative'
+                }}
             >
                 <Box component={motion.div}
                     sx={{ ...ContainerBoxStyles, display: 'flex', gap: 3, justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}
@@ -84,21 +90,44 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
                         sx={{ display: 'flex', rowGap: 5, columnGap: 3, flexWrap: 'wrap', alignItems: 'stretch' }}
                     >
 
-                        {EventObjects.map((event, index) => {
+                        {arrayOfCards.map((card, index) => {
 
                             return (
                                 <CardBox
                                     transitionDelay={'.' + index}
-                                    cardImgSrc={event.eventImg}
-                                    cardTextH4={event.eventTitle}
-                                    cardTextParagraph={event.eventDesc}
-                                    cardButtonLink={event.eventLink}
+                                    cardImgSrc={card && card.Img}
+                                    cardTextH4={card.Title}
+                                    cardTextParagraph={card.Desc}
+                                    cardButtonLink={card.Link}
                                 />
                             )
                         })
 
                         }
                     </Box>
+
+                    <Box
+                        component='img'
+                        src={cardSectionFirstIllu}
+                        sx={{
+                            position: 'absolute',
+                            bottom: '0',
+                            left: '0',
+                            width: cardSectionIlluWidth,
+                            filter: 'invert(100%)'
+                        }}
+                    />
+                    <Box
+                        component='img'
+                        src={cardSectionSecondIllu}
+                        sx={{
+                            position: 'absolute',
+                            bottom: '0',
+                            right: '0',
+                            width: cardSectionIlluWidth,
+                            filter: 'invert(100%)'
+                        }}
+                    />
 
                 </Box>
             </Box>

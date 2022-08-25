@@ -7,6 +7,8 @@ import Peacock1 from "../assets/img/peacock1.jpg";
 import CloseUp from "../assets/img/events/closeup.jpg";
 import NightTrip from "../assets/img/events/nighttrip.jpg";
 import FoxFeeding from "../assets/img/events/foxfeeding.jpg";
+import Forest1 from "../assets/img/hill.png";
+import Forest2 from "../assets/img/hill2.png";
 
 
 export const Images = {
@@ -16,7 +18,9 @@ export const Images = {
     Fox2: Fox2,
     FoxVillageLogo: FoxVillageLogo,
     Hen1: Hen1,
-    Peacock1: Peacock1
+    Peacock1: Peacock1,
+    Forest1: Forest1,
+    Forest2: Forest2,
 }
 
 export const EventImages = {

@@ -3,23 +3,23 @@ import { EventImages } from './Images';
 export const EventObjects = [
 
     {
-        eventTitle: 'Night Trip',
-        eventDesc: 'This is gonna be the description of Night Trip.',
-        eventImg: EventImages.NightTrip,
-        eventLink: '/events/night-trip',
+        Title: 'Night Trip',
+        Desc: 'This is gonna be the description of Night Trip.',
+        Img: EventImages.NightTrip,
+        Link: '/events/night-trip',
     },
 
     {
-        eventTitle: 'Animal Shows',
-        eventDesc: `This is gonna be the description of Animal Shows.`,
-        eventImg: EventImages.FoxFeeding,
-        eventLink: '/events/animal-show',
+        Title: 'Animal Shows',
+        Desc: `This is gonna be the description of Animal Shows.`,
+        Img: EventImages.FoxFeeding,
+        Link: '/events/animal-show',
     },
 
     {
-        eventTitle: 'Close Up',
-        eventDesc: 'This is gonna be the description of Close Up.',
-        eventImg: EventImages.CloseUp,
-        eventLink: '/events/close-up',
+        Title: 'Close Up',
+        Desc: 'This is gonna be the description of Close Up.',
+        Img: EventImages.CloseUp,
+        Link: '/events/close-up',
     },
 ];

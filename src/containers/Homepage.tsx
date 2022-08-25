@@ -1,5 +1,6 @@
 import CardSection from '../components/CardSection';
 import HeroSection from '../components/HeroSection';
+import { EventObjects } from '../constants/EventObjects';
 import { Images } from '../constants/Images';
 
 const Homepage = () => {
@@ -26,6 +27,10 @@ const Homepage = () => {
                 cardSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
                 cardSectionIconLightColor='#fff'
                 cardSectionIconDarkColor='#f9bc60'
+                cardSectionFirstIllu={Images.Forest1}
+                cardSectionSecondIllu={Images.Forest2}
+                cardSectionIlluWidth='300px'
+                arrayOfCards={EventObjects}
             ></CardSection>
         </>
     )
