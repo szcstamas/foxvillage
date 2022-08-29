@@ -30,7 +30,27 @@ const Homepage = () => {
                 cardSectionIconDarkColor='#f9bc60'
                 cardSectionFirstIllu={Images.Forest1}
                 cardSectionSecondIllu={Images.Forest2}
+                cardSectionIlluInvert={100}
                 cardSectionIlluWidth='300px'
+                cardBoxColor='#fff'
+                cardTypoColor='primary.main'
+                arrayOfCards={EventObjects}
+            ></CardSection>
+            <CardSection
+                id='discover'
+                xDirection={100}
+                cardSectionBg='secondary.light'
+                cardSectionH2='Discover'
+                cardSectionH2Color='primary.main'
+                cardSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
+                cardSectionIconLightColor='#f9bc60'
+                cardSectionIconDarkColor='#272727'
+                cardSectionFirstIllu={Images.Forest1}
+                cardSectionSecondIllu={Images.Forest2}
+                cardSectionIlluInvert={0}
+                cardSectionIlluWidth='300px'
+                cardBoxColor='#0e4627'
+                cardTypoColor='secondary.light'
                 arrayOfCards={EventObjects}
             ></CardSection>
         </>

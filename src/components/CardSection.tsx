@@ -1,10 +1,10 @@
 import { Typography, Box } from '@mui/material';
-import { motion } from 'framer-motion';
 import { ThemeProvider } from '@mui/material/styles';
 import PetsIcon from '@mui/icons-material/Pets';
 import { theme } from '../constants/Theme';
 import { CardSectionStyles, ContainerBoxStyles } from '../constants/Styles';
 import CardBox from './CardBox';
+import { motion } from 'framer-motion';
 
 interface Props {
     cardSectionH2: string;
@@ -17,18 +17,21 @@ interface Props {
     cardSectionFirstIllu: string;
     cardSectionSecondIllu: string;
     cardSectionIlluWidth: string;
+    cardSectionIlluInvert: number;
     arrayOfCards: Array<{ Img: string, Title: string, Desc: string, Link: string }>;
     xDirection: number;
+    cardBoxColor: string;
+    cardTypoColor: string;
 }
 
-const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluWidth, arrayOfCards, xDirection }: Props) => {
+const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluInvert, cardSectionIlluWidth, arrayOfCards, xDirection, cardBoxColor, cardTypoColor }: Props) => {
 
     const cardSectionIlluStyleLeft = {
         position: 'absolute',
         bottom: '0',
         left: '0',
         width: cardSectionIlluWidth,
-        filter: 'invert(100%)'
+        filter: `invert(${cardSectionIlluInvert}%)`
     };
 
     const cardSectionIlluStyleRight = {
@@ -36,7 +39,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
         bottom: '0',
         right: '0',
         width: cardSectionIlluWidth,
-        filter: 'invert(100%)'
+        filter: `invert(${cardSectionIlluInvert}%)`
     };
 
     return (
@@ -116,6 +119,8 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
                                     cardTextH4={card.Title}
                                     cardTextParagraph={card.Desc}
                                     cardButtonLink={card.Link}
+                                    cardBoxColor={cardBoxColor}
+                                    cardTypoColor={cardTypoColor}
                                 />
                             )
                         })

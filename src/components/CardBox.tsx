@@ -1,9 +1,9 @@
 import { Typography, Box, Link } from '@mui/material';
-import { motion } from 'framer-motion';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import CardButton from './buttons/CardButton';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface Props {
 
@@ -12,9 +12,11 @@ interface Props {
     cardTextParagraph: string;
     cardButtonLink: string;
     transitionDelay: any;
+    cardBoxColor: string;
+    cardTypoColor: string;
 }
 
-const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, transitionDelay }: Props) => {
+const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, transitionDelay, cardBoxColor, cardTypoColor }: Props) => {
 
     const [hover, setHover] = useState(false);
 
@@ -39,14 +41,14 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
                         borderRadius: '20px',
                         overflow: 'hidden',
                         position: 'relative',
-                        border: '8px solid #fff',
+                        border: `8px solid ${cardBoxColor}`,
                         transition: 'all .2s ease',
                         height: '100%',
                         '&:hover': {
                             transform: 'translateY(-5px)',
                         }
                     }}
-                    bgcolor='secondary.light'
+                    bgcolor={cardBoxColor}
                 >
                     <Box
                         component='div'
@@ -69,7 +71,7 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
                     >
 
                         <Typography
-                            color='primary.main'
+                            color={cardTypoColor}
                             variant='h4'
                             sx={{
                                 mb: 2,
@@ -82,7 +84,7 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
                             {cardTextH4}
                         </Typography>
 
-                        <Typography paragraph={true}>
+                        <Typography paragraph={true} color={cardTypoColor}>
                             {cardTextParagraph}
                         </Typography>
 

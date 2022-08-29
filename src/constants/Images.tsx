@@ -29,3 +29,10 @@ export const EventImages = {
     NightTrip: NightTrip,
     FoxFeeding: FoxFeeding
 }
+
+export const DiscoverObjects = {
+
+    CloseUp: CloseUp,
+    NightTrip: NightTrip,
+    FoxFeeding: FoxFeeding
+}
