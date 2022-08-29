@@ -21,6 +21,7 @@ const Homepage = () => {
             ></HeroSection>
             <CardSection
                 id='explore'
+                xDirection={-100}
                 cardSectionBg='primary.main'
                 cardSectionH2='Events'
                 cardSectionH2Color='secondary.light'

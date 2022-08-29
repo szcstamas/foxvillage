@@ -18,9 +18,10 @@ interface Props {
     cardSectionSecondIllu: string;
     cardSectionIlluWidth: string;
     arrayOfCards: Array<{ Img: string, Title: string, Desc: string, Link: string }>;
+    xDirection: number;
 }
 
-const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluWidth, arrayOfCards }: Props) => {
+const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluWidth, arrayOfCards, xDirection }: Props) => {
 
     const cardSectionIlluStyleLeft = {
         position: 'absolute',
@@ -54,7 +55,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
                 >
                     <Box
                         component={motion.div}
-                        initial={{ opacity: 0, x: -100 }}
+                        initial={{ opacity: 0, x: xDirection }}
                         whileInView={{ opacity: 1, x: 0 }}
                         sx={{ display: 'flex', gap: 2, justifyContent: 'center', alignItems: 'center' }}
                     >
