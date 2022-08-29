@@ -95,4 +95,17 @@ h6,
 p {
   pointer-events: none;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #efefef;
+}
+
+::-webkit-scrollbar-thumb {
+  background: orange;
+  border-radius: 10px;
+}
 /*# sourceMappingURL=styles.css.map */

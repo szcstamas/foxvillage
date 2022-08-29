@@ -58,3 +58,17 @@ p {
 
     pointer-events: none;
 }
+
+//Scrollbar
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #efefef;
+}
+
+::-webkit-scrollbar-thumb {
+    background: orange;
+    border-radius: 10px;
+}
