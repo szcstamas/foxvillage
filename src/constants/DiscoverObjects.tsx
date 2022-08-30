@@ -3,23 +3,23 @@ import { DiscoverImages } from './Images';
 export const DiscoverObjects = [
 
     {
-        Title: 'Night Trip',
-        Desc: 'This is gonna be the description of Night Trip.',
-        Img: DiscoverImages.NightTrip,
-        Link: '/events/night-trip',
+        Title: 'Animals',
+        Desc: 'This is gonna be the description of Animals.',
+        Img: DiscoverImages.Animals,
+        Link: '/discover/animals',
     },
 
     {
-        Title: 'Animal Shows',
-        Desc: `This is gonna be the description of Animal Shows.`,
-        Img: DiscoverImages.FoxFeeding,
-        Link: '/events/animal-show',
+        Title: 'Poultry Yard',
+        Desc: `This is gonna be the description of Poultry Yard.`,
+        Img: DiscoverImages.PoultryYard,
+        Link: '/discover/poultry-yard',
     },
 
     {
-        Title: 'Close Up',
-        Desc: 'This is gonna be the description of Close Up.',
-        Img: DiscoverImages.CloseUp,
-        Link: '/events/close-up',
+        Title: 'The Fox Forest',
+        Desc: 'This is gonna be the description of the Fox Forest.',
+        Img: DiscoverImages.FoxForest,
+        Link: '/discover/fox-forest',
     },
 ];

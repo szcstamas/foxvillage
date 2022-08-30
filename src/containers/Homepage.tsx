@@ -1,5 +1,6 @@
 import CardSection from '../components/CardSection';
 import HeroSection from '../components/HeroSection';
+import { DiscoverObjects } from '../constants/DiscoverObjects';
 import { EventObjects } from '../constants/EventObjects';
 import { Images } from '../constants/Images';
 
@@ -43,15 +44,15 @@ const Homepage = () => {
                 cardSectionH2='Discover'
                 cardSectionH2Color='primary.main'
                 cardSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
-                cardSectionIconLightColor='#f9bc60'
-                cardSectionIconDarkColor='#272727'
+                cardSectionIconLightColor='#272727'
+                cardSectionIconDarkColor='#f9bc60'
                 cardSectionFirstIllu={Images.Forest1}
                 cardSectionSecondIllu={Images.Forest2}
                 cardSectionIlluInvert={0}
                 cardSectionIlluWidth='300px'
                 cardBoxColor='#0e4627'
                 cardTypoColor='secondary.light'
-                arrayOfCards={EventObjects}
+                arrayOfCards={DiscoverObjects}
             ></CardSection>
         </>
     )

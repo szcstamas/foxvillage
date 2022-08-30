@@ -9,6 +9,9 @@ import NightTrip from "../assets/img/events/nighttrip.jpg";
 import FoxFeeding from "../assets/img/events/foxfeeding.jpg";
 import Forest1 from "../assets/img/hill.png";
 import Forest2 from "../assets/img/hill2.png";
+import Animals from "../assets/img/discover/animals.jpg";
+import PoultryYard from "../assets/img/discover/poultryyard.jpg";
+import FoxForest from "../assets/img/discover/foxforest.jpg";
 
 
 export const Images = {
@@ -30,9 +33,9 @@ export const EventImages = {
     FoxFeeding: FoxFeeding
 }
 
-export const DiscoverObjects = {
+export const DiscoverImages = {
 
-    CloseUp: CloseUp,
-    NightTrip: NightTrip,
-    FoxFeeding: FoxFeeding
+    Animals: Animals,
+    PoultryYard: PoultryYard,
+    FoxForest: FoxForest,
 }

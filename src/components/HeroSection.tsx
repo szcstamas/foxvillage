@@ -32,6 +32,7 @@ const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSl
                     ...HeroSectionStyles,
                     backgroundImage: `url(${backgroundImage})`,
                     backgroundSize: 'cover',
+                    backgroundPosition: { xs: 'center', md: '0% 0%' }
                 }
                 }
             >
