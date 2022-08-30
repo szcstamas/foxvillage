@@ -70,6 +70,8 @@ const Navbar = () => {
                             >
                                 <MenuIcon />
                             </IconButton>
+
+                            {/* mobile menu */}
                             <Menu
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
@@ -88,9 +90,17 @@ const Navbar = () => {
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-                                {pages.map((page) => (
+                                {pages.map((page, index) => (
                                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography>{page}</Typography>
+                                        <Link
+                                            underline="none"
+                                            color="primary.main"
+                                            href={pagesLinks[index]}
+                                            key={page}
+                                            onClick={handleCloseNavMenu}
+                                        >
+                                            {page}
+                                        </Link>
                                     </MenuItem>
                                 ))}
                             </Menu>

@@ -11,6 +11,19 @@ export const theme = createTheme({
         },
     },
     typography: {
+        h1: {
+            fontSize: '3rem',
+            '@media (min-width:600px)': {
+                fontSize: '6rem',
+            },
+        },
+
+        h2: {
+            fontSize: '2rem',
+            '@media (min-width:600px)': {
+                fontSize: '3.75rem',
+            },
+        },
         button: {
             fontSize: '16px',
             textTransform: "none"

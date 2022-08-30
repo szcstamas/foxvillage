@@ -67,8 +67,14 @@ html {
   padding: 0;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: mainFontFamilySans;
+  position: relative;
 }
 
 h1,

@@ -53,7 +53,9 @@ const Footer = () => {
                         ...ContainerBoxStyles,
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        rowGap: 2,
+                        flexDirection: { xs: 'column', md: 'row' }
                     }}
                 >
 
@@ -66,7 +68,13 @@ const Footer = () => {
 
                     <Box
                         component='div'
-                        sx={{ display: 'flex', gap: 3, justifyContent: 'flex-end', alignItems: 'center' }}
+                        sx={{
+                            display: 'flex',
+                            gap: 3,
+                            justifyContent: 'flex-end',
+                            alignItems: 'center',
+                            flexDirection: { xs: 'column', sm: 'row' }
+                        }}
                     >
 
                         <Link
