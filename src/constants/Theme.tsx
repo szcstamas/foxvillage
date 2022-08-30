@@ -19,7 +19,7 @@ export const theme = createTheme({
         },
 
         h2: {
-            fontSize: '2rem',
+            fontSize: '3rem',
             '@media (min-width:600px)': {
                 fontSize: '3.75rem',
             },
@@ -36,7 +36,10 @@ export const theme = createTheme({
                     props: { variant: 'outlined' },
                     style: {
                         textTransform: 'none',
-                        border: '3px solid #f9bc60',
+                        border: 'none',
+                        '@media (min-width:600px)': {
+                            border: '3px solid #f9bc60',
+                        },
                         color: '#0e4627',
                         '&:hover': {
                             backgroundColor: '#f9bc60',

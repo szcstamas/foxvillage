@@ -40,6 +40,9 @@ const SecondaryButton = ({ text, link, icon }: Props) => {
             <Link underline="none"
                 color="primary"
                 href={link}
+                sx={{
+                    width: { xs: '100%', md: 'auto' },
+                }}
                 key='foxvillage-mainpage-hero-cta'>
                 <Button
                     component={motion.button}
