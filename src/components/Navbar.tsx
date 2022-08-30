@@ -86,10 +86,25 @@ const Navbar = () => {
                                         }}
                                         className="dropdown-content">
 
-                                        <KeyboardArrowRightIcon
-                                            sx={{ margin: '.5rem' }}
-                                            onClick={() => setHamburgerRightMenu(false)}
-                                        />
+                                        <Box
+                                            component='span'
+                                            sx={{
+
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                width: '50px',
+                                                height: '50px',
+                                                backgroundColor: 'primary.main',
+                                                borderRadius: '50%',
+                                                margin: '.5rem'
+                                            }}
+                                        >
+                                            <KeyboardArrowRightIcon
+                                                sx={{ color: 'secondary.light' }}
+                                                onClick={() => setHamburgerRightMenu(false)}
+                                            />
+                                        </Box>
                                         <Box
                                             component='div'
                                             sx={{
@@ -99,20 +114,21 @@ const Navbar = () => {
                                             {pages.map((page, index) => (
                                                 <Link
                                                     underline="none"
-                                                    color="secondary.light"
                                                     href={pagesLinks[index]}
-                                                    key={page}
+                                                    key={index}
                                                     onClick={handleCloseNavMenu}
                                                 >
                                                     <Button
                                                         variant="contained"
                                                         sx={{
+                                                            color: 'primary.main',
                                                             backgroundColor: 'transparent',
                                                             padding: '16px',
                                                             '&:focus': {
                                                                 backgroundColor: 'transparent'
                                                             }
                                                         }}
+                                                        key={`firstMobileLink${index}`}
                                                         className="dropbtn"
                                                         disableElevation>
                                                         {page}
@@ -121,7 +137,18 @@ const Navbar = () => {
                                             )).slice(0, 1)}
 
                                             <Box className="dropdown" onMouseEnter={() => setIsVisible(1)} onMouseLeave={() => setIsVisible(0)}>
-                                                <Button variant="contained" className="dropbtn" disableElevation>
+                                                <Button
+                                                    variant="contained"
+                                                    className="dropbtn"
+                                                    sx={{
+
+                                                        color: '#0e4627!important',
+                                                        '&:hover': {
+
+                                                            color: '#fff!important'
+                                                        }
+                                                    }}
+                                                    disableElevation>
                                                     Events
                                                 </Button>
                                                 <AnimatePresence>
@@ -135,6 +162,11 @@ const Navbar = () => {
                                                                 transition: { duration: .2 }
                                                             }}
                                                             exit={{ y: -10, opacity: 0, }}
+                                                            sx={{
+                                                                backgroundColor: '#fff!important',
+                                                                width: '100%',
+                                                                borderRadius: '0px 0px 0px 10px!important'
+                                                            }}
                                                             className="dropdown-content">
                                                             {subPages.map((subPage, index) => (
 
@@ -142,7 +174,7 @@ const Navbar = () => {
                                                                     underline="none"
                                                                     style={{ textDecoration: "none" }}
                                                                     href={subPagesLinks[index]}
-                                                                    key={subPage}
+                                                                    key={index}
                                                                     onClick={handleCloseNavMenu}
                                                                 >
                                                                     {subPage}
@@ -153,7 +185,18 @@ const Navbar = () => {
                                             </Box>
 
                                             <Box className="dropdown" onMouseEnter={() => setIsVisible(2)} onMouseLeave={() => setIsVisible(0)}>
-                                                <Button variant="contained" className="dropbtn" disableElevation>
+                                                <Button
+                                                    variant="contained"
+                                                    className="dropbtn"
+                                                    sx={{
+
+                                                        color: '#0e4627!important',
+                                                        '&:hover': {
+
+                                                            color: '#fff!important'
+                                                        }
+                                                    }}
+                                                    disableElevation>
                                                     Discover
                                                 </Button>
                                                 <AnimatePresence>
@@ -167,6 +210,11 @@ const Navbar = () => {
                                                                 transition: { duration: .2 }
                                                             }}
                                                             exit={{ y: -10, opacity: 0, }}
+                                                            sx={{
+                                                                backgroundColor: '#fff!important',
+                                                                width: '100%',
+                                                                borderRadius: '0px 0px 0px 10px!important'
+                                                            }}
                                                             className="dropdown-content">
                                                             {subPages.map((subPage, index) => (
 
@@ -174,7 +222,7 @@ const Navbar = () => {
                                                                     underline="none"
                                                                     style={{ textDecoration: "none" }}
                                                                     href={subPagesLinks[index]}
-                                                                    key={subPage}
+                                                                    key={index}
                                                                     onClick={handleCloseNavMenu}
                                                                 >
                                                                     {subPage}
@@ -197,12 +245,14 @@ const Navbar = () => {
                                                     <Button
                                                         variant="contained"
                                                         sx={{
+                                                            color: 'primary.main',
                                                             backgroundColor: 'transparent',
                                                             padding: '16px',
                                                             '&:focus': {
                                                                 backgroundColor: 'transparent'
                                                             }
                                                         }}
+                                                        key={`lastTwoMobileLinksInHeader${index}`}
                                                         className="dropbtn"
                                                         disableElevation>
                                                         {page}
@@ -220,12 +270,15 @@ const Navbar = () => {
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 2, justifyContent: 'flex-end', alignItems: 'center' }}>
                             {pages.map((page, index) => (
-                                <Button variant="contained" disableElevation>
+                                <Button
+                                    variant="contained"
+                                    key={`firstDesktopLink${index}`}
+                                    disableElevation>
                                     <Link
                                         underline="none"
                                         color="secondary.light"
                                         href={pagesLinks[index]}
-                                        key={page}
+
                                         onClick={handleCloseNavMenu}
                                     >
                                         {page}
@@ -234,7 +287,11 @@ const Navbar = () => {
                             )).slice(0, 1)}
 
                             <Box className="dropdown" onMouseEnter={() => setIsVisible(1)} onMouseLeave={() => setIsVisible(0)}>
-                                <Button variant="contained" className="dropbtn" disableElevation>
+                                <Button
+                                    variant="contained"
+                                    className="dropbtn"
+                                    key={'b'}
+                                    disableElevation>
                                     Events
                                 </Button>
                                 <AnimatePresence>
@@ -300,7 +357,10 @@ const Navbar = () => {
 
                             {pages.map((page, index) => (
 
-                                <Button variant="contained" disableElevation>
+                                <Button
+                                    variant="contained"
+                                    key={`lastDesktopLinks${index}`}
+                                    disableElevation>
                                     <Link
                                         color="secondary.light"
                                         style={{ textDecoration: "none" }}
@@ -315,7 +375,7 @@ const Navbar = () => {
                         </Box>
                     </Toolbar>
                 </Container>
-            </AppBar>
+            </AppBar >
         </ThemeProvider >
     )
 }

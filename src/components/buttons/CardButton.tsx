@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from '@mui/material';
+import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
@@ -37,10 +37,10 @@ const CardButton = ({ text, link, icon }: Props) => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Link underline="none"
+            <Box
+                component='div'
                 color="primary"
-                href={link}
-                key='foxvillage-mainpage-hero-cta'>
+            >
                 <Button
                     component={motion.button}
                     initial={{ opacity: 0, x: 20 }}
@@ -139,7 +139,7 @@ const CardButton = ({ text, link, icon }: Props) => {
                         </ForestIcon>
                         : null}
                 </Button >
-            </Link>
+            </Box>
         </ThemeProvider>
     )
 }

@@ -93,11 +93,14 @@ const Footer = () => {
                             Contact us
                         </Link>
 
-                        {icons.map((icon) => {
+                        {icons.map((icon, index) => {
 
                             return (
 
-                                <Link href='#' sx={{ ...iconLinkStyles }}>
+                                <Link
+                                    href='#'
+                                    key={index}
+                                    sx={{ ...iconLinkStyles }}>
                                     {icon}
                                 </Link>
                             )

@@ -114,6 +114,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
 
                             return (
                                 <CardBox
+                                    key={index}
                                     transitionDelay={'.' + index}
                                     cardImgSrc={card.Img}
                                     cardTextH4={card.Title}
