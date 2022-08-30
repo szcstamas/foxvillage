@@ -11,8 +11,8 @@ import InfoIcon from '@mui/icons-material/Info';
 import ForestIcon from '@mui/icons-material/Forest';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { ThemeProvider } from '@mui/material/styles';
-import { motion } from 'framer-motion';
 import { theme } from '../../constants/Theme';
+import { motion } from 'framer-motion';
 
 interface Props {
     text: string;
