@@ -14,10 +14,9 @@ import { theme } from '../constants/Theme';
 import Logo from './Logo';
 
 const pages = ['Homepage', 'Events', 'Discover', 'Prices', 'About us', 'Contact us'];
-const pagesLinks = ['/home', '/foxvillage/events', '/foxvillage/discover', '/foxvillage/prices', '/foxvillage/about', '/foxvillage/contact',];
+const pagesLinks = ['/', '/events', '/discover', '/prices', '/about', '/contact',];
 const subPages = ['Night Trip', 'Animal Shows', 'Close Up', 'Animals', 'Poultry Yard', 'Fox Forest'];
-const subPagesLinks = ['/foxvillage/events/night-trip', '/foxvillage/events/animal-show', '/foxvillage/events/close-up', '/foxvillage/discover/animals', '/foxvillage/discover/poultry-yard', '/foxvillage/discover/fox-forest'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const subPagesLinks = ['/events/night-trip', '/events/animal-show', '/events/close-up', '/discover/animals', '/discover/poultry-yard', '/discover/fox-forest'];
 
 const Navbar = () => {
 
