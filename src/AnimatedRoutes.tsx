@@ -22,18 +22,18 @@ const AnimatedRoutes = () => {
     return (
         <AnimatePresence>
             <Routes location={location}>
-                <Route path='/' element={<Homepage />} />
-                <Route path='/events' element={<Events />} />
-                <Route path='/events/night-trip' element={<NightTrip />} />
-                <Route path='/events/animal-show' element={<AnimalShow />} />
-                <Route path='/events/close-up' element={<CloseUp />} />
-                <Route path='/discover' element={<Discover />} />
-                <Route path='/discover/animals' element={<Animals />} />
-                <Route path='/discover/poultry-yard' element={<PoultryYard />} />
-                <Route path='/discover/fox-forest' element={<FoxForest />} />
-                <Route path='/prices' element={<Prices />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/contact' element={<Contact />} />
+                <Route path='/home' element={<Homepage />} />
+                <Route path='/foxvillage/events' element={<Events />} />
+                <Route path='/foxvillage/events/night-trip' element={<NightTrip />} />
+                <Route path='/foxvillage/events/animal-show' element={<AnimalShow />} />
+                <Route path='/foxvillage/events/close-up' element={<CloseUp />} />
+                <Route path='/foxvillage/discover' element={<Discover />} />
+                <Route path='/foxvillage/discover/animals' element={<Animals />} />
+                <Route path='/foxvillage/discover/poultry-yard' element={<PoultryYard />} />
+                <Route path='/foxvillage/discover/fox-forest' element={<FoxForest />} />
+                <Route path='/foxvillage/prices' element={<Prices />} />
+                <Route path='/foxvillage/about' element={<About />} />
+                <Route path='/foxvillage/contact' element={<Contact />} />
                 <Route path='*' element={<ErrorPage />} />
             </Routes>
         </AnimatePresence>

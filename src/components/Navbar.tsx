@@ -14,9 +14,9 @@ import { theme } from '../constants/Theme';
 import Logo from './Logo';
 
 const pages = ['Homepage', 'Events', 'Discover', 'Prices', 'About us', 'Contact us'];
-const pagesLinks = ['/', '/events', '/discover', '/prices', '/about', '/contact',];
+const pagesLinks = ['/home', '/foxvillage/events', '/foxvillage/discover', '/foxvillage/prices', '/foxvillage/about', '/foxvillage/contact',];
 const subPages = ['Night Trip', 'Animal Shows', 'Close Up', 'Animals', 'Poultry Yard', 'Fox Forest'];
-const subPagesLinks = ['/events/night-trip', '/events/animal-show', '/events/close-up', '/discover/animals', '/discover/poultry-yard', '/discover/fox-forest'];
+const subPagesLinks = ['/foxvillage/events/night-trip', '/foxvillage/events/animal-show', '/foxvillage/events/close-up', '/foxvillage/discover/animals', '/foxvillage/discover/poultry-yard', '/foxvillage/discover/fox-forest'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
@@ -41,7 +41,7 @@ const Navbar = () => {
                 <Container maxWidth="xl" sx={{ my: 2 }}>
                     <Toolbar disableGutters sx={{ justifyContent: 'space-between', position: 'static' }}>
                         <Link
-                            href='/'
+                            href={pagesLinks[0]}
                             onMouseEnter={() => setHover(true)}
                             onMouseLeave={() => setHover(false)}
                         >
