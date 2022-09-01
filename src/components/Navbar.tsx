@@ -14,7 +14,7 @@ import { theme } from '../constants/Theme';
 import Logo from './Logo';
 
 const pages = ['Homepage', 'Events', 'Discover', 'Prices', 'About us', 'Contact us'];
-const pagesLinks = ['/', '/foxvillage/events', '/foxvillage/discover', '/foxvillage/prices', '/foxvillage/about', '/foxvillage/contact',];
+const pagesLinks = ['/', '/events', '/discover', '/prices', '/about', '/contact',];
 const subPages = ['Night Trip', 'Animal Shows', 'Close Up', 'Animals', 'Poultry Yard', 'Fox Forest'];
 const subPagesLinks = ['/events/night-trip', '/events/animal-show', '/events/close-up', '/discover/animals', '/discover/poultry-yard', '/discover/fox-forest'];
 
