@@ -31,7 +31,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
         bottom: '0',
         left: '0',
         width: cardSectionIlluWidth,
-        PointerEvent: 'none',
+        pointerEvents: 'none',
         filter: `invert(${cardSectionIlluInvert}%)`
     };
 
@@ -40,7 +40,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
         bottom: '0',
         right: '0',
         width: cardSectionIlluWidth,
-        PointerEvent: 'none',
+        pointerEvents: 'none',
         filter: `invert(${cardSectionIlluInvert}%)`
     };
 
