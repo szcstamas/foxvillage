@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/foxvillage/static/css/main.98416aa4.css",
-    "main.js": "/foxvillage/static/js/main.e968dfbc.js",
+    "main.js": "/foxvillage/static/js/main.6dcb20c8.js",
     "static/media/fox1.jpg": "/foxvillage/static/media/fox1.27de94c760610f7d0b62.jpg",
     "static/media/peacock1.jpg": "/foxvillage/static/media/peacock1.69953502868a8d445b06.jpg",
     "static/media/babyfox.jpg": "/foxvillage/static/media/babyfox.890f68c0958b7689d7ef.jpg",
@@ -16,15 +16,18 @@
     "static/media/FlameSans-Regular.ttf": "/foxvillage/static/media/FlameSans-Regular.ac1ee8a48cb61a7b6848.ttf",
     "static/media/poultryyard.jpg": "/foxvillage/static/media/poultryyard.29c4e5733ed579b90193.jpg",
     "static/media/hill2.png": "/foxvillage/static/media/hill2.75849a5f24b2250672aa.png",
+    "static/media/foxsilhouette4.png": "/foxvillage/static/media/foxsilhouette4.9b59bfb5725e4f693d8f.png",
     "static/media/closeup.jpg": "/foxvillage/static/media/closeup.e8345d3558df768565f0.jpg",
     "static/media/hill.png": "/foxvillage/static/media/hill.8ad20ccc3cd1cc1e663e.png",
     "static/media/foxvillage-logo.svg": "/foxvillage/static/media/foxvillage-logo.9d6e6114b25506b543420af1f1520abe.svg",
+    "static/media/foxsilhouette2.png": "/foxvillage/static/media/foxsilhouette2.eef19a1ad448d2e9af48.png",
+    "static/media/foxsilhouette1.png": "/foxvillage/static/media/foxsilhouette1.09b416455e2948163c35.png",
     "index.html": "/foxvillage/index.html",
     "main.98416aa4.css.map": "/foxvillage/static/css/main.98416aa4.css.map",
-    "main.e968dfbc.js.map": "/foxvillage/static/js/main.e968dfbc.js.map"
+    "main.6dcb20c8.js.map": "/foxvillage/static/js/main.6dcb20c8.js.map"
   },
   "entrypoints": [
     "static/css/main.98416aa4.css",
-    "static/js/main.e968dfbc.js"
+    "static/js/main.6dcb20c8.js"
   ]
 }
