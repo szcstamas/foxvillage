@@ -135,6 +135,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
                         component={motion.img}
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         src={cardSectionFirstIllu}
                         sx={{ ...cardSectionIlluStyleLeft }}
                     />
@@ -143,6 +144,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
                         src={cardSectionSecondIllu}
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         sx={{ ...cardSectionIlluStyleRight }}
                     />
 

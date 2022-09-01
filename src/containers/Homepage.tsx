@@ -9,6 +9,7 @@ import { Images } from '../constants/Images';
 
 const Homepage = () => {
 
+    //for progress bar on top of page when scrolling
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,

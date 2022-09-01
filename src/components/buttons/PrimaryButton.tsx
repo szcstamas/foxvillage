@@ -38,6 +38,7 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
     return (
         <ThemeProvider theme={theme}>
             <RouterLink
+                className='primary-button-link'
                 color="secondary.light"
                 to={link}
                 key='foxvillage-mainpage-hero-cta'>
