@@ -48,7 +48,7 @@ const HeroSection = ({ backgroundImage, h1TextFirstSlice, h1Span, h1TextSecondSl
                     <Typography variant='h1' color='primary'
                         sx={{
                             width: { xs: '100%', md: '70%' },
-                            textAlign: { xs: 'center', md: 'left' },
+                            textAlign: 'left',
                             mb: 4,
                         }}
                     >

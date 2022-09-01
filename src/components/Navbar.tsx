@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
+import { CgMenuCake } from 'react-icons/cg';
 import Button from '@mui/material/Button';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -15,8 +16,8 @@ import { theme } from '../constants/Theme';
 import Logo from './Logo';
 import { useScrollPosition } from '../hooks/useScrollPosition';
 
-const pages = ['Homepage', 'Events', 'Discover', 'Prices', 'About us', 'Contact us'];
-const pagesLinks = ['/foxvillage/', '/foxvillage/#/events', '/foxvillage/#/discover', '/foxvillage/#/prices', '/foxvillage/#/about', '/foxvillage/#/contact',];
+const pages = ['Homepage', 'Events', 'Discover', 'Contact us', 'Prices', 'About us'];
+const pagesLinks = ['/foxvillage/', '/foxvillage/#/events', '/foxvillage/#/discover', '/#contact', '/#prices', '/#about'];
 const subPages = ['Night Trip', 'Animal Shows', 'Close Up', 'Animals', 'Poultry Yard', 'Fox Forest'];
 const subPagesLinks = ['/foxvillage/#/events/night-trip', '/foxvillage/#/events/animal-show', '/foxvillage/#/events/close-up', '/foxvillage/#/discover/animals', '/foxvillage/#/discover/poultry-yard', '/foxvillage/#/discover/fox-forest'];
 let positionOnScroll: string = '';
@@ -80,7 +81,7 @@ const Navbar = () => {
                                 onClick={() => setHamburgerRightMenu(true)}
                                 color="inherit"
                             >
-                                <MenuIcon />
+                                <CgMenuCake />
                             </IconButton>
 
                             {/* here goes rightmenu in hamburger */}
@@ -372,30 +373,21 @@ const Navbar = () => {
                                 </AnimatePresence>
                             </Box>
 
-                            <Button
-                                variant="contained"
-                                disableElevation>
-                                <RouterLink
-                                    to='/#contact'
-                                    style={{ color: '#fff', textDecoration: 'none' }}
+                            {pages.map((page, index) => (
+                                <Button
+                                    variant="contained"
+                                    key={`lastDesktopLinks${index}`}
+                                    disableElevation>
+                                    <RouterLink
+                                        style={{ color: '#fff', textDecoration: 'none' }}
+                                        to={pagesLinks[index]}
 
-                                    onClick={handleCloseNavMenu}
-                                >
-                                    Contact us
-                                </RouterLink>
-                            </Button>
-                            <Button
-                                variant="contained"
-                                disableElevation>
-                                <RouterLink
-                                    to='/#about'
-                                    style={{ color: '#fff', textDecoration: 'none' }}
-
-                                    onClick={handleCloseNavMenu}
-                                >
-                                    About us
-                                </RouterLink>
-                            </Button>
+                                        onClick={handleCloseNavMenu}
+                                    >
+                                        {page}
+                                    </RouterLink>
+                                </Button>
+                            )).slice(3, pages.length)}
 
                         </Box>
                     </Toolbar>
