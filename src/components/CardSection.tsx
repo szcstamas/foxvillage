@@ -109,7 +109,7 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
 
                     <Box
                         component='div'
-                        sx={{ display: 'flex', rowGap: 5, columnGap: 3, flexWrap: 'wrap', alignItems: 'stretch' }}
+                        sx={{ display: 'flex', rowGap: 3, columnGap: 3, flexWrap: 'wrap', alignItems: 'stretch' }}
                     >
 
                         {arrayOfCards.map((card, index) => {

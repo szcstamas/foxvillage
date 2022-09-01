@@ -14,7 +14,7 @@ const Homepage = () => {
                 h1TextSecondSlice="of Zsámbék!"
                 pText="Explore our mythical village of wonders in the city of Zsámbék, located in Hungary!"
                 primaryBtnText="Explore"
-                primaryBtnLink="/foxvillage/#/#explore"
+                primaryBtnLink="/foxvillage/#explore"
                 primaryBtnIcon="explore"
                 secondaryBtnText="Contact"
                 secondaryBtnLink="/foxvillage/#/contact"

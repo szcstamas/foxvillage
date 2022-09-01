@@ -51,7 +51,7 @@ const CardButton = ({ text, link, icon }: Props) => {
                     onMouseEnter={() => setHover(true)}
                     onMouseLeave={() => setHover(false)}
                     sx={{
-                        position: 'absolute',
+                        position: { xs: 'static', sm: 'absolute' },
                         bottom: 0,
                         left: 0,
                         px: 5,

@@ -54,7 +54,7 @@ const Footer = () => {
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        rowGap: 2,
+                        rowGap: 3,
                         flexDirection: { xs: 'column', md: 'row' }
                     }}
                 >
@@ -93,19 +93,31 @@ const Footer = () => {
                             Contact us
                         </Link>
 
-                        {icons.map((icon, index) => {
+                        <Box
+                            component='div'
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                gap: 2
+                            }}
+                        >
 
-                            return (
+                            {icons.map((icon, index) => {
 
-                                <Link
-                                    href='#'
-                                    key={index}
-                                    sx={{ ...iconLinkStyles }}>
-                                    {icon}
-                                </Link>
-                            )
+                                return (
 
-                        })}
+                                    <Link
+                                        href='#'
+                                        key={index}
+                                        sx={{ ...iconLinkStyles }}>
+                                        {icon}
+                                    </Link>
+                                )
+
+                            })}
+
+                        </Box>
 
                     </Box>
                 </Box>

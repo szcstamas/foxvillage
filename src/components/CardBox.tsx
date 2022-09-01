@@ -47,7 +47,7 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
                         position: 'relative',
                         border: `8px solid ${cardBoxColor}`,
                         transition: 'all .2s ease',
-                        height: '100%',
+                        height: { xs: 'auto', sm: '100%' },
                         '&:hover': {
                             transform: 'translateY(-5px)',
                         }
@@ -71,7 +71,14 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
 
                     <Box
                         component='div'
-                        sx={{ pl: 3, py: 2 }}
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'left',
+                            flexDirection: 'column',
+                            pl: { xs: 0, sm: 3 },
+                            py: { xs: 0, sm: 2 }
+                        }}
                     >
 
                         <Typography
@@ -79,6 +86,8 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
                             variant='h4'
                             sx={{
                                 mb: 2,
+                                pt: { xs: 3, sm: 0 },
+                                pl: { xs: 2, sm: 0 },
                                 transition: 'all .2s ease',
                                 ...(hover === true && {
                                     color: '#f9bc60',
@@ -88,7 +97,13 @@ const CardBox = ({ cardImgSrc, cardTextH4, cardTextParagraph, cardButtonLink, tr
                             {cardTextH4}
                         </Typography>
 
-                        <Typography paragraph={true} color={cardTypoColor}>
+                        <Typography
+                            paragraph={true}
+                            color={cardTypoColor}
+                            sx={{
+                                pl: { xs: 2, sm: 0 }
+                            }}
+                        >
                             {cardTextParagraph}
                         </Typography>
 
