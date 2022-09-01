@@ -45,10 +45,11 @@ const Homepage = () => {
                 cardSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
                 cardSectionIconLightColor='#fff'
                 cardSectionIconDarkColor='#f9bc60'
-                cardSectionFirstIllu={Images.Forest1}
-                cardSectionSecondIllu={Images.Forest2}
+                cardSectionFirstIllu={Images.FoxSilhouette4}
+                cardSectionSecondIllu={Images.FoxSilhouette2}
                 cardSectionIlluInvert={100}
-                cardSectionIlluWidth='300px'
+                cardSectionIlluWidth={300}
+                cardSectionIlluWidthOnSmallScreen={200}
                 cardBoxColor='#fff'
                 cardTypoColor='primary.main'
                 arrayOfCards={EventObjects}
@@ -64,13 +65,18 @@ const Homepage = () => {
                 cardSectionIconDarkColor='#f9bc60'
                 cardSectionFirstIllu={Images.Forest1}
                 cardSectionSecondIllu={Images.Forest2}
-                cardSectionIlluInvert={0}
-                cardSectionIlluWidth='300px'
+                cardSectionIlluInvert={15}
+                cardSectionIlluWidth={300}
+                cardSectionIlluWidthOnSmallScreen={300}
                 cardBoxColor='#0e4627'
                 cardTypoColor='secondary.light'
                 arrayOfCards={DiscoverObjects}
             ></CardSection>
-            <ContactSection />
+            <ContactSection
+                xDirection={-100}
+                cardSectionIconLightColor='#fff'
+                cardSectionIconDarkColor='#f9bc60'
+            />
             <AboutSection />
         </>
     )

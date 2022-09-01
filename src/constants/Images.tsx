@@ -12,7 +12,10 @@ import Forest2 from "../assets/img/hill2.png";
 import Animals from "../assets/img/discover/animals.jpg";
 import PoultryYard from "../assets/img/discover/poultryyard.jpg";
 import FoxForest from "../assets/img/discover/foxforest.jpg";
-
+import FoxSilhouette1 from "../assets/img/foxsilhouette1.png";
+import FoxSilhouette2 from "../assets/img/foxsilhouette2.png";
+import FoxSilhouette3 from "../assets/img/foxsilhouette3.png";
+import FoxSilhouette4 from "../assets/img/foxsilhouette4.png";
 
 export const Images = {
 
@@ -24,6 +27,10 @@ export const Images = {
     Peacock1: Peacock1,
     Forest1: Forest1,
     Forest2: Forest2,
+    FoxSilhouette1: FoxSilhouette1,
+    FoxSilhouette2: FoxSilhouette2,
+    FoxSilhouette3: FoxSilhouette3,
+    FoxSilhouette4: FoxSilhouette4
 }
 
 export const EventImages = {

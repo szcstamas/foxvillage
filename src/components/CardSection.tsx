@@ -1,7 +1,7 @@
 import { Typography, Box } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import PetsIcon from '@mui/icons-material/Pets';
 import { theme } from '../constants/Theme';
+import PetsIcon from '@mui/icons-material/Pets';
 import { CardSectionStyles, ContainerBoxStyles } from '../constants/Styles';
 import CardBox from './CardBox';
 import { motion } from 'framer-motion';
@@ -16,7 +16,8 @@ interface Props {
     cardSectionIconDarkColor: string;
     cardSectionFirstIllu: string;
     cardSectionSecondIllu: string;
-    cardSectionIlluWidth: string;
+    cardSectionIlluWidth: number;
+    cardSectionIlluWidthOnSmallScreen: number;
     cardSectionIlluInvert: number;
     arrayOfCards: Array<{ Img: string, Title: string, Desc: string, Link: string }>;
     xDirection: number;
@@ -24,13 +25,14 @@ interface Props {
     cardTypoColor: string;
 }
 
-const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluInvert, cardSectionIlluWidth, arrayOfCards, xDirection, cardBoxColor, cardTypoColor }: Props) => {
+const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, cardSectionParagraph, cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionFirstIllu, cardSectionSecondIllu, cardSectionIlluInvert, cardSectionIlluWidth, cardSectionIlluWidthOnSmallScreen, arrayOfCards, xDirection, cardBoxColor, cardTypoColor }: Props) => {
 
     const cardSectionIlluStyleLeft = {
         position: 'absolute',
         bottom: '0',
         left: '0',
-        width: cardSectionIlluWidth,
+        maxWidth: { xs: cardSectionIlluWidthOnSmallScreen, lg: cardSectionIlluWidth },
+        maxHeight: `${cardSectionIlluWidth / 2}px`,
         pointerEvents: 'none',
         filter: `invert(${cardSectionIlluInvert}%)`
     };
@@ -39,7 +41,8 @@ const CardSection = ({ id, cardSectionH2, cardSectionBg, cardSectionH2Color, car
         position: 'absolute',
         bottom: '0',
         right: '0',
-        width: cardSectionIlluWidth,
+        maxWidth: { xs: cardSectionIlluWidthOnSmallScreen, lg: cardSectionIlluWidth },
+        maxHeight: `${cardSectionIlluWidth / 2}px`,
         pointerEvents: 'none',
         filter: `invert(${cardSectionIlluInvert}%)`
     };

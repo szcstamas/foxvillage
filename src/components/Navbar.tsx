@@ -13,13 +13,17 @@ import { Link as RouterLink } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import Logo from './Logo';
+import { useScrollPosition } from '../hooks/useScrollPosition';
 
 const pages = ['Homepage', 'Events', 'Discover', 'Prices', 'About us', 'Contact us'];
 const pagesLinks = ['/foxvillage/', '/foxvillage/#/events', '/foxvillage/#/discover', '/foxvillage/#/prices', '/foxvillage/#/about', '/foxvillage/#/contact',];
 const subPages = ['Night Trip', 'Animal Shows', 'Close Up', 'Animals', 'Poultry Yard', 'Fox Forest'];
 const subPagesLinks = ['/foxvillage/#/events/night-trip', '/foxvillage/#/events/animal-show', '/foxvillage/#/events/close-up', '/foxvillage/#/discover/animals', '/foxvillage/#/discover/poultry-yard', '/foxvillage/#/discover/fox-forest'];
+let positionOnScroll: string = '';
 
 const Navbar = () => {
+
+    const scrollPosition = useScrollPosition();
 
     let [isVisible, setIsVisible] = useState(0);
     let [hover, setHover] = useState(false);
@@ -37,7 +41,20 @@ const Navbar = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <AppBar position="static" color="primary">
+            <AppBar
+                position="static"
+                color="primary"
+                style={{
+                    position: 'static',
+                    ... (scrollPosition > 0 && {
+                        position: 'sticky',
+                        top: 0,
+                        borderBottom: '6px solid #fff'
+                    }),
+                    zIndex: '99999',
+                    boxShadow: 'none'
+                }}
+            >
                 <Container maxWidth="xl" sx={{ my: 2 }}>
                     <Toolbar disableGutters sx={{ justifyContent: 'space-between', position: 'static' }}>
                         <Link
