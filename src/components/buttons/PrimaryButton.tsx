@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from '@mui/material';
+// import { Link } from '@mui/material';
 import Button from '@mui/material/Button';
 import ExploreIcon from '@mui/icons-material/Explore';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
@@ -13,6 +13,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { ThemeProvider } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { theme } from '../../constants/Theme';
+import { Link } from 'react-router-dom';
 
 interface Props {
     text: string;
@@ -37,12 +38,12 @@ const PrimaryButton = ({ text, link, icon }: Props) => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Link underline="none"
+            <Link
                 color="secondary.light"
-                href={link}
-                sx={{
-                    width: { xs: '100%', md: 'auto' },
-                }}
+                to={link}
+                // sx={{
+                //     width: { xs: '100%', md: 'auto' },
+                // }}
                 key='foxvillage-mainpage-hero-cta'>
                 <Button
                     component={motion.button}

@@ -113,7 +113,19 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: orange;
+  background: #f9bc60;
   border-radius: 10px;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: #f9bc60;
+  -webkit-transform-origin: 0%;
+          transform-origin: 0%;
+  z-index: 999999;
 }
 /*# sourceMappingURL=styles.css.map */

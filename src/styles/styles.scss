@@ -79,6 +79,17 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: orange;
+    background: $accentColor;
     border-radius: 10px;
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: $accentColor;
+    transform-origin: 0%;
+    z-index: 999999;
 }

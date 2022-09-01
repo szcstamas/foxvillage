@@ -1,3 +1,4 @@
+import { motion, useScroll, useSpring } from 'framer-motion';
 import CardSection from '../components/CardSection';
 import HeroSection from '../components/HeroSection';
 import { DiscoverObjects } from '../constants/DiscoverObjects';
@@ -5,8 +6,20 @@ import { EventObjects } from '../constants/EventObjects';
 import { Images } from '../constants/Images';
 
 const Homepage = () => {
+
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
     return (
         <>
+            <motion.div
+                className="progress-bar"
+                style={{ scaleX }}
+            />
             <HeroSection
                 backgroundImage={Images.Fox2}
                 h1TextFirstSlice="Welcome to the"
@@ -14,7 +27,7 @@ const Homepage = () => {
                 h1TextSecondSlice="of Zsámbék!"
                 pText="Explore our mythical village of wonders in the city of Zsámbék, located in Hungary!"
                 primaryBtnText="Explore"
-                primaryBtnLink="/foxvillage/#explore"
+                primaryBtnLink="/#explore"
                 primaryBtnIcon="explore"
                 secondaryBtnText="Contact"
                 secondaryBtnLink="/foxvillage/#/contact"
