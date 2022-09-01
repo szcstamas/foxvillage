@@ -1,6 +1,8 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
 import CardSection from '../components/CardSection';
+import ContactSection from '../components/ContactSection';
 import HeroSection from '../components/HeroSection';
+import AboutSection from '../components/AboutSection';
 import { DiscoverObjects } from '../constants/DiscoverObjects';
 import { EventObjects } from '../constants/EventObjects';
 import { Images } from '../constants/Images';
@@ -67,6 +69,8 @@ const Homepage = () => {
                 cardTypoColor='secondary.light'
                 arrayOfCards={DiscoverObjects}
             ></CardSection>
+            <ContactSection />
+            <AboutSection />
         </>
     )
 }

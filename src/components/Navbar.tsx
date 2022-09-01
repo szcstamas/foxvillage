@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import Logo from './Logo';
@@ -354,23 +355,31 @@ const Navbar = () => {
                                 </AnimatePresence>
                             </Box>
 
-                            {pages.map((page, index) => (
+                            <Button
+                                variant="contained"
+                                disableElevation>
+                                <RouterLink
+                                    to='/#contact'
+                                    style={{ color: '#fff', textDecoration: 'none' }}
 
-                                <Button
-                                    variant="contained"
-                                    key={`lastDesktopLinks${index}`}
-                                    disableElevation>
-                                    <Link
-                                        color="secondary.light"
-                                        style={{ textDecoration: "none" }}
-                                        href={pagesLinks[index]}
-                                        key={page}
-                                        onClick={handleCloseNavMenu}
-                                    >
-                                        {page}
-                                    </Link>
-                                </Button>
-                            )).slice(4, pages.length)}
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    Contact us
+                                </RouterLink>
+                            </Button>
+                            <Button
+                                variant="contained"
+                                disableElevation>
+                                <RouterLink
+                                    to='/#about'
+                                    style={{ color: '#fff', textDecoration: 'none' }}
+
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    About us
+                                </RouterLink>
+                            </Button>
+
                         </Box>
                     </Toolbar>
                 </Container>
