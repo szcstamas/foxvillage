@@ -1,3 +1,5 @@
+import { theme } from "./Theme";
+
 export const HeroSectionStyles = {
 
     px: { xs: 5, sm: 10, md: 15, lg: 0 },
@@ -16,3 +18,13 @@ export const ContainerBoxStyles = {
     maxWidth: { sm: '100%', lg: '1100px', xl: '1400px' },
     m: 'auto'
 };
+
+
+//object created from theme colors, so I can use them without using theme 
+export const Colors = {
+
+    primary: theme.palette.primary.main,
+    secondary: theme.palette.secondary.main,
+    light: theme.palette.secondary.light,
+    dark: theme.palette.secondary.dark
+}

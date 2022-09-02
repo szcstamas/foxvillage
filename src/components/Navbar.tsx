@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import { CgMenuCake } from 'react-icons/cg';
 import Button from '@mui/material/Button';
@@ -20,7 +19,6 @@ const pages = ['Homepage', 'Events', 'Discover', 'Contact us', 'Prices', 'About 
 const pagesLinks = ['/foxvillage/', '/foxvillage/#/events', '/foxvillage/#/discover', '/#contact', '/#prices', '/#about'];
 const subPages = ['Night Trip', 'Animal Shows', 'Close Up', 'Animals', 'Poultry Yard', 'Fox Forest'];
 const subPagesLinks = ['/foxvillage/#/events/night-trip', '/foxvillage/#/events/animal-show', '/foxvillage/#/events/close-up', '/foxvillage/#/discover/animals', '/foxvillage/#/discover/poultry-yard', '/foxvillage/#/discover/fox-forest'];
-let positionOnScroll: string = '';
 
 const Navbar = () => {
 
@@ -29,16 +27,7 @@ const Navbar = () => {
     let [isVisible, setIsVisible] = useState(0);
     let [hover, setHover] = useState(false);
 
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [hamburgerRightMenu, setHamburgerRightMenu] = useState(false);
-
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
 
     return (
         <ThemeProvider theme={theme}>
@@ -47,7 +36,7 @@ const Navbar = () => {
                 color="primary"
                 style={{
                     position: 'static',
-                    ... (scrollPosition > 0 && {
+                    ...(scrollPosition > 0 && {
                         position: 'sticky',
                         top: 0,
                         borderBottom: '6px solid #fff'
@@ -134,7 +123,6 @@ const Navbar = () => {
                                                     underline="none"
                                                     href={pagesLinks[index]}
                                                     key={index}
-                                                    onClick={handleCloseNavMenu}
                                                 >
                                                     <Button
                                                         variant="contained"
@@ -193,7 +181,6 @@ const Navbar = () => {
                                                                     style={{ textDecoration: "none" }}
                                                                     href={subPagesLinks[index]}
                                                                     key={index}
-                                                                    onClick={handleCloseNavMenu}
                                                                 >
                                                                     {subPage}
                                                                 </Link>
@@ -241,7 +228,6 @@ const Navbar = () => {
                                                                     style={{ textDecoration: "none" }}
                                                                     href={subPagesLinks[index]}
                                                                     key={index}
-                                                                    onClick={handleCloseNavMenu}
                                                                 >
                                                                     {subPage}
                                                                 </Link>
@@ -258,7 +244,6 @@ const Navbar = () => {
                                                     color="secondary.light"
                                                     href={pagesLinks[index]}
                                                     key={page}
-                                                    onClick={handleCloseNavMenu}
                                                 >
                                                     <Button
                                                         variant="contained"
@@ -296,8 +281,6 @@ const Navbar = () => {
                                         underline="none"
                                         color="secondary.light"
                                         href={pagesLinks[index]}
-
-                                        onClick={handleCloseNavMenu}
                                     >
                                         {page}
                                     </Link>
@@ -331,7 +314,6 @@ const Navbar = () => {
                                                     style={{ textDecoration: "none" }}
                                                     href={subPagesLinks[index]}
                                                     key={subPage}
-                                                    onClick={handleCloseNavMenu}
                                                 >
                                                     {subPage}
                                                 </Link>
@@ -363,7 +345,6 @@ const Navbar = () => {
                                                     style={{ textDecoration: "none" }}
                                                     href={subPagesLinks[index]}
                                                     key={subPage}
-                                                    onClick={handleCloseNavMenu}
                                                 >
                                                     {subPage}
                                                 </Link>
@@ -382,7 +363,6 @@ const Navbar = () => {
                                         style={{ color: '#fff', textDecoration: 'none' }}
                                         to={pagesLinks[index]}
 
-                                        onClick={handleCloseNavMenu}
                                     >
                                         {page}
                                     </RouterLink>

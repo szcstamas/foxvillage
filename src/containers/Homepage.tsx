@@ -1,13 +1,20 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from '../constants/Theme';
 import CardSection from '../components/CardSection';
 import ContactSection from '../components/ContactSection';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
+import PriceSection from '../components/PriceSection';
 import { DiscoverObjects } from '../constants/DiscoverObjects';
 import { EventObjects } from '../constants/EventObjects';
 import { Images } from '../constants/Images';
+import { Colors } from '../constants/Styles';
 
 const Homepage = () => {
+
+    //destructuring colors from Colors
+    const { primary, secondary, light, dark } = Colors;
 
     //for progress bar on top of page when scrolling
     const { scrollYProgress } = useScroll();
@@ -18,7 +25,7 @@ const Homepage = () => {
     });
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <motion.div
                 className="progress-bar"
                 style={{ scaleX }}
@@ -43,14 +50,14 @@ const Homepage = () => {
                 cardSectionH2='Events'
                 cardSectionH2Color='secondary.light'
                 cardSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
-                cardSectionIconLightColor='#fff'
-                cardSectionIconDarkColor='#f9bc60'
+                cardSectionIconLightColor={light}
+                cardSectionIconDarkColor={secondary}
                 cardSectionFirstIllu={Images.FoxSilhouette4}
                 cardSectionSecondIllu={Images.FoxSilhouette2}
                 cardSectionIlluInvert={100}
                 cardSectionIlluWidth={300}
                 cardSectionIlluWidthOnSmallScreen={200}
-                cardBoxColor='#fff'
+                cardBoxColor={light}
                 cardTypoColor='primary.main'
                 arrayOfCards={EventObjects}
             ></CardSection>
@@ -61,24 +68,48 @@ const Homepage = () => {
                 cardSectionH2='Discover'
                 cardSectionH2Color='primary.main'
                 cardSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
-                cardSectionIconLightColor='#272727'
-                cardSectionIconDarkColor='#f9bc60'
+                cardSectionIconLightColor={dark}
+                cardSectionIconDarkColor={secondary}
                 cardSectionFirstIllu={Images.Forest1}
                 cardSectionSecondIllu={Images.Forest2}
                 cardSectionIlluInvert={15}
                 cardSectionIlluWidth={300}
                 cardSectionIlluWidthOnSmallScreen={300}
-                cardBoxColor='#0e4627'
+                cardBoxColor={primary}
                 cardTypoColor='secondary.light'
                 arrayOfCards={DiscoverObjects}
             ></CardSection>
             <ContactSection
                 xDirection={-100}
-                cardSectionIconLightColor='#fff'
-                cardSectionIconDarkColor='#f9bc60'
+                contactSectionIconLightColor={light}
+                contactSectionIconDarkColor={secondary}
+                contactSectionFirstIllu={Images.Forest1}
+                contactSectionSecondIllu={Images.Forest2}
+                contactSectionIlluInvert={100}
+                contactSectionIlluWidth={300}
+                contactSectionIlluWidthOnSmallScreen={300}
             />
-            <AboutSection />
-        </>
+            <PriceSection
+                xDirection={100}
+                priceSectionIconLightColor={dark}
+                priceSectionIconDarkColor={secondary}
+                priceSectionFirstIllu={Images.Forest1}
+                priceSectionSecondIllu={Images.Forest2}
+                priceSectionIlluInvert={15}
+                priceSectionIlluWidth={300}
+                priceSectionIlluWidthOnSmallScreen={300}
+            />
+            <AboutSection
+                xDirection={-100}
+                aboutSectionIconLightColor={light}
+                aboutSectionIconDarkColor={secondary}
+                aboutSectionFirstIllu={Images.Forest1}
+                aboutSectionSecondIllu={Images.Forest2}
+                aboutSectionIlluInvert={100}
+                aboutSectionIlluWidth={300}
+                aboutSectionIlluWidthOnSmallScreen={300}
+            />
+        </ThemeProvider>
     )
 }
 

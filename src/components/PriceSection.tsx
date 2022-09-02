@@ -2,48 +2,48 @@ import React from 'react';
 import { Typography, Box } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { CardSectionStyles, ContainerBoxStyles } from '../constants/Styles';
 import { motion } from 'framer-motion';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 
 interface Props {
     xDirection: number;
-    aboutSectionIconLightColor: string;
-    aboutSectionIconDarkColor: string;
-    aboutSectionFirstIllu: string;
-    aboutSectionSecondIllu: string;
-    aboutSectionIlluWidth: number;
-    aboutSectionIlluWidthOnSmallScreen: number;
-    aboutSectionIlluInvert: number;
+    priceSectionIconLightColor: string;
+    priceSectionIconDarkColor: string;
+    priceSectionFirstIllu: string;
+    priceSectionSecondIllu: string;
+    priceSectionIlluWidth: number;
+    priceSectionIlluWidthOnSmallScreen: number;
+    priceSectionIlluInvert: number;
 }
 
-const AboutSection = ({ xDirection, aboutSectionIconLightColor, aboutSectionIconDarkColor, aboutSectionFirstIllu, aboutSectionSecondIllu, aboutSectionIlluWidth, aboutSectionIlluWidthOnSmallScreen, aboutSectionIlluInvert }: Props) => {
+const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIconDarkColor, priceSectionFirstIllu, priceSectionSecondIllu, priceSectionIlluWidthOnSmallScreen, priceSectionIlluWidth, priceSectionIlluInvert }: Props) => {
 
     const cardSectionIlluStyleLeft = {
         position: 'absolute',
         bottom: '0',
         left: '0',
-        maxWidth: { xs: aboutSectionIlluWidthOnSmallScreen, lg: aboutSectionIlluWidth },
-        maxHeight: `${aboutSectionIlluWidth / 2}px`,
+        maxWidth: { xs: priceSectionIlluWidthOnSmallScreen, lg: priceSectionIlluWidth },
+        maxHeight: `${priceSectionIlluWidth / 2}px`,
         pointerEvents: 'none',
-        filter: `invert(${aboutSectionIlluInvert}%)`
+        filter: `invert(${priceSectionIlluInvert}%)`
     };
 
     const cardSectionIlluStyleRight = {
         position: 'absolute',
         bottom: '0',
         right: '0',
-        maxWidth: { xs: aboutSectionIlluWidthOnSmallScreen, lg: aboutSectionIlluWidth },
-        maxHeight: `${aboutSectionIlluWidth / 2}px`,
+        maxWidth: { xs: priceSectionIlluWidthOnSmallScreen, lg: priceSectionIlluWidth },
+        maxHeight: `${priceSectionIlluWidth / 2}px`,
         pointerEvents: 'none',
-        filter: `invert(${aboutSectionIlluInvert}%)`
+        filter: `invert(${priceSectionIlluInvert}%)`
     };
 
     return (
         <ThemeProvider theme={theme}>
             <Box
-                id='about'
-                bgcolor='primary.main'
+                id='price'
+                bgcolor='secondary.light'
                 component={motion.section}
                 sx={{
                     ...CardSectionStyles,
@@ -62,16 +62,16 @@ const AboutSection = ({ xDirection, aboutSectionIconLightColor, aboutSectionIcon
                         <Typography
                             variant='h2'
                             sx={{ textAlign: 'center' }}
-                            color='secondary.light'
+                            color='secondary.dark'
                         >
 
-                            About us
+                            Our prices
                         </Typography>
-                        <FavoriteIcon
+                        <LocalOfferIcon
                             component={motion.svg}
                             animate={{
                                 rotate: [0, 20, -20, 0, 0],
-                                color: [aboutSectionIconLightColor, aboutSectionIconDarkColor, aboutSectionIconDarkColor, aboutSectionIconDarkColor, aboutSectionIconLightColor,],
+                                color: [priceSectionIconLightColor, priceSectionIconDarkColor, priceSectionIconDarkColor, priceSectionIconDarkColor, priceSectionIconLightColor,],
                             }}
                             transition={{
                                 duration: 2,
@@ -85,13 +85,13 @@ const AboutSection = ({ xDirection, aboutSectionIconLightColor, aboutSectionIcon
                                 transformOrigin: 'center!important',
                                 transformBox: 'fill-box',
                             }}
-                        ></FavoriteIcon>
+                        ></LocalOfferIcon>
                     </Box>
                 </Box>
 
                 <Box
                     component={motion.img}
-                    src={aboutSectionFirstIllu}
+                    src={priceSectionFirstIllu}
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -99,15 +99,16 @@ const AboutSection = ({ xDirection, aboutSectionIconLightColor, aboutSectionIcon
                 />
                 <Box
                     component={motion.img}
-                    src={aboutSectionSecondIllu}
+                    src={priceSectionSecondIllu}
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     sx={{ ...cardSectionIlluStyleRight }}
                 />
+
             </Box>
         </ThemeProvider>
     )
 }
 
-export default AboutSection
+export default PriceSection

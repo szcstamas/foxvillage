@@ -8,11 +8,36 @@ import { motion } from 'framer-motion';
 
 interface Props {
     xDirection: number;
-    cardSectionIconLightColor: string;
-    cardSectionIconDarkColor: string;
+    contactSectionIconLightColor: string;
+    contactSectionIconDarkColor: string;
+    contactSectionFirstIllu: string;
+    contactSectionSecondIllu: string;
+    contactSectionIlluWidth: number;
+    contactSectionIlluWidthOnSmallScreen: number;
+    contactSectionIlluInvert: number;
 }
 
-const ContactSection = ({ xDirection, cardSectionIconLightColor, cardSectionIconDarkColor }: Props) => {
+const ContactSection = ({ xDirection, contactSectionIconLightColor, contactSectionIconDarkColor, contactSectionFirstIllu, contactSectionSecondIllu, contactSectionIlluWidth, contactSectionIlluWidthOnSmallScreen, contactSectionIlluInvert }: Props) => {
+
+    const cardSectionIlluStyleLeft = {
+        position: 'absolute',
+        bottom: '0',
+        left: '0',
+        maxWidth: { xs: contactSectionIlluWidthOnSmallScreen, lg: contactSectionIlluWidth },
+        maxHeight: `${contactSectionIlluWidth / 2}px`,
+        pointerEvents: 'none',
+        filter: `invert(${contactSectionIlluInvert}%)`
+    };
+
+    const cardSectionIlluStyleRight = {
+        position: 'absolute',
+        bottom: '0',
+        right: '0',
+        maxWidth: { xs: contactSectionIlluWidthOnSmallScreen, lg: contactSectionIlluWidth },
+        maxHeight: `${contactSectionIlluWidth / 2}px`,
+        pointerEvents: 'none',
+        filter: `invert(${contactSectionIlluInvert}%)`
+    };
 
     return (
         <ThemeProvider theme={theme}>
@@ -46,7 +71,7 @@ const ContactSection = ({ xDirection, cardSectionIconLightColor, cardSectionIcon
                             component={motion.svg}
                             animate={{
                                 rotate: [0, 20, -20, 0, 0],
-                                color: [cardSectionIconLightColor, cardSectionIconDarkColor, cardSectionIconDarkColor, cardSectionIconDarkColor, cardSectionIconLightColor,],
+                                color: [contactSectionIconLightColor, contactSectionIconDarkColor, contactSectionIconDarkColor, contactSectionIconDarkColor, contactSectionIconLightColor,],
                             }}
                             transition={{
                                 duration: 2,
@@ -63,6 +88,23 @@ const ContactSection = ({ xDirection, cardSectionIconLightColor, cardSectionIcon
                         ></CallIcon>
                     </Box>
                 </Box>
+
+                <Box
+                    component={motion.img}
+                    src={contactSectionFirstIllu}
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    sx={{ ...cardSectionIlluStyleLeft }}
+                />
+                <Box
+                    component={motion.img}
+                    src={contactSectionSecondIllu}
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    sx={{ ...cardSectionIlluStyleRight }}
+                />
 
             </Box>
         </ThemeProvider>
