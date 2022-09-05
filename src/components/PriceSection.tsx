@@ -24,13 +24,24 @@ interface Props {
 
 const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIconDarkColor, priceSectionParagraph, priceSectionFirstIllu, priceSectionIlluInvert }: Props) => {
 
-    const [currency, setTicketCurrency] = useState('€');
     const [oneTimeWeekDaysTickets, setOneTimeWeekDaysTickets] = useState<any[]>([]);
     const [oneTimeWeekEndTickets, setOneTimeWeekEndTickets] = useState<any[]>([]);
     const [nightTripTickets, setNightTripTickets] = useState<any[]>([]);
     const [animalShowTickets, setAnimalShowTickets] = useState<any[]>([]);
     const [closeUpTickets, setCloseUpTickets] = useState<any[]>([]);
     const [longPeriodTickets, setLongPeriodTickets] = useState<any[]>([]);
+
+    //onetime currency
+    const [oneTimeCurrency, setOneTimeCurrency] = useState('€');
+    const [oneTimeCurrencyName, setOneTimeCurrencyName] = useState('EUR');
+
+    //event currency
+    const [eventCurrency, setEventCurrency] = useState('€');
+    const [eventTicketCurrencyName, setEventTicketCurrencyName] = useState('EUR');
+
+    //longperiod currency
+    const [longPeriodCurrency, setLongPeriodCurrency] = useState('€');
+    const [longPeriodTicketCurrencyName, setLongPeriodTicketCurrencyName] = useState('EUR');
 
     useEffect(() => {
         axios.get('tickets.json')
@@ -44,31 +55,61 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
             }
             )
             .catch(err => console.log(err))
-    }, [currency])
+    }, [oneTimeCurrency, eventCurrency, longPeriodCurrency])
 
     const priceSectionIllu = {
         position: 'absolute',
-        bottom: '-150px',
-        left: '0',
+        bottom: -30,
+        left: 0,
         width: '100%',
         pointerEvents: 'none',
-        filter: `invert(${priceSectionIlluInvert}%)`
+        filter: `invert(${priceSectionIlluInvert}%) drop-shadow(0px 0px 5px rgba(0, 0, 0, .25))`
     };
 
-    const [currencyName, setCurrencyName] = useState('EUR');
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setCurrencyName(event.target.value);
+    const oneTimeHandleChange = (event: SelectChangeEvent) => {
+        setOneTimeCurrencyName(event.target.value);
 
         switch (event.target.value) {
             case 'EUR':
-                setTicketCurrency('€');
+                setOneTimeCurrency('€');
                 break;
             case 'HUF':
-                setTicketCurrency('Ft');
+                setOneTimeCurrency('Ft');
                 break;
             case 'USD':
-                setTicketCurrency('$');
+                setOneTimeCurrency('$');
+                break;
+        }
+    };
+
+    const eventTicketHandleChange = (event: SelectChangeEvent) => {
+        setEventTicketCurrencyName(event.target.value);
+
+        switch (event.target.value) {
+            case 'EUR':
+                setEventCurrency('€');
+                break;
+            case 'HUF':
+                setEventCurrency('Ft');
+                break;
+            case 'USD':
+                setEventCurrency('$');
+                break;
+        }
+    };
+
+    const longPeriodTicketHandleChange = (event: SelectChangeEvent) => {
+        setLongPeriodTicketCurrencyName(event.target.value);
+
+        switch (event.target.value) {
+            case 'EUR':
+                setLongPeriodCurrency('€');
+                break;
+            case 'HUF':
+                setLongPeriodCurrency('Ft');
+                break;
+            case 'USD':
+                setLongPeriodCurrency('$');
                 break;
         }
     };
@@ -162,8 +203,8 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                             {/* one-time prices header */}
                             <PricesListHeader
                                 headerTitle='One-time tickets'
-                                headerCurrencyValue={currencyName}
-                                onChangeFunctionSelect={handleChange}
+                                headerCurrencyValue={oneTimeCurrencyName}
+                                onChangeFunctionSelect={oneTimeHandleChange}
                             />
 
                             {/* one-time ticket LIST */}
@@ -180,14 +221,14 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                             >
                                 {/* one-time ticket LEFT SIDE */}
                                 <PriceListColumn
-                                    currency={currency}
+                                    currency={oneTimeCurrency}
                                     priceListColumnTitle='weekdays'
                                     priceListArray={oneTimeWeekDaysTickets}
                                 />
 
                                 {/* one-time ticket RIGHT SIDE */}
                                 <PriceListColumn
-                                    currency={currency}
+                                    currency={oneTimeCurrency}
                                     priceListColumnTitle='weekends'
                                     priceListArray={oneTimeWeekEndTickets}
                                 />
@@ -210,8 +251,8 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                             {/* event tickets header */}
                             <PricesListHeader
                                 headerTitle='Event tickets (only on weekends)'
-                                headerCurrencyValue={currencyName}
-                                onChangeFunctionSelect={handleChange}
+                                headerCurrencyValue={eventTicketCurrencyName}
+                                onChangeFunctionSelect={eventTicketHandleChange}
                             />
 
                             {/* event ticket LIST */}
@@ -228,21 +269,21 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                             >
                                 {/* even ticket NIGHT TRIP */}
                                 <PriceListColumn
-                                    currency={currency}
+                                    currency={eventCurrency}
                                     priceListColumnTitle='night trip'
                                     priceListArray={nightTripTickets}
                                 />
 
                                 {/* event ticket ANIMAL SHOW */}
                                 <PriceListColumn
-                                    currency={currency}
+                                    currency={eventCurrency}
                                     priceListColumnTitle='animal show'
                                     priceListArray={animalShowTickets}
                                 />
 
                                 {/* event ticket CLOSE UP */}
                                 <PriceListColumn
-                                    currency={currency}
+                                    currency={eventCurrency}
                                     priceListColumnTitle='close up'
                                     priceListArray={closeUpTickets}
                                 />
@@ -266,13 +307,13 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                             {/* long period header */}
                             <PricesListHeader
                                 headerTitle='Long period tickets'
-                                headerCurrencyValue={currencyName}
-                                onChangeFunctionSelect={handleChange}
+                                headerCurrencyValue={longPeriodTicketCurrencyName}
+                                onChangeFunctionSelect={longPeriodTicketHandleChange}
                             />
 
                             {/* long period LIST */}
                             <PriceListRow
-                                currency={currency}
+                                currency={longPeriodCurrency}
                                 priceListArray={longPeriodTickets}
                             />
 
