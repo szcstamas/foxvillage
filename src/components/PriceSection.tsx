@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Typography, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -9,6 +10,8 @@ import { theme } from '../constants/Theme';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { CardSectionStyles, ContainerBoxStyles, PriceTicketStyle } from '../constants/Styles';
 import { motion } from 'framer-motion';
+import PriceTicket from './PriceTicket';
+
 
 interface Props {
     xDirection: number;
@@ -21,6 +24,19 @@ interface Props {
 }
 
 const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIconDarkColor, priceSectionParagraph, priceSectionFirstIllu, priceSectionIlluInvert }: Props) => {
+
+    const [oneTimeWeekDaysTickets, setOneTimeWeekDaysTickets] = useState([]);
+    const [oneTimeWeekEndTickets, setOneTimeWeekEndTickets] = useState([]);
+
+    useEffect(() => {
+        axios.get('tickets.json')
+            .then(res => {
+                setOneTimeWeekDaysTickets(res.data.onetimetickets[0].weekdays);
+                setOneTimeWeekEndTickets(res.data.onetimetickets[1].weekends);
+            }
+            )
+            .catch(err => console.log(err))
+    }, [])
 
     const priceSectionIllu = {
         position: 'absolute',
@@ -226,32 +242,18 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                             ml: 6
                                         }}
                                     >
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Adult</Typography>
-                                            <Typography variant='h4'>200 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>For persons above 18 years</Typography>
-                                        </Box>
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Child</Typography>
-                                            <Typography variant='h4'>100 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>For childs under 14 years</Typography>
-                                        </Box>
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Student / Elder</Typography>
-                                            <Typography variant='h4'>150 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>With proper student or elderly license!</Typography>
-                                        </Box>
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Family</Typography>
-                                            <Typography variant='h4'>450 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>2 Adult + (min.) 2 Children</Typography>
-                                        </Box>
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Preferential</Typography>
-                                            <Typography variant='h4'>50 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>For ill people</Typography>
-                                        </Box>
+                                        {
+                                            oneTimeWeekDaysTickets.map((ticket: any) => {
 
+                                                return (
+                                                    <PriceTicket
+                                                        ticketTitle={ticket.title}
+                                                        ticketPrice={ticket.price}
+                                                        ticketDesc={ticket.desc}
+                                                    />
+                                                )
+                                            })
+                                        }
                                     </Box>
 
                                 </Box>
@@ -292,32 +294,18 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                             ml: 6
                                         }}
                                     >
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Adult</Typography>
-                                            <Typography variant='h4'>400 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#ccc' }}>For persons above 18 years</Typography>
-                                        </Box>
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Child</Typography>
-                                            <Typography variant='h4'>200 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>For childs under 14 years</Typography>
-                                        </Box>
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Student / Elder</Typography>
-                                            <Typography variant='h4'>300 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>With proper student or elderly license!</Typography>
-                                        </Box>
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Family</Typography>
-                                            <Typography variant='h4'>600 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>2 Adult + (min.) 2 Children</Typography>
-                                        </Box>
-                                        <Box component='div' sx={{ ...PriceTicketStyle }}>
-                                            <Typography paragraph={true}>Preferential</Typography>
-                                            <Typography variant='h4'>100 €</Typography>
-                                            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>For ill people</Typography>
-                                        </Box>
+                                        {
+                                            oneTimeWeekEndTickets.map((ticket: any) => {
 
+                                                return (
+                                                    <PriceTicket
+                                                        ticketTitle={ticket.title}
+                                                        ticketPrice={ticket.price}
+                                                        ticketDesc={ticket.desc}
+                                                    />
+                                                )
+                                            })
+                                        }
                                     </Box>
 
                                 </Box>
