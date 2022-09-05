@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import PriceTicket from './PriceTicket';
+import { motion } from 'framer-motion';
 
 interface Props {
 
@@ -11,7 +12,10 @@ interface Props {
 const PriceListRow = ({ currency, priceListArray }: Props) => {
     return (
         <Box
-            component='div'
+            component={motion.div}
+            initial={{ opacity: 0, height: '0%', y: -30 }}
+            animate={{ opacity: 1, height: '100%', y: 0 }}
+            exit={{ opacity: 0, height: '0%', y: -30 }}
             sx={{
                 display: 'flex',
                 justifyContent: 'space-between',

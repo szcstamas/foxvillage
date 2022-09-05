@@ -1,6 +1,7 @@
 import { Typography, Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { motion } from 'framer-motion';
@@ -10,9 +11,11 @@ interface Props {
     headerTitle: string;
     headerCurrencyValue: string;
     onChangeFunctionSelect: any;
+    onClickFunction: any;
+    headerIcon: boolean;
 }
 
-const PricesListHeader = ({ headerTitle, headerCurrencyValue, onChangeFunctionSelect }: Props) => {
+const PricesListHeader = ({ headerTitle, headerCurrencyValue, onChangeFunctionSelect, onClickFunction, headerIcon }: Props) => {
     return (
         <Box
             component={motion.div}
@@ -64,7 +67,13 @@ const PricesListHeader = ({ headerTitle, headerCurrencyValue, onChangeFunctionSe
                         '&:hover': {
                             backgroundColor: '#0a381f'
                         }
-                    }}><ExpandMoreIcon></ExpandMoreIcon></Box>
+                    }}>
+                    {
+                        headerIcon === false
+                            ? <ExpandMoreIcon onClick={onClickFunction} sx={{ transition: 'all .2s ease', '&:hover': { transform: 'translateY(5px)' } }} />
+                            : <ExpandLessIcon onClick={onClickFunction} sx={{ transition: 'all .2s ease', '&:hover': { transform: 'translateY(-5px)' } }} />
+                    }
+                </Box>
             </Box>
         </Box>
     )

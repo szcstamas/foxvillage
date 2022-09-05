@@ -6,10 +6,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { CardSectionStyles, ContainerBoxStyles } from '../constants/Styles';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import PricesListHeader from './PricesListHeader';
 import PriceListColumn from './PriceListColumn';
-import PriceTicket from './PriceTicket';
 import PriceListRow from './PriceListRow';
 
 interface Props {
@@ -32,14 +31,17 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
     const [longPeriodTickets, setLongPeriodTickets] = useState<any[]>([]);
 
     //onetime currency
+    const [oneTimeVisible, setOneTimeVisible] = useState(true);
     const [oneTimeCurrency, setOneTimeCurrency] = useState('€');
     const [oneTimeCurrencyName, setOneTimeCurrencyName] = useState('EUR');
 
     //event currency
+    const [eventVisible, setEventVisible] = useState(false);
     const [eventCurrency, setEventCurrency] = useState('€');
     const [eventTicketCurrencyName, setEventTicketCurrencyName] = useState('EUR');
 
     //longperiod currency
+    const [longPeriodVisible, setLongPeriodVisible] = useState(false);
     const [longPeriodCurrency, setLongPeriodCurrency] = useState('€');
     const [longPeriodTicketCurrencyName, setLongPeriodTicketCurrencyName] = useState('EUR');
 
@@ -68,6 +70,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
 
     const oneTimeHandleChange = (event: SelectChangeEvent) => {
         setOneTimeCurrencyName(event.target.value);
+        setOneTimeVisible(true);
 
         switch (event.target.value) {
             case 'EUR':
@@ -81,9 +84,13 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                 break;
         }
     };
+    const changeOneTimeVisible = () => {
+        oneTimeVisible === false ? setOneTimeVisible(true) : setOneTimeVisible(false)
+    }
 
     const eventTicketHandleChange = (event: SelectChangeEvent) => {
         setEventTicketCurrencyName(event.target.value);
+        setEventVisible(true);
 
         switch (event.target.value) {
             case 'EUR':
@@ -97,9 +104,13 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                 break;
         }
     };
+    const changeEventVisible = () => {
+        eventVisible === false ? setEventVisible(true) : setEventVisible(false)
+    }
 
     const longPeriodTicketHandleChange = (event: SelectChangeEvent) => {
         setLongPeriodTicketCurrencyName(event.target.value);
+        setLongPeriodVisible(true);
 
         switch (event.target.value) {
             case 'EUR':
@@ -113,6 +124,9 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                 break;
         }
     };
+    const changeLongPeriodVisible = () => {
+        longPeriodVisible === false ? setLongPeriodVisible(true) : setLongPeriodVisible(false)
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -205,35 +219,45 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                 headerTitle='One-time tickets'
                                 headerCurrencyValue={oneTimeCurrencyName}
                                 onChangeFunctionSelect={oneTimeHandleChange}
+                                onClickFunction={changeOneTimeVisible}
+                                headerIcon={oneTimeVisible}
                             />
 
                             {/* one-time ticket LIST */}
-                            <Box
-                                component='div'
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'flex-start',
-                                    gap: 6,
-                                    width: '100%',
-                                    flexDirection: { sm: 'column', md: 'row' }
-                                }}
-                            >
-                                {/* one-time ticket LEFT SIDE */}
-                                <PriceListColumn
-                                    currency={oneTimeCurrency}
-                                    priceListColumnTitle='weekdays'
-                                    priceListArray={oneTimeWeekDaysTickets}
-                                />
+                            <AnimatePresence>
+                                {oneTimeVisible && (
 
-                                {/* one-time ticket RIGHT SIDE */}
-                                <PriceListColumn
-                                    currency={oneTimeCurrency}
-                                    priceListColumnTitle='weekends'
-                                    priceListArray={oneTimeWeekEndTickets}
-                                />
+                                    <Box
+                                        component={motion.div}
+                                        initial={{ opacity: 0, height: '0%', y: -30 }}
+                                        animate={{ opacity: 1, height: '100%', y: 0 }}
+                                        exit={{ opacity: 0, height: '0%', y: -30 }}
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'flex-start',
+                                            gap: 6,
+                                            width: '100%',
+                                            flexDirection: { sm: 'column', md: 'row' }
+                                        }}
+                                    >
+                                        {/* one-time ticket LEFT SIDE */}
+                                        <PriceListColumn
+                                            currency={oneTimeCurrency}
+                                            priceListColumnTitle='weekdays'
+                                            priceListArray={oneTimeWeekDaysTickets}
+                                        />
 
-                            </Box>
+                                        {/* one-time ticket RIGHT SIDE */}
+                                        <PriceListColumn
+                                            currency={oneTimeCurrency}
+                                            priceListColumnTitle='weekends'
+                                            priceListArray={oneTimeWeekEndTickets}
+                                        />
+
+                                    </Box>
+                                )}
+                            </AnimatePresence>
 
                         </Box>
 
@@ -253,43 +277,52 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                 headerTitle='Event tickets (only on weekends)'
                                 headerCurrencyValue={eventTicketCurrencyName}
                                 onChangeFunctionSelect={eventTicketHandleChange}
+                                onClickFunction={changeEventVisible}
+                                headerIcon={eventVisible}
                             />
 
                             {/* event ticket LIST */}
-                            <Box
-                                component='div'
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'flex-start',
-                                    gap: 6,
-                                    width: '100%',
-                                    flexDirection: { sm: 'column', md: 'row' }
-                                }}
-                            >
-                                {/* even ticket NIGHT TRIP */}
-                                <PriceListColumn
-                                    currency={eventCurrency}
-                                    priceListColumnTitle='night trip'
-                                    priceListArray={nightTripTickets}
-                                />
+                            <AnimatePresence>
+                                {eventVisible && (
+                                    <Box
+                                        component={motion.div}
+                                        initial={{ opacity: 0, height: '0%', y: -30 }}
+                                        animate={{ opacity: 1, height: '100%', y: 0 }}
+                                        exit={{ opacity: 0, height: '0%', y: -30 }}
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'flex-start',
+                                            gap: 6,
+                                            width: '100%',
+                                            flexDirection: { sm: 'column', md: 'row' }
+                                        }}
+                                    >
+                                        {/* even ticket NIGHT TRIP */}
+                                        <PriceListColumn
+                                            currency={eventCurrency}
+                                            priceListColumnTitle='night trip'
+                                            priceListArray={nightTripTickets}
+                                        />
 
-                                {/* event ticket ANIMAL SHOW */}
-                                <PriceListColumn
-                                    currency={eventCurrency}
-                                    priceListColumnTitle='animal show'
-                                    priceListArray={animalShowTickets}
-                                />
+                                        {/* event ticket ANIMAL SHOW */}
+                                        <PriceListColumn
+                                            currency={eventCurrency}
+                                            priceListColumnTitle='animal show'
+                                            priceListArray={animalShowTickets}
+                                        />
 
-                                {/* event ticket CLOSE UP */}
-                                <PriceListColumn
-                                    currency={eventCurrency}
-                                    priceListColumnTitle='close up'
-                                    priceListArray={closeUpTickets}
-                                />
+                                        {/* event ticket CLOSE UP */}
+                                        <PriceListColumn
+                                            currency={eventCurrency}
+                                            priceListColumnTitle='close up'
+                                            priceListArray={closeUpTickets}
+                                        />
 
 
-                            </Box>
+                                    </Box>
+                                )}
+                            </AnimatePresence>
 
                         </Box>
 
@@ -309,13 +342,19 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                 headerTitle='Long period tickets'
                                 headerCurrencyValue={longPeriodTicketCurrencyName}
                                 onChangeFunctionSelect={longPeriodTicketHandleChange}
+                                onClickFunction={changeLongPeriodVisible}
+                                headerIcon={longPeriodVisible}
                             />
 
                             {/* long period LIST */}
-                            <PriceListRow
-                                currency={longPeriodCurrency}
-                                priceListArray={longPeriodTickets}
-                            />
+                            <AnimatePresence>
+                                {longPeriodVisible && (
+                                    <PriceListRow
+                                        currency={longPeriodCurrency}
+                                        priceListArray={longPeriodTickets}
+                                    />
+                                )}
+                            </AnimatePresence>
 
                         </Box>
                     </Box>
