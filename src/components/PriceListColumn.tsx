@@ -37,7 +37,6 @@ const PriceListColumn = ({ currency, priceListColumnTitle, priceListArray }: Pro
                     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
                     gap: 1,
                     width: '100%',
-                    ml: 6
                 }}
             >
                 {

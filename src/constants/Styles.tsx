@@ -42,9 +42,7 @@ export const PriceTicketRotatedText = {
 
     textTransform: 'uppercase',
     opacity: .8,
-    transform: 'rotate(-90deg)',
-    position: 'absolute',
-    top: 70,
-    left: -80,
+    transform: 'rotate(180deg)',
+    writingMode: 'vertical-lr'
 }
 

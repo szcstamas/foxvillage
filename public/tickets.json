@@ -117,5 +117,27 @@
                 }
             ]
         }
+    ],
+    "longperiodtickets": [
+        {
+            "title": "Weekly",
+            "price": 20,
+            "desc": "Discounts are only available through events!"
+        },
+        {
+            "title": "Monthly",
+            "price": 55,
+            "desc": "Discounts are only available through events!"
+        },
+        {
+            "title": "Annual",
+            "price": 150,
+            "desc": "Discounts are only available through events!"
+        },
+        {
+            "title": "Annual Gift Card",
+            "price": 125,
+            "desc": "You can purchase it as a gift for someone you love!"
+        }
     ]
 }

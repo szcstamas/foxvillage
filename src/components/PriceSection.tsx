@@ -9,6 +9,8 @@ import { CardSectionStyles, ContainerBoxStyles } from '../constants/Styles';
 import { motion } from 'framer-motion';
 import PricesListHeader from './PricesListHeader';
 import PriceListColumn from './PriceListColumn';
+import PriceTicket from './PriceTicket';
+import PriceListRow from './PriceListRow';
 
 interface Props {
     xDirection: number;
@@ -28,6 +30,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
     const [nightTripTickets, setNightTripTickets] = useState<any[]>([]);
     const [animalShowTickets, setAnimalShowTickets] = useState<any[]>([]);
     const [closeUpTickets, setCloseUpTickets] = useState<any[]>([]);
+    const [longPeriodTickets, setLongPeriodTickets] = useState<any[]>([]);
 
     useEffect(() => {
         axios.get('tickets.json')
@@ -37,6 +40,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                 setNightTripTickets(res.data.eventtickets[0].nighttrip);
                 setAnimalShowTickets(res.data.eventtickets[1].animalshow);
                 setCloseUpTickets(res.data.eventtickets[2].closeup);
+                setLongPeriodTickets(res.data.longperiodtickets);
             }
             )
             .catch(err => console.log(err))
@@ -141,7 +145,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                             width: '100%',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            gap: 2
+                            gap: 3
                         }}
                     >
                         {/* one-time tickets container */}
@@ -152,7 +156,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                 width: '100%',
                                 flexDirection: 'column',
                                 alignItems: 'center',
-                                gap: 2
+                                gap: 2,
                             }}
                         >
                             {/* one-time prices header */}
@@ -200,7 +204,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                 width: '100%',
                                 flexDirection: 'column',
                                 alignItems: 'center',
-                                gap: 2
+                                gap: 2,
                             }}
                         >
                             {/* event tickets header */}
@@ -256,7 +260,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                 width: '100%',
                                 flexDirection: 'column',
                                 alignItems: 'center',
-                                gap: 2
+                                gap: 2,
                             }}
                         >
                             {/* long period header */}
@@ -267,19 +271,11 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                             />
 
                             {/* long period LIST */}
-                            <Box
-                                component='div'
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'flex-start',
-                                    gap: 6,
-                                    width: '100%',
-                                    flexDirection: { sm: 'column', md: 'row' }
-                                }}
-                            >
+                            <PriceListRow
+                                currency={currency}
+                                priceListArray={longPeriodTickets}
+                            />
 
-                            </Box>
                         </Box>
                     </Box>
 
