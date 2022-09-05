@@ -1,4 +1,5 @@
-import { Box, Typography } from '@mui/system';
+import { Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import { PriceTicketStyle } from '../constants/Styles';
 
 interface Props {
@@ -12,8 +13,8 @@ const PriceTicket = ({ ticketTitle, ticketPrice, ticketDesc }: Props) => {
     return (
         <Box component='div' sx={{ ...PriceTicketStyle }}>
             <Typography paragraph={true}>{ticketTitle}</Typography>
-            <Typography variant='h4'>{ticket}</Typography>
-            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>With proper student or elderly license!</Typography>
+            <Typography variant='h4'>{ticketPrice}</Typography>
+            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>{ticketDesc}</Typography>
         </Box>
     )
 }

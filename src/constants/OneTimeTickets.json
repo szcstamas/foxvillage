@@ -1,0 +1,62 @@
+{
+    "onetimetickets": [
+        {
+            "weekdays": [
+                {
+                    "title": "Adult",
+                    "price": 200,
+                    "desc": "For persons above 18 years"
+                },
+                {
+                    "title": "Child",
+                    "price": 100,
+                    "desc": "For childs under 14 years"
+                },
+                {
+                    "title": "Student / Elder",
+                    "price": 150,
+                    "desc": "With proper student or elderly license!"
+                },
+                {
+                    "title": "Family",
+                    "price": 450,
+                    "desc": "2 Adult + (min.) 2 Children"
+                },
+                {
+                    "title": "Preferential",
+                    "price": 50,
+                    "desc": "For ill people"
+                }
+            ]
+        },
+        {
+            "weekends": [
+                {
+                    "title": "Adult",
+                    "price": 400,
+                    "desc": "For persons above 18 years"
+                },
+                {
+                    "title": "Child",
+                    "price": 200,
+                    "desc": "For childs under 14 years"
+                },
+                {
+                    "title": "Student / Elder",
+                    "price": 300,
+                    "desc": "With proper student or elderly license!"
+                },
+                {
+                    "title": "Family",
+                    "price": 800,
+                    "desc": "2 Adult + (min.) 2 Children"
+                },
+                {
+                    "title": "Preferential",
+                    "price": 100,
+                    "desc": "For ill people"
+                }
+            ]
+        }
+    ]
+}
