@@ -8,7 +8,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import { CardSectionStyles, ContainerBoxStyles, PriceTicketStyle } from '../constants/Styles';
+import { CardSectionStyles, ContainerBoxStyles, PriceTicketRotatedText } from '../constants/Styles';
 import { motion } from 'framer-motion';
 import PriceTicket from './PriceTicket';
 
@@ -201,7 +201,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'flex-start',
-                                    gap: 1,
+                                    gap: 6,
                                     width: '100%',
                                     flexDirection: { sm: 'column', md: 'row' }
                                 }}
@@ -221,14 +221,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                     <Typography
                                         variant='h4'
                                         color='secondary.light'
-                                        sx={{
-                                            textTransform: 'uppercase',
-                                            opacity: .8,
-                                            transform: 'rotate(-90deg)',
-                                            position: 'absolute',
-                                            top: 80,
-                                            left: -80,
-                                        }}
+                                        sx={{ ...PriceTicketRotatedText }}
                                     >
                                         weekdays
                                     </Typography>
@@ -273,14 +266,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                     <Typography
                                         variant='h4'
                                         color='secondary.light'
-                                        sx={{
-                                            textTransform: 'uppercase',
-                                            opacity: .8,
-                                            transform: 'rotate(-90deg)',
-                                            position: 'absolute',
-                                            top: 80,
-                                            left: -80,
-                                        }}
+                                        sx={{ ...PriceTicketRotatedText }}
                                     >
                                         weekends
                                     </Typography>

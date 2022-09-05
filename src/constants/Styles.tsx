@@ -20,14 +20,6 @@ export const ContainerBoxStyles = {
     m: 'auto'
 };
 
-export const PriceTicketStyle = {
-
-    borderRadius: 2,
-    backgroundColor: '#fff',
-    p: 2
-}
-
-
 //object created from theme colors, so I can use them without using theme 
 export const Colors = {
 
@@ -36,3 +28,24 @@ export const Colors = {
     light: theme.palette.secondary.light,
     dark: theme.palette.secondary.dark
 }
+
+export const PriceTicketStyle = {
+
+    position: 'relative',
+    backgroundColor: '#fff',
+    overflow: 'hidden',
+    p: 3,
+    '&::before': { content: '""', position: 'absolute', width: 40, height: 40, borderRadius: '50%', backgroundColor: Colors.primary, top: '50%', left: -5, transform: 'translate(-50%, -50%)' },
+    '&::after': { content: '""', position: 'absolute', width: 40, height: 40, borderRadius: '50%', backgroundColor: Colors.primary, top: '50%', right: -45, transform: 'translate(-50%, -50%)' },
+}
+
+export const PriceTicketRotatedText = {
+
+    textTransform: 'uppercase',
+    opacity: .8,
+    transform: 'rotate(-90deg)',
+    position: 'absolute',
+    top: 70,
+    left: -80,
+}
+

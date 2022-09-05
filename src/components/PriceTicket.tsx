@@ -12,9 +12,9 @@ interface Props {
 const PriceTicket = ({ ticketTitle, ticketPrice, ticketDesc }: Props) => {
     return (
         <Box component='div' sx={{ ...PriceTicketStyle }}>
-            <Typography paragraph={true}>{ticketTitle}</Typography>
-            <Typography variant='h4'>{ticketPrice}</Typography>
-            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#efefef' }}>{ticketDesc}</Typography>
+            <Typography paragraph={true} sx={{ borderBottom: '5px dotted #ccc', pb: 1 }}>{ticketTitle}</Typography>
+            <Typography variant='h3'>{ticketPrice}</Typography>
+            <Typography paragraph={true} sx={{ fontSize: '14px', color: '#ccc', m: 0 }}>{ticketDesc}</Typography>
         </Box>
     )
 }
