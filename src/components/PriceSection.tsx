@@ -25,6 +25,7 @@ interface Props {
 
 const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIconDarkColor, priceSectionParagraph, priceSectionFirstIllu, priceSectionIlluInvert }: Props) => {
 
+    const [currency, setTicketCurrency] = useState('€');
     const [oneTimeWeekDaysTickets, setOneTimeWeekDaysTickets] = useState([]);
     const [oneTimeWeekEndTickets, setOneTimeWeekEndTickets] = useState([]);
 
@@ -36,7 +37,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
             }
             )
             .catch(err => console.log(err))
-    }, [])
+    }, [currency])
 
     const priceSectionIllu = {
         position: 'absolute',
@@ -47,10 +48,22 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
         filter: `invert(${priceSectionIlluInvert}%)`
     };
 
-    const [age, setAge] = useState('HUF');
+    const [currencyName, setCurrencyName] = useState('EUR');
 
     const handleChange = (event: SelectChangeEvent) => {
-        setAge(event.target.value);
+        setCurrencyName(event.target.value);
+
+        switch (event.target.value) {
+            case 'EUR':
+                setTicketCurrency('€');
+                break;
+            case 'HUF':
+                setTicketCurrency('Ft');
+                break;
+            case 'USD':
+                setTicketCurrency('$');
+                break;
+        }
     };
 
     return (
@@ -167,14 +180,14 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                     <FormControl sx={{ m: 1, minWidth: 120 }}>
                                         <Select
                                             className='select-currency'
-                                            value={age}
+                                            value={currencyName}
                                             onChange={handleChange}
                                             sx={{ color: '#fff', border: '2px solid #fff', transition: 'all .2s ease', '&:hover': { backgroundColor: '#0a381f' } }}
                                             displayEmpty
                                         >
-                                            <MenuItem value='EUR'>EUR</MenuItem>
-                                            <MenuItem value='HUF'>HUF</MenuItem>
-                                            <MenuItem value='USD'>USD</MenuItem>
+                                            <MenuItem value='EUR' >EUR</MenuItem>
+                                            <MenuItem value='HUF' >HUF</MenuItem>
+                                            <MenuItem value='USD' >USD</MenuItem>
                                         </Select>
                                     </FormControl>
                                     <Box component='div'
@@ -229,22 +242,55 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                         component='div'
                                         sx={{
                                             display: 'grid',
-                                            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                                            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
                                             gap: 1,
                                             width: '100%',
                                             ml: 6
                                         }}
                                     >
                                         {
-                                            oneTimeWeekDaysTickets.map((ticket: any) => {
+                                            oneTimeWeekDaysTickets.map((ticket: any, index) => {
 
-                                                return (
-                                                    <PriceTicket
-                                                        ticketTitle={ticket.title}
-                                                        ticketPrice={ticket.price}
-                                                        ticketDesc={ticket.desc}
-                                                    />
-                                                )
+                                                const EUR_TO_HUF_CHANGE = 402;
+                                                const EUR_TO_USD_CHANGE = 0.99;
+
+
+
+                                                switch (currency) {
+                                                    case '€':
+                                                        return (
+                                                            <PriceTicket
+                                                                key={index}
+                                                                ticketTitle={ticket.title}
+                                                                ticketPrice={Math.trunc(ticket.price)}
+                                                                ticketCurrency={currency}
+                                                                ticketDesc={ticket.desc}
+                                                            />
+                                                        )
+                                                    case 'Ft':
+                                                        return (
+                                                            <PriceTicket
+                                                                key={index}
+                                                                ticketTitle={ticket.title}
+                                                                ticketPrice={Math.trunc(ticket.price * EUR_TO_HUF_CHANGE)}
+                                                                ticketCurrency={currency}
+                                                                ticketDesc={ticket.desc}
+                                                            />
+                                                        )
+                                                    case '$':
+                                                        return (
+                                                            <PriceTicket
+                                                                key={index}
+                                                                ticketTitle={ticket.title}
+                                                                ticketPrice={Math.trunc(ticket.price * EUR_TO_USD_CHANGE)}
+                                                                ticketCurrency={currency}
+                                                                ticketDesc={ticket.desc}
+                                                            />
+                                                        )
+                                                }
+
+                                                return ticket;
+
                                             })
                                         }
                                     </Box>
@@ -274,22 +320,52 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                         component='div'
                                         sx={{
                                             display: 'grid',
-                                            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                                            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
                                             width: '100%',
                                             gap: 1,
                                             ml: 6
                                         }}
                                     >
                                         {
-                                            oneTimeWeekEndTickets.map((ticket: any) => {
+                                            oneTimeWeekEndTickets.map((ticket: any, index) => {
 
-                                                return (
-                                                    <PriceTicket
-                                                        ticketTitle={ticket.title}
-                                                        ticketPrice={ticket.price}
-                                                        ticketDesc={ticket.desc}
-                                                    />
-                                                )
+                                                const EUR_TO_HUF_CHANGE = 402;
+                                                const EUR_TO_USD_CHANGE = 0.99;
+
+                                                switch (currency) {
+                                                    case '€':
+                                                        return (
+                                                            <PriceTicket
+                                                                key={index}
+                                                                ticketTitle={ticket.title}
+                                                                ticketPrice={Math.trunc(ticket.price)}
+                                                                ticketCurrency={currency}
+                                                                ticketDesc={ticket.desc}
+                                                            />
+                                                        )
+                                                    case 'Ft':
+                                                        return (
+                                                            <PriceTicket
+                                                                key={index}
+                                                                ticketTitle={ticket.title}
+                                                                ticketPrice={Math.trunc(ticket.price * EUR_TO_HUF_CHANGE)}
+                                                                ticketCurrency={currency}
+                                                                ticketDesc={ticket.desc}
+                                                            />
+                                                        )
+                                                    case '$':
+                                                        return (
+                                                            <PriceTicket
+                                                                key={index}
+                                                                ticketTitle={ticket.title}
+                                                                ticketPrice={Math.trunc(ticket.price * EUR_TO_USD_CHANGE)}
+                                                                ticketCurrency={currency}
+                                                                ticketDesc={ticket.desc}
+                                                            />
+                                                        )
+                                                }
+
+                                                return ticket;
                                             })
                                         }
                                     </Box>

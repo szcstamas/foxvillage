@@ -7,13 +7,14 @@ interface Props {
     ticketTitle: string;
     ticketPrice: number;
     ticketDesc: string;
+    ticketCurrency: string;
 }
 
-const PriceTicket = ({ ticketTitle, ticketPrice, ticketDesc }: Props) => {
+const PriceTicket = ({ ticketTitle, ticketPrice, ticketCurrency, ticketDesc }: Props) => {
     return (
         <Box component='div' sx={{ ...PriceTicketStyle }}>
             <Typography paragraph={true} sx={{ borderBottom: '5px dotted #ccc', pb: 1 }}>{ticketTitle}</Typography>
-            <Typography variant='h3'>{ticketPrice}</Typography>
+            <Typography variant='h3'>{ticketPrice} {ticketCurrency}</Typography>
             <Typography paragraph={true} sx={{ fontSize: '14px', color: '#ccc', m: 0 }}>{ticketDesc}</Typography>
         </Box>
     )

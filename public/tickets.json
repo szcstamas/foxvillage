@@ -4,27 +4,27 @@
             "weekdays": [
                 {
                     "title": "Adult",
-                    "price": 200,
+                    "price": 6.2,
                     "desc": "For persons above 18 years"
                 },
                 {
                     "title": "Child",
-                    "price": 100,
+                    "price": 2.5,
                     "desc": "For childs under 14 years"
                 },
                 {
                     "title": "Student / Elder",
-                    "price": 150,
+                    "price": 4,
                     "desc": "With proper student or elderly license!"
                 },
                 {
                     "title": "Family",
-                    "price": 450,
+                    "price": 12.4,
                     "desc": "2 Adult + (min.) 2 Children"
                 },
                 {
                     "title": "Preferential",
-                    "price": 50,
+                    "price": 2,
                     "desc": "For ill people"
                 }
             ]
@@ -33,27 +33,27 @@
             "weekends": [
                 {
                     "title": "Adult",
-                    "price": 400,
+                    "price": 8.6,
                     "desc": "For persons above 18 years"
                 },
                 {
                     "title": "Child",
-                    "price": 200,
+                    "price": 3,
                     "desc": "For childs under 14 years"
                 },
                 {
                     "title": "Student / Elder",
-                    "price": 300,
+                    "price": 6.2,
                     "desc": "With proper student or elderly license!"
                 },
                 {
                     "title": "Family",
-                    "price": 800,
+                    "price": 17.2,
                     "desc": "2 Adult + (min.) 2 Children"
                 },
                 {
                     "title": "Preferential",
-                    "price": 100,
+                    "price": 2.5,
                     "desc": "For ill people"
                 }
             ]
