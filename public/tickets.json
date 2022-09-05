@@ -58,5 +58,64 @@
                 }
             ]
         }
+    ],
+    "eventtickets": [
+        {
+            "nighttrip": [
+                {
+                    "title": "Adult",
+                    "price": 5,
+                    "desc": "For persons above 18 years"
+                },
+                {
+                    "title": "Child",
+                    "price": 1.5,
+                    "desc": "For childs under 14 years"
+                },
+                {
+                    "title": "Student / Elder",
+                    "price": 3,
+                    "desc": "With proper student or elderly license!"
+                }
+            ]
+        },
+        {
+            "animalshow": [
+                {
+                    "title": "Adult",
+                    "price": 6,
+                    "desc": "For persons above 18 years"
+                },
+                {
+                    "title": "Child",
+                    "price": 2,
+                    "desc": "For childs under 14 years"
+                },
+                {
+                    "title": "Student / Elder",
+                    "price": 4.2,
+                    "desc": "With proper student or elderly license!"
+                }
+            ]
+        },
+        {
+            "closeup": [
+                {
+                    "title": "Adult",
+                    "price": 6,
+                    "desc": "For persons above 18 years"
+                },
+                {
+                    "title": "Child",
+                    "price": 3.5,
+                    "desc": "For childs under 14 years"
+                },
+                {
+                    "title": "Student / Elder",
+                    "price": 4.5,
+                    "desc": "With proper student or elderly license!"
+                }
+            ]
+        }
     ]
 }

@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Typography, Box } from '@mui/material';
-import MenuItem from '@mui/material/MenuItem';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SelectChangeEvent } from '@mui/material/Select';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import { CardSectionStyles, ContainerBoxStyles, PriceTicketRotatedText } from '../constants/Styles';
+import { CardSectionStyles, ContainerBoxStyles } from '../constants/Styles';
 import { motion } from 'framer-motion';
-import PriceTicket from './PriceTicket';
-
+import PricesListHeader from './PricesListHeader';
+import PriceListColumn from './PriceListColumn';
 
 interface Props {
     xDirection: number;
@@ -26,14 +23,20 @@ interface Props {
 const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIconDarkColor, priceSectionParagraph, priceSectionFirstIllu, priceSectionIlluInvert }: Props) => {
 
     const [currency, setTicketCurrency] = useState('€');
-    const [oneTimeWeekDaysTickets, setOneTimeWeekDaysTickets] = useState([]);
-    const [oneTimeWeekEndTickets, setOneTimeWeekEndTickets] = useState([]);
+    const [oneTimeWeekDaysTickets, setOneTimeWeekDaysTickets] = useState<any[]>([]);
+    const [oneTimeWeekEndTickets, setOneTimeWeekEndTickets] = useState<any[]>([]);
+    const [nightTripTickets, setNightTripTickets] = useState<any[]>([]);
+    const [animalShowTickets, setAnimalShowTickets] = useState<any[]>([]);
+    const [closeUpTickets, setCloseUpTickets] = useState<any[]>([]);
 
     useEffect(() => {
         axios.get('tickets.json')
             .then(res => {
                 setOneTimeWeekDaysTickets(res.data.onetimetickets[0].weekdays);
                 setOneTimeWeekEndTickets(res.data.onetimetickets[1].weekends);
+                setNightTripTickets(res.data.eventtickets[0].nighttrip);
+                setAnimalShowTickets(res.data.eventtickets[1].animalshow);
+                setCloseUpTickets(res.data.eventtickets[2].closeup);
             }
             )
             .catch(err => console.log(err))
@@ -153,59 +156,11 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                             }}
                         >
                             {/* one-time prices header */}
-                            <Box
-                                component={motion.div}
-                                color='secondary.light'
-                                sx={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    paddingBottom: 1,
-                                    borderBottom: '2px solid #fff',
-                                    width: '100%',
-                                }}
-                            >
-                                {/* one-time ticket h4 */}
-                                <Typography variant='h4'>
-                                    One-time tickets
-                                </Typography>
-
-                                {/* dropdown currency & dropdown header */}
-                                <Box
-                                    component='div'
-                                    color='secondary.light'
-                                    sx={{ display: 'flex', gap: 2, alignItems: 'center', justifyContent: 'right' }}
-                                >
-                                    See prices in:
-                                    <FormControl sx={{ m: 1, minWidth: 120 }}>
-                                        <Select
-                                            className='select-currency'
-                                            value={currencyName}
-                                            onChange={handleChange}
-                                            sx={{ color: '#fff', border: '2px solid #fff', transition: 'all .2s ease', '&:hover': { backgroundColor: '#0a381f' } }}
-                                            displayEmpty
-                                        >
-                                            <MenuItem value='EUR' >EUR</MenuItem>
-                                            <MenuItem value='HUF' >HUF</MenuItem>
-                                            <MenuItem value='USD' >USD</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                    <Box component='div'
-                                        sx={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'center',
-                                            borderRadius: '50%',
-                                            border: '2px solid #fff',
-                                            p: 2,
-                                            cursor: 'pointer',
-                                            transition: 'all .2s ease',
-                                            '&:hover': {
-                                                backgroundColor: '#0a381f'
-                                            }
-                                        }}><ExpandMoreIcon></ExpandMoreIcon></Box>
-                                </Box>
-                            </Box>
+                            <PricesListHeader
+                                headerTitle='One-time tickets'
+                                headerCurrencyValue={currencyName}
+                                onChangeFunctionSelect={handleChange}
+                            />
 
                             {/* one-time ticket LIST */}
                             <Box
@@ -220,160 +175,111 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                 }}
                             >
                                 {/* one-time ticket LEFT SIDE */}
-                                <Box
-                                    component='div'
-                                    sx={{
-                                        position: 'relative',
-                                        flex: '1',
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        alignItems: 'flex-start',
-                                        gap: 1
-                                    }}
-                                >
-                                    <Typography
-                                        variant='h4'
-                                        color='secondary.light'
-                                        sx={{ ...PriceTicketRotatedText }}
-                                    >
-                                        weekdays
-                                    </Typography>
-                                    <Box
-                                        component='div'
-                                        sx={{
-                                            display: 'grid',
-                                            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                                            gap: 1,
-                                            width: '100%',
-                                            ml: 6
-                                        }}
-                                    >
-                                        {
-                                            oneTimeWeekDaysTickets.map((ticket: any, index) => {
-
-                                                const EUR_TO_HUF_CHANGE = 402;
-                                                const EUR_TO_USD_CHANGE = 0.99;
-
-
-
-                                                switch (currency) {
-                                                    case '€':
-                                                        return (
-                                                            <PriceTicket
-                                                                key={index}
-                                                                ticketTitle={ticket.title}
-                                                                ticketPrice={Math.trunc(ticket.price)}
-                                                                ticketCurrency={currency}
-                                                                ticketDesc={ticket.desc}
-                                                            />
-                                                        )
-                                                    case 'Ft':
-                                                        return (
-                                                            <PriceTicket
-                                                                key={index}
-                                                                ticketTitle={ticket.title}
-                                                                ticketPrice={Math.trunc(ticket.price * EUR_TO_HUF_CHANGE)}
-                                                                ticketCurrency={currency}
-                                                                ticketDesc={ticket.desc}
-                                                            />
-                                                        )
-                                                    case '$':
-                                                        return (
-                                                            <PriceTicket
-                                                                key={index}
-                                                                ticketTitle={ticket.title}
-                                                                ticketPrice={Math.trunc(ticket.price * EUR_TO_USD_CHANGE)}
-                                                                ticketCurrency={currency}
-                                                                ticketDesc={ticket.desc}
-                                                            />
-                                                        )
-                                                }
-
-                                                return ticket;
-
-                                            })
-                                        }
-                                    </Box>
-
-                                </Box>
+                                <PriceListColumn
+                                    currency={currency}
+                                    priceListColumnTitle='weekdays'
+                                    priceListArray={oneTimeWeekDaysTickets}
+                                />
 
                                 {/* one-time ticket RIGHT SIDE */}
-                                <Box
-                                    component='div'
-                                    sx={{
-                                        position: 'relative',
-                                        flex: '1',
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        alignItems: 'flex-start',
-                                        gap: 1
-                                    }}
-                                >
-                                    <Typography
-                                        variant='h4'
-                                        color='secondary.light'
-                                        sx={{ ...PriceTicketRotatedText }}
-                                    >
-                                        weekends
-                                    </Typography>
-                                    <Box
-                                        component='div'
-                                        sx={{
-                                            display: 'grid',
-                                            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                                            width: '100%',
-                                            gap: 1,
-                                            ml: 6
-                                        }}
-                                    >
-                                        {
-                                            oneTimeWeekEndTickets.map((ticket: any, index) => {
-
-                                                const EUR_TO_HUF_CHANGE = 402;
-                                                const EUR_TO_USD_CHANGE = 0.99;
-
-                                                switch (currency) {
-                                                    case '€':
-                                                        return (
-                                                            <PriceTicket
-                                                                key={index}
-                                                                ticketTitle={ticket.title}
-                                                                ticketPrice={Math.trunc(ticket.price)}
-                                                                ticketCurrency={currency}
-                                                                ticketDesc={ticket.desc}
-                                                            />
-                                                        )
-                                                    case 'Ft':
-                                                        return (
-                                                            <PriceTicket
-                                                                key={index}
-                                                                ticketTitle={ticket.title}
-                                                                ticketPrice={Math.trunc(ticket.price * EUR_TO_HUF_CHANGE)}
-                                                                ticketCurrency={currency}
-                                                                ticketDesc={ticket.desc}
-                                                            />
-                                                        )
-                                                    case '$':
-                                                        return (
-                                                            <PriceTicket
-                                                                key={index}
-                                                                ticketTitle={ticket.title}
-                                                                ticketPrice={Math.trunc(ticket.price * EUR_TO_USD_CHANGE)}
-                                                                ticketCurrency={currency}
-                                                                ticketDesc={ticket.desc}
-                                                            />
-                                                        )
-                                                }
-
-                                                return ticket;
-                                            })
-                                        }
-                                    </Box>
-
-                                </Box>
+                                <PriceListColumn
+                                    currency={currency}
+                                    priceListColumnTitle='weekends'
+                                    priceListArray={oneTimeWeekEndTickets}
+                                />
 
                             </Box>
 
+                        </Box>
+
+                        {/* event tickets container */}
+                        <Box
+                            component={motion.div}
+                            sx={{
+                                display: 'flex',
+                                width: '100%',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: 2
+                            }}
+                        >
+                            {/* event tickets header */}
+                            <PricesListHeader
+                                headerTitle='Event tickets (only on weekends)'
+                                headerCurrencyValue={currencyName}
+                                onChangeFunctionSelect={handleChange}
+                            />
+
+                            {/* event ticket LIST */}
+                            <Box
+                                component='div'
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'flex-start',
+                                    gap: 6,
+                                    width: '100%',
+                                    flexDirection: { sm: 'column', md: 'row' }
+                                }}
+                            >
+                                {/* even ticket NIGHT TRIP */}
+                                <PriceListColumn
+                                    currency={currency}
+                                    priceListColumnTitle='night trip'
+                                    priceListArray={nightTripTickets}
+                                />
+
+                                {/* event ticket ANIMAL SHOW */}
+                                <PriceListColumn
+                                    currency={currency}
+                                    priceListColumnTitle='animal show'
+                                    priceListArray={animalShowTickets}
+                                />
+
+                                {/* event ticket CLOSE UP */}
+                                <PriceListColumn
+                                    currency={currency}
+                                    priceListColumnTitle='close up'
+                                    priceListArray={closeUpTickets}
+                                />
+
+
+                            </Box>
+
+                        </Box>
+
+                        {/* longp period tickets container */}
+                        <Box
+                            component={motion.div}
+                            sx={{
+                                display: 'flex',
+                                width: '100%',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: 2
+                            }}
+                        >
+                            {/* long period header */}
+                            <PricesListHeader
+                                headerTitle='Long period tickets'
+                                headerCurrencyValue={currencyName}
+                                onChangeFunctionSelect={handleChange}
+                            />
+
+                            {/* long period LIST */}
+                            <Box
+                                component='div'
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'flex-start',
+                                    gap: 6,
+                                    width: '100%',
+                                    flexDirection: { sm: 'column', md: 'row' }
+                                }}
+                            >
+
+                            </Box>
                         </Box>
                     </Box>
 
