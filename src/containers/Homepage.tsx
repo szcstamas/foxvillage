@@ -82,6 +82,7 @@ const Homepage = () => {
             ></CardSection>
             <PriceSection
                 xDirection={100}
+                priceSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
                 priceSectionIconLightColor={light}
                 priceSectionIconDarkColor={secondary}
                 priceSectionFirstIllu={Images.Forest3}

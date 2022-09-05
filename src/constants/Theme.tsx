@@ -30,26 +30,5 @@ export const theme = createTheme({
             textTransform: "none"
         },
     },
-    components: {
-        MuiButton: {
-            variants: [
-                {
-                    props: { variant: 'outlined' },
-                    style: {
-                        textTransform: 'none',
-                        border: 'none',
-                        '@media (min-width:600px)': {
-                            border: '3px solid #f9bc60',
-                        },
-                        color: '#0e4627',
-                        '&:hover': {
-                            backgroundColor: '#f9bc60',
-                            border: '3px solid #f9bc60',
-                        }
-                    },
-                },
-            ],
-        },
-    },
 
 });

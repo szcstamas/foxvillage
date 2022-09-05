@@ -1,3 +1,4 @@
+import { light } from "@mui/material/styles/createPalette";
 import { theme } from "./Theme";
 
 export const HeroSectionStyles = {
@@ -18,6 +19,13 @@ export const ContainerBoxStyles = {
     maxWidth: { sm: '100%', lg: '1100px', xl: '1400px' },
     m: 'auto'
 };
+
+export const PriceTicketStyle = {
+
+    borderRadius: 2,
+    backgroundColor: '#fff',
+    p: 2
+}
 
 
 //object created from theme colors, so I can use them without using theme 

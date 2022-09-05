@@ -137,4 +137,8 @@ p {
     width: 100%;
   }
 }
+
+.select-currency svg {
+  fill: #fff;
+}
 /*# sourceMappingURL=styles.css.map */
