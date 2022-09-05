@@ -11,30 +11,17 @@ interface Props {
     priceSectionIconLightColor: string;
     priceSectionIconDarkColor: string;
     priceSectionFirstIllu: string;
-    priceSectionSecondIllu: string;
-    priceSectionIlluWidth: number;
-    priceSectionIlluWidthOnSmallScreen: number;
     priceSectionIlluInvert: number;
+    priceSectionIlluMaxHeight: number;
 }
 
-const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIconDarkColor, priceSectionFirstIllu, priceSectionSecondIllu, priceSectionIlluWidthOnSmallScreen, priceSectionIlluWidth, priceSectionIlluInvert }: Props) => {
+const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIconDarkColor, priceSectionFirstIllu, priceSectionIlluMaxHeight, priceSectionIlluInvert }: Props) => {
 
-    const cardSectionIlluStyleLeft = {
+    const priceSectionIllu = {
         position: 'absolute',
-        bottom: '0',
+        bottom: '-100px',
         left: '0',
-        maxWidth: { xs: priceSectionIlluWidthOnSmallScreen, lg: priceSectionIlluWidth },
-        maxHeight: `${priceSectionIlluWidth / 2}px`,
-        pointerEvents: 'none',
-        filter: `invert(${priceSectionIlluInvert}%)`
-    };
-
-    const cardSectionIlluStyleRight = {
-        position: 'absolute',
-        bottom: '0',
-        right: '0',
-        maxWidth: { xs: priceSectionIlluWidthOnSmallScreen, lg: priceSectionIlluWidth },
-        maxHeight: `${priceSectionIlluWidth / 2}px`,
+        width: '100%',
         pointerEvents: 'none',
         filter: `invert(${priceSectionIlluInvert}%)`
     };
@@ -42,8 +29,8 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
     return (
         <ThemeProvider theme={theme}>
             <Box
-                id='price'
-                bgcolor='secondary.light'
+                id='prices'
+                bgcolor='primary.main'
                 component={motion.section}
                 sx={{
                     ...CardSectionStyles,
@@ -62,7 +49,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                         <Typography
                             variant='h2'
                             sx={{ textAlign: 'center' }}
-                            color='secondary.dark'
+                            color='secondary.light'
                         >
 
                             Our prices
@@ -95,15 +82,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    sx={{ ...cardSectionIlluStyleLeft }}
-                />
-                <Box
-                    component={motion.img}
-                    src={priceSectionSecondIllu}
-                    initial={{ opacity: 0, y: 100 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    sx={{ ...cardSectionIlluStyleRight }}
+                    sx={{ ...priceSectionIllu }}
                 />
 
             </Box>

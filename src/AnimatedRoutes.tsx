@@ -11,9 +11,6 @@ import Discover from './containers/Discover/Discover';
 import Animals from './containers/Discover/Animals';
 import PoultryYard from './containers/Discover/PoultryYard';
 import FoxForest from './containers/Discover/FoxForest';
-import Prices from './containers/Prices';
-import About from './containers/About';
-import Contact from './containers/Contact';
 
 const AnimatedRoutes = () => {
 
@@ -46,11 +43,8 @@ const AnimatedRoutes = () => {
                 <Route path='/events/close-up' element={<CloseUp />} />
                 <Route path='/discover' element={<Discover />} />
                 <Route path='/discover/animals' element={<Animals />} />
-                <Route path='/discover/poultry-yard' element={<PoultryYard />} />
+                <Route path='/discover/poultry-yard' element={<PoultryYard title='Fox Village Of Zsámbék - Our lovely poultry yard' />} />
                 <Route path='/discover/fox-forest' element={<FoxForest />} />
-                <Route path='/prices' element={<Prices />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/contact' element={<Contact />} />
                 <Route path='*' element={<ErrorPage />} />
             </Routes>
         </AnimatePresence>

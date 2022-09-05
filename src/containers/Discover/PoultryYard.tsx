@@ -1,7 +1,14 @@
 import HeroSection from '../../components/HeroSection';
 import { Images } from '../../constants/Images';
 
-const PoultryYard = () => {
+interface Props {
+    title: string;
+}
+
+const PoultryYard = ({ title }: Props) => {
+
+    document.title = title;
+
     return (
         <HeroSection
             backgroundImage={Images.Hen1}

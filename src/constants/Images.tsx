@@ -16,6 +16,7 @@ import FoxSilhouette1 from "../assets/img/foxsilhouette1.png";
 import FoxSilhouette2 from "../assets/img/foxsilhouette2.png";
 import FoxSilhouette3 from "../assets/img/foxsilhouette3.png";
 import FoxSilhouette4 from "../assets/img/foxsilhouette4.png";
+import Forest3 from "../assets/img/forest1.png";
 
 export const Images = {
 
@@ -27,6 +28,7 @@ export const Images = {
     Peacock1: Peacock1,
     Forest1: Forest1,
     Forest2: Forest2,
+    Forest3: Forest3,
     FoxSilhouette1: FoxSilhouette1,
     FoxSilhouette2: FoxSilhouette2,
     FoxSilhouette3: FoxSilhouette3,

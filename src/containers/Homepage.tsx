@@ -18,6 +18,7 @@ const Homepage = () => {
 
     //for progress bar on top of page when scrolling
     const { scrollYProgress } = useScroll();
+    //framer motion setting for 'easing-animation' on scroll
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
@@ -72,13 +73,31 @@ const Homepage = () => {
                 cardSectionIconDarkColor={secondary}
                 cardSectionFirstIllu={Images.Forest1}
                 cardSectionSecondIllu={Images.Forest2}
-                cardSectionIlluInvert={15}
+                cardSectionIlluInvert={0}
                 cardSectionIlluWidth={300}
                 cardSectionIlluWidthOnSmallScreen={300}
                 cardBoxColor={primary}
                 cardTypoColor='secondary.light'
                 arrayOfCards={DiscoverObjects}
             ></CardSection>
+            <PriceSection
+                xDirection={100}
+                priceSectionIconLightColor={light}
+                priceSectionIconDarkColor={secondary}
+                priceSectionFirstIllu={Images.Forest3}
+                priceSectionIlluMaxHeight={100}
+                priceSectionIlluInvert={100}
+            />
+            <AboutSection
+                xDirection={-100}
+                aboutSectionIconLightColor={dark}
+                aboutSectionIconDarkColor={secondary}
+                aboutSectionFirstIllu={Images.Forest1}
+                aboutSectionSecondIllu={Images.Forest2}
+                aboutSectionIlluInvert={0}
+                aboutSectionIlluWidth={300}
+                aboutSectionIlluWidthOnSmallScreen={300}
+            />
             <ContactSection
                 xDirection={-100}
                 contactSectionIconLightColor={light}
@@ -88,26 +107,6 @@ const Homepage = () => {
                 contactSectionIlluInvert={100}
                 contactSectionIlluWidth={300}
                 contactSectionIlluWidthOnSmallScreen={300}
-            />
-            <PriceSection
-                xDirection={100}
-                priceSectionIconLightColor={dark}
-                priceSectionIconDarkColor={secondary}
-                priceSectionFirstIllu={Images.Forest1}
-                priceSectionSecondIllu={Images.Forest2}
-                priceSectionIlluInvert={15}
-                priceSectionIlluWidth={300}
-                priceSectionIlluWidthOnSmallScreen={300}
-            />
-            <AboutSection
-                xDirection={-100}
-                aboutSectionIconLightColor={light}
-                aboutSectionIconDarkColor={secondary}
-                aboutSectionFirstIllu={Images.Forest1}
-                aboutSectionSecondIllu={Images.Forest2}
-                aboutSectionIlluInvert={100}
-                aboutSectionIlluWidth={300}
-                aboutSectionIlluWidthOnSmallScreen={300}
             />
         </ThemeProvider>
     )

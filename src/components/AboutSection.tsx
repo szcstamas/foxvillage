@@ -26,7 +26,7 @@ const AboutSection = ({ xDirection, aboutSectionIconLightColor, aboutSectionIcon
         maxWidth: { xs: aboutSectionIlluWidthOnSmallScreen, lg: aboutSectionIlluWidth },
         maxHeight: `${aboutSectionIlluWidth / 2}px`,
         pointerEvents: 'none',
-        filter: `invert(${aboutSectionIlluInvert}%)`
+        filter: `brightness(${aboutSectionIlluInvert}%)`
     };
 
     const cardSectionIlluStyleRight = {
@@ -36,14 +36,14 @@ const AboutSection = ({ xDirection, aboutSectionIconLightColor, aboutSectionIcon
         maxWidth: { xs: aboutSectionIlluWidthOnSmallScreen, lg: aboutSectionIlluWidth },
         maxHeight: `${aboutSectionIlluWidth / 2}px`,
         pointerEvents: 'none',
-        filter: `invert(${aboutSectionIlluInvert}%)`
+        filter: `brightness(${aboutSectionIlluInvert}%)`
     };
 
     return (
         <ThemeProvider theme={theme}>
             <Box
                 id='about'
-                bgcolor='primary.main'
+                bgcolor='secondary.light'
                 component={motion.section}
                 sx={{
                     ...CardSectionStyles,
@@ -62,7 +62,7 @@ const AboutSection = ({ xDirection, aboutSectionIconLightColor, aboutSectionIcon
                         <Typography
                             variant='h2'
                             sx={{ textAlign: 'center' }}
-                            color='secondary.light'
+                            color='primary.main'
                         >
 
                             About us
