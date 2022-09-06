@@ -9,7 +9,7 @@ const ThankYou = () => {
     return (
         <Box
             component='div'
-            sx={{ height: '90vh', ...FlexCenter, textAlign: 'center', flexDirection: 'column', gap: 2 }}
+            sx={{ height: '80vh', ...FlexCenter, textAlign: 'center', flexDirection: 'column', gap: 2 }}
         >
             <Typography
                 variant='h1'
