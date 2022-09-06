@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Typography, Box, FormControl, TextField, Button } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
@@ -6,6 +6,7 @@ import CallIcon from '@mui/icons-material/Call';
 import { CardSectionStyles, Colors, ContainerBoxStyles, FlexCenter, FlexStart } from '../constants/Styles';
 import { AnimatePresence, motion } from 'framer-motion';
 import CloseIcon from '@mui/icons-material/Close';
+import emailjs from '@emailjs/browser';
 
 interface Props {
     xDirection: number;
@@ -35,7 +36,21 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
         setContactMessageBoxVisible(false);
         setContactInfoVisible(true);
         setIframeHeight(300);
-    }
+    };
+
+    const form: any = useRef();
+
+    const sendEmail = (e: any) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_x9ui4ro', 'template_f4bhub8', form.current, 'uGc9wUAzo5Dem7P_D')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        e.target.reset()
+    };
 
     return (
         <ThemeProvider theme={theme}>
@@ -110,7 +125,7 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                         sx={{ ...FlexStart, width: '100%', gap: 3, alignItems: 'stretch', mb: { xs: 2, md: 5 }, flexDirection: { xs: 'column', md: 'row' } }}
                     >
                         {/* form control */}
-                        <Box component='form' autoComplete='off' action="" method="POST" sx={{ flex: '1' }}>
+                        <Box ref={form} component='form' autoComplete='off' onSubmit={sendEmail} method="POST" sx={{ flex: '1' }}>
                             <FormControl sx={{ display: 'flex', gap: 2, justifyContent: 'space-between', transition: 'all .2s ease', height: '100%' }}>
                                 <TextField
                                     type='text'
@@ -134,7 +149,7 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                                 />
                                 <TextField
                                     type='textarea'
-                                    name="textarea"
+                                    name="message"
                                     variant="filled"
                                     label="Your message..."
                                     placeholder="Make sure to use clever sentences! :)"
