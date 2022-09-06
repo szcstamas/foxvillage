@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/foxvillage/static/css/main.67e920a4.css",
-    "main.js": "/foxvillage/static/js/main.66e1afe5.js",
+    "main.css": "/foxvillage/static/css/main.305fdf4e.css",
+    "main.js": "/foxvillage/static/js/main.56cb027e.js",
     "static/media/fox1.jpg": "/foxvillage/static/media/fox1.27de94c760610f7d0b62.jpg",
     "static/media/peacock1.jpg": "/foxvillage/static/media/peacock1.69953502868a8d445b06.jpg",
     "static/media/babyfox.jpg": "/foxvillage/static/media/babyfox.890f68c0958b7689d7ef.jpg",
     "static/media/hens1.jpeg": "/foxvillage/static/media/hens1.0989c01ca848cb26b41f.jpeg",
+    "static/media/forest2.png": "/foxvillage/static/media/forest2.7ec5e4e0131c68005cfc.png",
     "static/media/foxforest.jpg": "/foxvillage/static/media/foxforest.7e436c1f65bc756dec37.jpg",
     "static/media/fox2.jpg": "/foxvillage/static/media/fox2.fcbb21d9b7b8aa765c07.jpg",
     "static/media/nighttrip.jpg": "/foxvillage/static/media/nighttrip.0ba17388f51be508898d.jpg",
@@ -24,11 +25,11 @@
     "static/media/foxsilhouette2.png": "/foxvillage/static/media/foxsilhouette2.eef19a1ad448d2e9af48.png",
     "static/media/foxsilhouette1.png": "/foxvillage/static/media/foxsilhouette1.09b416455e2948163c35.png",
     "index.html": "/foxvillage/index.html",
-    "main.67e920a4.css.map": "/foxvillage/static/css/main.67e920a4.css.map",
-    "main.66e1afe5.js.map": "/foxvillage/static/js/main.66e1afe5.js.map"
+    "main.305fdf4e.css.map": "/foxvillage/static/css/main.305fdf4e.css.map",
+    "main.56cb027e.js.map": "/foxvillage/static/js/main.56cb027e.js.map"
   },
   "entrypoints": [
-    "static/css/main.67e920a4.css",
-    "static/js/main.66e1afe5.js"
+    "static/css/main.305fdf4e.css",
+    "static/js/main.56cb027e.js"
   ]
 }
