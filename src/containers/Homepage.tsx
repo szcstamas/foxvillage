@@ -101,6 +101,7 @@ const Homepage = () => {
             />
             <ContactSection
                 xDirection={-100}
+                contactSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
                 contactSectionIconLightColor={light}
                 contactSectionIconDarkColor={secondary}
                 contactSectionFirstIllu={Images.Forest1}

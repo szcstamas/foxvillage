@@ -1,5 +1,19 @@
 import { theme } from "./Theme";
 
+export const FlexCenter = {
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+}
+
+export const FlexStart = {
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+}
+
 export const HeroSectionStyles = {
 
     px: { xs: 5, sm: 10, md: 15, lg: 0 },
