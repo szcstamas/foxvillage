@@ -90,8 +90,47 @@ h6 {
 
 p,
 a,
-button {
+button,
+input,
+*::-webkit-input-placeholder,
+label,
+textarea {
   font-family: mainFontFamilySans !important;
+}
+
+p,
+a,
+button,
+input,
+*:-ms-input-placeholder,
+label,
+textarea {
+  font-family: mainFontFamilySans !important;
+}
+
+p,
+a,
+button,
+input,
+*::-ms-input-placeholder,
+label,
+textarea {
+  font-family: mainFontFamilySans !important;
+}
+
+p,
+a,
+button,
+input,
+*::placeholder,
+label,
+textarea {
+  font-family: mainFontFamilySans !important;
+}
+
+input,
+textarea {
+  font-size: 1.25rem !important;
 }
 
 a {
@@ -156,5 +195,14 @@ p {
 
 .pricelist-row-ticket:last-child p:first-child {
   border-bottom: 5px dotted #fff;
+}
+
+.css-18yffm2-MuiInputBase-root-MuiFilledInput-root {
+  height: 100%;
+}
+
+.mainpage-form-submit-button:hover svg {
+  -webkit-transform: translateX(5px) translateY(-5px);
+          transform: translateX(5px) translateY(-5px);
 }
 /*# sourceMappingURL=styles.css.map */

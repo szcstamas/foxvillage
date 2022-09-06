@@ -15,8 +15,8 @@ import { theme } from '../constants/Theme';
 import Logo from './Logo';
 import { useScrollPosition } from '../hooks/useScrollPosition';
 
-const pages = ['Homepage', 'Events', 'Discover', 'Contact us', 'Prices', 'About us'];
-const pagesLinks = ['/foxvillage/', '/foxvillage/#/events', '/foxvillage/#/discover', '/#contact', '/#prices', '/#about'];
+const pages = ['Homepage', 'Events', 'Discover', 'Prices', 'About us', 'Contact us'];
+const pagesLinks = ['/foxvillage/', '/foxvillage/#/events', '/foxvillage/#/discover', '/#prices', '/#about', '/#contact'];
 const subPages = ['Night Trip', 'Animal Shows', 'Close Up', 'Animals', 'Poultry Yard', 'Fox Forest'];
 const subPagesLinks = ['/foxvillage/#/events/night-trip', '/foxvillage/#/events/animal-show', '/foxvillage/#/events/close-up', '/foxvillage/#/discover/animals', '/foxvillage/#/discover/poultry-yard', '/foxvillage/#/discover/fox-forest'];
 

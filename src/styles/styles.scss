@@ -54,8 +54,17 @@ h6 {
 
 p,
 a,
-button {
+button,
+input,
+*::placeholder,
+label,
+textarea {
     font-family: mainFontFamilySans !important;
+}
+
+input,
+textarea {
+    font-size: 1.25rem !important;
 }
 
 a {
@@ -120,4 +129,12 @@ p {
             border-bottom: 5px dotted $whiteColor;
         }
     }
+}
+
+.css-18yffm2-MuiInputBase-root-MuiFilledInput-root {
+    height: 100%;
+}
+
+.mainpage-form-submit-button:hover svg {
+    transform: translateX(5px) translateY(-5px);
 }

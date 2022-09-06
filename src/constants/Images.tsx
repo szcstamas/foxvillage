@@ -17,6 +17,7 @@ import FoxSilhouette2 from "../assets/img/foxsilhouette2.png";
 import FoxSilhouette3 from "../assets/img/foxsilhouette3.png";
 import FoxSilhouette4 from "../assets/img/foxsilhouette4.png";
 import Forest3 from "../assets/img/forest1.png";
+import Forest4 from "../assets/img/forest2.png";
 
 export const Images = {
 
@@ -32,7 +33,8 @@ export const Images = {
     FoxSilhouette1: FoxSilhouette1,
     FoxSilhouette2: FoxSilhouette2,
     FoxSilhouette3: FoxSilhouette3,
-    FoxSilhouette4: FoxSilhouette4
+    FoxSilhouette4: FoxSilhouette4,
+    Forest4: Forest4
 }
 
 export const EventImages = {

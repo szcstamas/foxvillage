@@ -100,15 +100,12 @@ const Homepage = () => {
                 aboutSectionIlluWidthOnSmallScreen={300}
             />
             <ContactSection
-                xDirection={-100}
+                xDirection={100}
                 contactSectionParagraph='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis non, explicabo fugiat natus veritatis distinctio recusandae exercitationem modi adipisci voluptas!'
                 contactSectionIconLightColor={light}
                 contactSectionIconDarkColor={secondary}
-                contactSectionFirstIllu={Images.Forest1}
-                contactSectionSecondIllu={Images.Forest2}
+                contactSectionFirstIllu={Images.Forest4}
                 contactSectionIlluInvert={100}
-                contactSectionIlluWidth={300}
-                contactSectionIlluWidthOnSmallScreen={300}
             />
         </ThemeProvider>
     )

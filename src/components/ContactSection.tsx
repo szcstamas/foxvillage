@@ -3,7 +3,7 @@ import { Typography, Box, FormControl, TextField, Button } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import CallIcon from '@mui/icons-material/Call';
-import { CardSectionStyles, ContainerBoxStyles, FlexCenter, FlexStart } from '../constants/Styles';
+import { CardSectionStyles, Colors, ContainerBoxStyles, FlexCenter, FlexStart } from '../constants/Styles';
 import { AnimatePresence, motion } from 'framer-motion';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -13,13 +13,10 @@ interface Props {
     contactSectionIconLightColor: string;
     contactSectionIconDarkColor: string;
     contactSectionFirstIllu: string;
-    contactSectionSecondIllu: string;
-    contactSectionIlluWidth: number;
-    contactSectionIlluWidthOnSmallScreen: number;
     contactSectionIlluInvert: number;
 }
 
-const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIconLightColor, contactSectionIconDarkColor, contactSectionFirstIllu, contactSectionIlluWidth, contactSectionIlluWidthOnSmallScreen, contactSectionIlluInvert }: Props) => {
+const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIconLightColor, contactSectionIconDarkColor, contactSectionFirstIllu, contactSectionIlluInvert }: Props) => {
 
     const [contactMessageBoxVisible, setContactMessageBoxVisible] = useState(true);
     const [contactInfoVisible, setContactInfoVisible] = useState(false);
@@ -27,10 +24,9 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
 
     const cardSectionIlluStyle = {
         position: 'absolute',
-        bottom: '0',
-        left: '0',
-        maxWidth: { xs: contactSectionIlluWidthOnSmallScreen, lg: contactSectionIlluWidth },
-        maxHeight: `${contactSectionIlluWidth / 2}px`,
+        bottom: -35,
+        left: 0,
+        width: '100%',
         pointerEvents: 'none',
         filter: `invert(${contactSectionIlluInvert}%)`
     };
@@ -45,7 +41,7 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
         <ThemeProvider theme={theme}>
             <Box
                 id='contact'
-                bgcolor='#272727'
+                bgcolor={Colors.primary}
                 component={motion.section}
                 sx={{
                     ...CardSectionStyles,
@@ -108,17 +104,20 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                     {/* form and map container */}
                     <Box
                         component={motion.div}
-                        sx={{ ...FlexStart, width: '100%', gap: 2, }}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: .5 }}
+                        sx={{ ...FlexStart, width: '100%', gap: 3, alignItems: 'stretch', mb: 5 }}
                     >
                         {/* form control */}
-                        <FormControl sx={{ flex: '1', display: 'flex', gap: 2 }}>
+                        <FormControl sx={{ flex: '1', display: 'flex', gap: 2, justifyContent: 'space-between', transition: 'all .2s ease' }}>
                             <TextField
                                 required
                                 id="filled-required"
                                 label="Your name..."
                                 placeholder="e.g. John Smith"
                                 variant="filled"
-                                sx={{ backgroundColor: '#fff', borderRadius: 1 }}
+                                sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
                             />
                             <TextField
                                 required
@@ -126,24 +125,36 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                                 label="Your e-mail address..."
                                 placeholder="e.g. foxvillage@foxvillage.com"
                                 variant="filled"
-                                sx={{ backgroundColor: '#fff', borderRadius: 1 }}
+                                sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
                             />
                             <TextField
                                 variant="filled"
-                                placeholder="And your message..."
+                                label="Your message..."
+                                placeholder="Make sure to use clever sentences! :)"
                                 multiline
                                 rows={4}
                                 maxRows={10}
-                                sx={{ backgroundColor: '#fff', borderRadius: 1 }}
+                                sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
                             />
                             <Button
+                                className='mainpage-form-submit-button'
                                 type="submit"
                                 variant='contained'
-                                sx={{ display: 'flex', gap: 2, p: 2 }}
+                                sx={{
+                                    display: 'flex',
+                                    gap: 2,
+                                    p: 2,
+                                    transition: 'all .2s ease',
+                                    backgroundColor: Colors.secondary,
+                                    color: Colors.primary,
+                                    '&:hover': {
+                                        backgroundColor: Colors.light,
+                                    }
+                                }}
                             >
-                                SEND!
+                                SEND MESSAGE
 
-                                <svg fill='#fff' width='20' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L277.3 424.9l-40.1 74.5c-5.2 9.7-16.3 14.6-27 11.9S192 499 192 488V392c0-5.3 1.8-10.5 5.1-14.7L362.4 164.7c2.5-7.1-6.5-14.3-13-8.4L170.4 318.2l-32 28.9 0 0c-9.2 8.3-22.3 10.6-33.8 5.8l-85-35.4C8.4 312.8 .8 302.2 .1 290s5.5-23.7 16.1-29.8l448-256c10.7-6.1 23.9-5.5 34 1.4z" /></svg>
+                                <svg fill={Colors.primary} style={{ transition: 'all .2s ease' }} width='20' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L277.3 424.9l-40.1 74.5c-5.2 9.7-16.3 14.6-27 11.9S192 499 192 488V392c0-5.3 1.8-10.5 5.1-14.7L362.4 164.7c2.5-7.1-6.5-14.3-13-8.4L170.4 318.2l-32 28.9 0 0c-9.2 8.3-22.3 10.6-33.8 5.8l-85-35.4C8.4 312.8 .8 302.2 .1 290s5.5-23.7 16.1-29.8l448-256c10.7-6.1 23.9-5.5 34 1.4z" /></svg>
                             </Button>
                         </FormControl>
 
@@ -161,14 +172,24 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                                         sx={{
                                             position: 'absolute',
                                             clipPath: 'polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 50% 100%, 50% 75%, 0% 75%)',
-
                                         }}
                                     >
                                         <Box
                                             component='div'
                                             color='secondary.dark'
                                             bgcolor='secondary.main'
-                                            sx={{ ...FlexCenter, flexDirection: 'column', alignItems: 'left', position: 'relative', py: 3, pl: 3, pr: 6, pb: 6 }}>
+                                            sx={{
+                                                ...FlexCenter,
+                                                flexDirection: 'column',
+                                                alignItems: 'left',
+                                                position: 'relative',
+                                                transition: 'all .2s ease',
+                                                py: 3, pl: 3, pr: 6, pb: 6,
+                                                '&:hover': {
+                                                    transform: 'translateY(-2px)',
+                                                    backgroundColor: '#efefef'
+                                                }
+                                            }}>
                                             <CloseIcon
                                                 onClick={makeContactInfoVisible}
                                                 sx={{
