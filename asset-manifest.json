@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/foxvillage/static/css/main.305fdf4e.css",
-    "main.js": "/foxvillage/static/js/main.d58c79bc.js",
+    "main.js": "/foxvillage/static/js/main.06ac102f.js",
     "static/media/fox1.jpg": "/foxvillage/static/media/fox1.27de94c760610f7d0b62.jpg",
     "static/media/peacock1.jpg": "/foxvillage/static/media/peacock1.69953502868a8d445b06.jpg",
     "static/media/babyfox.jpg": "/foxvillage/static/media/babyfox.890f68c0958b7689d7ef.jpg",
@@ -26,10 +26,10 @@
     "static/media/foxsilhouette1.png": "/foxvillage/static/media/foxsilhouette1.09b416455e2948163c35.png",
     "index.html": "/foxvillage/index.html",
     "main.305fdf4e.css.map": "/foxvillage/static/css/main.305fdf4e.css.map",
-    "main.d58c79bc.js.map": "/foxvillage/static/js/main.d58c79bc.js.map"
+    "main.06ac102f.js.map": "/foxvillage/static/js/main.06ac102f.js.map"
   },
   "entrypoints": [
     "static/css/main.305fdf4e.css",
-    "static/js/main.d58c79bc.js"
+    "static/js/main.06ac102f.js"
   ]
 }
