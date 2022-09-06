@@ -110,53 +110,61 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                         sx={{ ...FlexStart, width: '100%', gap: 3, alignItems: 'stretch', mb: { xs: 2, md: 5 }, flexDirection: { xs: 'column', md: 'row' } }}
                     >
                         {/* form control */}
-                        <FormControl sx={{ flex: '1', display: 'flex', gap: 2, justifyContent: 'space-between', transition: 'all .2s ease' }}>
-                            <TextField
-                                required
-                                id="filled-required"
-                                label="Your name..."
-                                placeholder="e.g. John Smith"
-                                variant="filled"
-                                sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
-                            />
-                            <TextField
-                                required
-                                id="filled-required"
-                                label="Your e-mail address..."
-                                placeholder="e.g. foxvillage@foxvillage.com"
-                                variant="filled"
-                                sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
-                            />
-                            <TextField
-                                variant="filled"
-                                label="Your message..."
-                                placeholder="Make sure to use clever sentences! :)"
-                                multiline
-                                rows={4}
-                                maxRows={10}
-                                sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
-                            />
-                            <Button
-                                className='mainpage-form-submit-button'
-                                type="submit"
-                                variant='contained'
-                                sx={{
-                                    display: 'flex',
-                                    gap: 2,
-                                    p: 2,
-                                    transition: 'all .2s ease',
-                                    backgroundColor: Colors.secondary,
-                                    color: Colors.primary,
-                                    '&:hover': {
-                                        backgroundColor: Colors.light,
-                                    }
-                                }}
-                            >
-                                SEND MESSAGE
+                        <Box component='form' autoComplete='off' action="https://formsubmit.co/szucstamas@growingmedia.io" method="POST" sx={{ flex: '1' }}>
+                            <FormControl sx={{ display: 'flex', gap: 2, justifyContent: 'space-between', transition: 'all .2s ease', height: '100%' }}>
+                                <TextField
+                                    type='text'
+                                    name='name'
+                                    required
+                                    id="filled-required"
+                                    label="Your name..."
+                                    placeholder="e.g. John Smith"
+                                    variant="filled"
+                                    sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
+                                />
+                                <TextField
+                                    type='email'
+                                    name="email"
+                                    required
+                                    id="filled-required"
+                                    label="Your e-mail address..."
+                                    placeholder="e.g. foxvillage@foxvillage.com"
+                                    variant="filled"
+                                    sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
+                                />
+                                <TextField
+                                    type='textarea'
+                                    name="textarea"
+                                    variant="filled"
+                                    label="Your message..."
+                                    placeholder="Make sure to use clever sentences! :)"
+                                    multiline
+                                    rows={4}
+                                    maxRows={10}
+                                    sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
+                                />
+                                <Button
+                                    className='mainpage-form-submit-button'
+                                    type="submit"
+                                    variant='contained'
+                                    sx={{
+                                        display: 'flex',
+                                        gap: 2,
+                                        p: 2,
+                                        transition: 'all .2s ease',
+                                        backgroundColor: Colors.secondary,
+                                        color: Colors.primary,
+                                        '&:hover': {
+                                            backgroundColor: Colors.light,
+                                        }
+                                    }}
+                                >
+                                    SEND MESSAGE
 
-                                <svg fill={Colors.primary} style={{ transition: 'all .2s ease' }} width='20' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L277.3 424.9l-40.1 74.5c-5.2 9.7-16.3 14.6-27 11.9S192 499 192 488V392c0-5.3 1.8-10.5 5.1-14.7L362.4 164.7c2.5-7.1-6.5-14.3-13-8.4L170.4 318.2l-32 28.9 0 0c-9.2 8.3-22.3 10.6-33.8 5.8l-85-35.4C8.4 312.8 .8 302.2 .1 290s5.5-23.7 16.1-29.8l448-256c10.7-6.1 23.9-5.5 34 1.4z" /></svg>
-                            </Button>
-                        </FormControl>
+                                    <svg fill={Colors.primary} style={{ transition: 'all .2s ease' }} width='20' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L277.3 424.9l-40.1 74.5c-5.2 9.7-16.3 14.6-27 11.9S192 499 192 488V392c0-5.3 1.8-10.5 5.1-14.7L362.4 164.7c2.5-7.1-6.5-14.3-13-8.4L170.4 318.2l-32 28.9 0 0c-9.2 8.3-22.3 10.6-33.8 5.8l-85-35.4C8.4 312.8 .8 302.2 .1 290s5.5-23.7 16.1-29.8l448-256c10.7-6.1 23.9-5.5 34 1.4z" /></svg>
+                                </Button>
+                            </FormControl>
+                        </Box>
 
                         <Box
                             component={motion.div}
