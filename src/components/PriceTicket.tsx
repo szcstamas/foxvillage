@@ -8,11 +8,12 @@ interface Props {
     ticketPrice: number;
     ticketDesc: string;
     ticketCurrency: string;
+    className: string;
 }
 
-const PriceTicket = ({ ticketTitle, ticketPrice, ticketCurrency, ticketDesc }: Props) => {
+const PriceTicket = ({ className, ticketTitle, ticketPrice, ticketCurrency, ticketDesc }: Props) => {
     return (
-        <Box component='div' sx={{ ...PriceTicketStyle }}>
+        <Box component='div' className={className} sx={{ ...PriceTicketStyle }}>
             <Typography paragraph={true} sx={{ borderBottom: '5px dotted #ccc', pb: 1 }}>{ticketTitle}</Typography>
             <Typography variant='h3'>{ticketPrice} {ticketCurrency}</Typography>
             <Typography paragraph={true} sx={{ fontSize: '14px', color: '#ccc', m: 0 }}>{ticketDesc}</Typography>

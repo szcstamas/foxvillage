@@ -145,4 +145,16 @@ p {
 .select-currency svg {
   fill: #fff;
 }
+
+.pricelist-row-ticket:last-child {
+  background-color: #f9bc60;
+}
+
+.pricelist-row-ticket:last-child p {
+  color: #fff;
+}
+
+.pricelist-row-ticket:last-child p:first-child {
+  border-bottom: 5px dotted #fff;
+}
 /*# sourceMappingURL=styles.css.map */

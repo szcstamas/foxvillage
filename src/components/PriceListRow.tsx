@@ -35,6 +35,7 @@ const PriceListRow = ({ currency, priceListArray }: Props) => {
                         case '€':
                             return (
                                 <PriceTicket
+                                    className='pricelist-row-ticket'
                                     key={index}
                                     ticketTitle={ticket.title}
                                     ticketPrice={Math.trunc(ticket.price)}
@@ -45,6 +46,7 @@ const PriceListRow = ({ currency, priceListArray }: Props) => {
                         case 'Ft':
                             return (
                                 <PriceTicket
+                                    className='pricelist-row-ticket'
                                     key={index}
                                     ticketTitle={ticket.title}
                                     ticketPrice={Math.trunc(ticket.price * EUR_TO_HUF_CHANGE)}
@@ -55,6 +57,7 @@ const PriceListRow = ({ currency, priceListArray }: Props) => {
                         case '$':
                             return (
                                 <PriceTicket
+                                    className='pricelist-row-ticket'
                                     key={index}
                                     ticketTitle={ticket.title}
                                     ticketPrice={Math.trunc(ticket.price * EUR_TO_USD_CHANGE)}

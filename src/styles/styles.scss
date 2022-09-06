@@ -109,3 +109,15 @@ p {
 .select-currency svg {
     fill: #fff
 }
+
+.pricelist-row-ticket:last-child {
+    background-color: $accentColor;
+
+    p {
+        color: $whiteColor;
+
+        &:first-child {
+            border-bottom: 5px dotted $whiteColor;
+        }
+    }
+}

@@ -49,6 +49,7 @@ const PriceListColumn = ({ currency, priceListColumnTitle, priceListArray }: Pro
                             case '€':
                                 return (
                                     <PriceTicket
+                                        className=''
                                         key={index}
                                         ticketTitle={ticket.title}
                                         ticketPrice={Math.trunc(ticket.price)}
@@ -59,6 +60,7 @@ const PriceListColumn = ({ currency, priceListColumnTitle, priceListArray }: Pro
                             case 'Ft':
                                 return (
                                     <PriceTicket
+                                        className=''
                                         key={index}
                                         ticketTitle={ticket.title}
                                         ticketPrice={Math.trunc(ticket.price * EUR_TO_HUF_CHANGE)}
@@ -69,6 +71,7 @@ const PriceListColumn = ({ currency, priceListColumnTitle, priceListArray }: Pro
                             case '$':
                                 return (
                                     <PriceTicket
+                                        className=''
                                         key={index}
                                         ticketTitle={ticket.title}
                                         ticketPrice={Math.trunc(ticket.price * EUR_TO_USD_CHANGE)}
