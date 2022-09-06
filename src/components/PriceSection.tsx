@@ -61,9 +61,9 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
 
     const priceSectionIllu = {
         position: 'absolute',
-        bottom: -30,
+        bottom: { xs: -5, sm: -30 },
         left: 0,
-        width: '100%',
+        width: { xs: '200%', sm: '100%' },
         pointerEvents: 'none',
         filter: `invert(${priceSectionIlluInvert}%) drop-shadow(0px 0px 5px rgba(0, 0, 0, .25))`
     };
@@ -238,7 +238,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                             alignItems: 'flex-start',
                                             gap: 6,
                                             width: '100%',
-                                            flexDirection: { sm: 'column', md: 'row' }
+                                            flexDirection: { xs: 'column', md: 'row' }
                                         }}
                                     >
                                         {/* one-time ticket LEFT SIDE */}
@@ -295,7 +295,7 @@ const PriceSection = ({ xDirection, priceSectionIconLightColor, priceSectionIcon
                                             alignItems: 'flex-start',
                                             gap: 6,
                                             width: '100%',
-                                            flexDirection: { sm: 'column', md: 'row' }
+                                            flexDirection: { xs: 'column', md: 'row' }
                                         }}
                                     >
                                         {/* even ticket NIGHT TRIP */}

@@ -20,9 +20,9 @@ const PriceListRow = ({ currency, priceListArray }: Props) => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'flex-start',
-                gap: 6,
+                gap: { xs: 2, md: 6 },
                 width: '100%',
-                flexDirection: { sm: 'column', md: 'row' }
+                flexDirection: { xs: 'column', md: 'row' }
             }}
         >
             {

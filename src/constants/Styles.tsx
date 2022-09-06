@@ -49,6 +49,7 @@ export const PriceTicketStyle = {
     backgroundColor: '#fff',
     overflow: 'hidden',
     p: 3,
+    width: '100%',
     '&::before': { content: '""', position: 'absolute', width: 40, height: 40, borderRadius: '50%', backgroundColor: Colors.primary, top: '50%', left: -5, transform: 'translate(-50%, -50%)' },
     '&::after': { content: '""', position: 'absolute', width: 40, height: 40, borderRadius: '50%', backgroundColor: Colors.primary, top: '50%', right: -45, transform: 'translate(-50%, -50%)' },
 }

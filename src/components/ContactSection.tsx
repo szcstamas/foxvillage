@@ -26,7 +26,7 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
         position: 'absolute',
         bottom: { xs: 0, md: -35 },
         left: 0,
-        width: { xs: '150%', md: '100%' },
+        width: { xs: '200%', sm: '100%' },
         pointerEvents: 'none',
         filter: `invert(${contactSectionIlluInvert}%)`
     };

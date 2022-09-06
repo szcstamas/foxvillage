@@ -20,7 +20,8 @@ const PriceListColumn = ({ currency, priceListColumnTitle, priceListArray }: Pro
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'flex-start',
-                gap: 1
+                gap: 1,
+                width: { xs: '100%', md: 'auto' }
             }}
         >
             <Typography
