@@ -24,9 +24,9 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
 
     const cardSectionIlluStyle = {
         position: 'absolute',
-        bottom: -35,
+        bottom: { xs: 0, md: -35 },
         left: 0,
-        width: '100%',
+        width: { xs: '150%', md: '100%' },
         pointerEvents: 'none',
         filter: `invert(${contactSectionIlluInvert}%)`
     };
@@ -107,7 +107,7 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: .5 }}
-                        sx={{ ...FlexStart, width: '100%', gap: 3, alignItems: 'stretch', mb: 5 }}
+                        sx={{ ...FlexStart, width: '100%', gap: 3, alignItems: 'stretch', mb: { xs: 2, md: 5 }, flexDirection: { xs: 'column', md: 'row' } }}
                     >
                         {/* form control */}
                         <FormControl sx={{ flex: '1', display: 'flex', gap: 2, justifyContent: 'space-between', transition: 'all .2s ease' }}>

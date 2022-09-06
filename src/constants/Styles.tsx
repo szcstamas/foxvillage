@@ -4,7 +4,7 @@ export const FlexCenter = {
 
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
 }
 
 export const FlexStart = {
