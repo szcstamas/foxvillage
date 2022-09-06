@@ -197,9 +197,8 @@ p {
   border-bottom: 5px dotted #fff;
 }
 
-.css-18yffm2-MuiInputBase-root-MuiFilledInput-root,
-.MuiInputBase-root .MuiFilledInput-root {
-  height: 100%;
+.MuiFilledInput-root {
+  height: 100% !important;
 }
 
 .mainpage-form-submit-button:hover svg {
