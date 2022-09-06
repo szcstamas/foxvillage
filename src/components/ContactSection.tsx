@@ -110,7 +110,7 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                         sx={{ ...FlexStart, width: '100%', gap: 3, alignItems: 'stretch', mb: { xs: 2, md: 5 }, flexDirection: { xs: 'column', md: 'row' } }}
                     >
                         {/* form control */}
-                        <Box component='form' autoComplete='off' action="https://formsubmit.co/szucstamas@growingmedia.io" method="POST" sx={{ flex: '1' }}>
+                        <Box component='form' autoComplete='off' action="" method="POST" sx={{ flex: '1' }}>
                             <FormControl sx={{ display: 'flex', gap: 2, justifyContent: 'space-between', transition: 'all .2s ease', height: '100%' }}>
                                 <TextField
                                     type='text'
@@ -143,6 +143,8 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
                                     maxRows={10}
                                     sx={{ backgroundColor: '#fff', borderRadius: 1, flex: '1' }}
                                 />
+                                <input type="hidden" name="_template" value="table" />
+                                <input type="hidden" name="_subject" value="New message from Fox Village!" />
                                 <Button
                                     className='mainpage-form-submit-button'
                                     type="submit"
