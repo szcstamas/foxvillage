@@ -64,7 +64,7 @@ const PriceListColumn = ({ currency, priceListColumnTitle, priceListArray }: Pro
                                         className=''
                                         key={index}
                                         ticketTitle={ticket.title}
-                                        ticketPrice={Math.trunc(ticket.price * EUR_TO_HUF_CHANGE)}
+                                        ticketPrice={Math.round((Math.round(ticket.price * EUR_TO_HUF_CHANGE)) / 100) * 100}
                                         ticketCurrency={currency}
                                         ticketDesc={ticket.desc}
                                     />

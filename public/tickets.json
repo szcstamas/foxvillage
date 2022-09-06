@@ -102,12 +102,12 @@
             "closeup": [
                 {
                     "title": "Adult",
-                    "price": 6,
+                    "price": 7,
                     "desc": "For persons above 18 years"
                 },
                 {
                     "title": "Child",
-                    "price": 3.5,
+                    "price": 2.5,
                     "desc": "For childs under 14 years"
                 },
                 {

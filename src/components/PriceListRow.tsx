@@ -49,7 +49,7 @@ const PriceListRow = ({ currency, priceListArray }: Props) => {
                                     className='pricelist-row-ticket'
                                     key={index}
                                     ticketTitle={ticket.title}
-                                    ticketPrice={Math.trunc(ticket.price * EUR_TO_HUF_CHANGE)}
+                                    ticketPrice={Math.round((Math.round(ticket.price * EUR_TO_HUF_CHANGE)) / 10) * 10}
                                     ticketCurrency={currency}
                                     ticketDesc={ticket.desc}
                                 />
