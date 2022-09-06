@@ -49,7 +49,8 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
             }, (error) => {
                 console.log(error.text);
             });
-        e.target.reset()
+        e.target.reset();
+        window.location.href = '/foxvillage/#/thankyou';
     };
 
     return (
