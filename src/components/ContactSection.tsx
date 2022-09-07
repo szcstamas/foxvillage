@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../constants/Theme';
 import CallIcon from '@mui/icons-material/Call';
 import { CardSectionStyles, Colors, ContainerBoxStyles, FlexCenter, FlexStart } from '../constants/Styles';
+import { emailIDs } from '../constants/EmailJS';
 import { AnimatePresence, motion } from 'framer-motion';
 import CloseIcon from '@mui/icons-material/Close';
 import emailjs from '@emailjs/browser';
@@ -18,6 +19,8 @@ interface Props {
 }
 
 const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIconLightColor, contactSectionIconDarkColor, contactSectionFirstIllu, contactSectionIlluInvert }: Props) => {
+
+    const { serviceID, templateID, publicID } = emailIDs;
 
     const [contactMessageBoxVisible, setContactMessageBoxVisible] = useState(true);
     const [contactInfoVisible, setContactInfoVisible] = useState(false);
@@ -43,7 +46,7 @@ const ContactSection = ({ xDirection, contactSectionParagraph, contactSectionIco
     const sendEmail = (e: any) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_x9ui4ro', 'template_f4bhub8', form.current, 'uGc9wUAzo5Dem7P_D')
+        emailjs.sendForm(serviceID, templateID, form.current, publicID)
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
