@@ -51,6 +51,9 @@ const Navbar = () => {
                             href={pagesLinks[0]}
                             onMouseEnter={() => setHover(true)}
                             onMouseLeave={() => setHover(false)}
+                            sx={{
+                                display: { xs: 'flex', md: 'none' },
+                            }}
                         >
                             <Logo
                                 width={150}
@@ -271,103 +274,122 @@ const Navbar = () => {
 
                         </Box>
 
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 2, justifyContent: 'flex-end', alignItems: 'center' }}>
-                            {pages.map((page, index) => (
-                                <Button
-                                    variant="contained"
-                                    key={`firstDesktopLink${index}`}
-                                    disableElevation>
-                                    <Link
-                                        underline="none"
-                                        color="secondary.light"
-                                        href={pagesLinks[index]}
-                                    >
-                                        {page}
-                                    </Link>
-                                </Button>
-                            )).slice(0, 1)}
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 2, justifyContent: 'space-between', alignItems: 'center' }}>
 
-                            <Box className="dropdown" onMouseEnter={() => setIsVisible(1)} onMouseLeave={() => setIsVisible(0)}>
-                                <Button
-                                    variant="contained"
-                                    className="dropbtn"
-                                    key={'b'}
-                                    disableElevation>
-                                    Events
-                                </Button>
-                                <AnimatePresence>
-                                    {isVisible === 1 && (
-                                        <Box
-                                            component={motion.div}
-                                            initial={{ y: -10, opacity: 0, }}
-                                            whileInView={{
-                                                y: 0,
-                                                opacity: 1,
-                                                transition: { duration: .2 }
-                                            }}
-                                            exit={{ y: -10, opacity: 0, }}
-                                            className="dropdown-content">
-                                            {subPages.map((subPage, index) => (
+                            <Box component='div' sx={{ display: 'flex' }}>
+                                {pages.map((page, index) => (
+                                    <Button
+                                        variant="contained"
+                                        key={`firstDesktopLink${index}`}
+                                        disableElevation>
+                                        <Link
+                                            underline="none"
+                                            color="secondary.light"
+                                            href={pagesLinks[index]}
+                                        >
+                                            {page}
+                                        </Link>
+                                    </Button>
+                                )).slice(0, 1)}
 
-                                                <Link
-                                                    underline="none"
-                                                    style={{ textDecoration: "none" }}
-                                                    href={subPagesLinks[index]}
-                                                    key={subPage}
-                                                >
-                                                    {subPage}
-                                                </Link>
-                                            )).slice(0, 3)}
-                                        </Box>)}
-                                </AnimatePresence>
+                                <Box className="dropdown" onMouseEnter={() => setIsVisible(1)} onMouseLeave={() => setIsVisible(0)}>
+                                    <Button
+                                        variant="contained"
+                                        className="dropbtn"
+                                        key={'b'}
+                                        disableElevation>
+                                        Events
+                                    </Button>
+                                    <AnimatePresence>
+                                        {isVisible === 1 && (
+                                            <Box
+                                                component={motion.div}
+                                                initial={{ y: -10, opacity: 0, }}
+                                                whileInView={{
+                                                    y: 0,
+                                                    opacity: 1,
+                                                    transition: { duration: .2 }
+                                                }}
+                                                exit={{ y: -10, opacity: 0, }}
+                                                className="dropdown-content">
+                                                {subPages.map((subPage, index) => (
+
+                                                    <Link
+                                                        underline="none"
+                                                        style={{ textDecoration: "none" }}
+                                                        href={subPagesLinks[index]}
+                                                        key={subPage}
+                                                    >
+                                                        {subPage}
+                                                    </Link>
+                                                )).slice(0, 3)}
+                                            </Box>)}
+                                    </AnimatePresence>
+                                </Box>
+
+                                <Box className="dropdown" onMouseEnter={() => setIsVisible(2)} onMouseLeave={() => setIsVisible(0)}>
+                                    <Button variant="contained" className="dropbtn" disableElevation>
+                                        Discover
+                                    </Button>
+                                    <AnimatePresence>
+                                        {isVisible === 2 && (
+                                            <Box
+                                                component={motion.div}
+                                                initial={{ y: -10, opacity: 0, }}
+                                                whileInView={{
+                                                    y: 0,
+                                                    opacity: 1,
+                                                    transition: { duration: .2 }
+                                                }}
+                                                exit={{ y: -10, opacity: 0, }}
+                                                className="dropdown-content">
+                                                {subPages.map((subPage, index) => (
+
+                                                    <Link
+                                                        underline="none"
+                                                        style={{ textDecoration: "none" }}
+                                                        href={subPagesLinks[index]}
+                                                        key={subPage}
+                                                    >
+                                                        {subPage}
+                                                    </Link>
+                                                )).slice(3, subPages.length)}
+                                            </Box>
+                                        )}
+                                    </AnimatePresence>
+                                </Box>
                             </Box>
 
-                            <Box className="dropdown" onMouseEnter={() => setIsVisible(2)} onMouseLeave={() => setIsVisible(0)}>
-                                <Button variant="contained" className="dropbtn" disableElevation>
-                                    Discover
-                                </Button>
-                                <AnimatePresence>
-                                    {isVisible === 2 && (
-                                        <Box
-                                            component={motion.div}
-                                            initial={{ y: -10, opacity: 0, }}
-                                            whileInView={{
-                                                y: 0,
-                                                opacity: 1,
-                                                transition: { duration: .2 }
-                                            }}
-                                            exit={{ y: -10, opacity: 0, }}
-                                            className="dropdown-content">
-                                            {subPages.map((subPage, index) => (
+                            <Link
+                                href={pagesLinks[0]}
+                                onMouseEnter={() => setHover(true)}
+                                onMouseLeave={() => setHover(false)}
+                                sx={{
+                                    display: { xs: 'none', md: 'flex' },
+                                }}
+                            >
+                                <Logo
+                                    width={150}
+                                    fill={hover === true ? '#f9bc60' : '#fff'}
+                                />
+                            </Link>
 
-                                                <Link
-                                                    underline="none"
-                                                    style={{ textDecoration: "none" }}
-                                                    href={subPagesLinks[index]}
-                                                    key={subPage}
-                                                >
-                                                    {subPage}
-                                                </Link>
-                                            )).slice(3, subPages.length)}
-                                        </Box>
-                                    )}
-                                </AnimatePresence>
+                            <Box component='div' sx={{ display: 'flex' }}>
+                                {pages.map((page, index) => (
+                                    <Button
+                                        variant="contained"
+                                        key={`lastDesktopLinks${index}`}
+                                        disableElevation>
+                                        <RouterLink
+                                            style={{ color: '#fff', textDecoration: 'none' }}
+                                            to={pagesLinks[index]}
+
+                                        >
+                                            {page}
+                                        </RouterLink>
+                                    </Button>
+                                )).slice(3, pages.length)}
                             </Box>
-
-                            {pages.map((page, index) => (
-                                <Button
-                                    variant="contained"
-                                    key={`lastDesktopLinks${index}`}
-                                    disableElevation>
-                                    <RouterLink
-                                        style={{ color: '#fff', textDecoration: 'none' }}
-                                        to={pagesLinks[index]}
-
-                                    >
-                                        {page}
-                                    </RouterLink>
-                                </Button>
-                            )).slice(3, pages.length)}
 
                         </Box>
                     </Toolbar>

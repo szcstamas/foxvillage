@@ -41,7 +41,7 @@ const Homepage = () => {
                 primaryBtnLink="/#explore"
                 primaryBtnIcon="explore"
                 secondaryBtnText="Contact"
-                secondaryBtnLink="/foxvillage/#/contact"
+                secondaryBtnLink="/foxvillage/#/#contact"
                 secondaryBtnIcon="mail"
             ></HeroSection>
             <CardSection
