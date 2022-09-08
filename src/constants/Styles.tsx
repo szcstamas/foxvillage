@@ -17,14 +17,14 @@ export const FlexStart = {
 export const HeroSectionStyles = {
 
     px: { xs: 5, sm: 10, md: 15, lg: 0 },
-    py: { xs: 5, sm: 10, md: 15, lg: 25 },
+    py: { xs: 5, sm: 10, md: 15, lg: 20 },
 };
 
 export const CardSectionStyles = {
 
     px: { xs: 5, sm: 10, md: 15, lg: 0 },
-    pt: { xs: 5, sm: 5, md: 6, lg: 10, xl: 10 },
-    pb: { xs: 12, sm: 7, md: 8, lg: 12, xl: 15 },
+    pt: { xs: 5, sm: 5, md: 6, lg: 7, xl: 8 },
+    pb: { xs: 12, sm: 7, md: 8, lg: 10, xl: 12 },
     overflow: 'hidden'
 };
 
